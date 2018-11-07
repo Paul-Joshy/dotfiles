@@ -9,6 +9,7 @@ filetype off                  " required
 set autoindent
 set shiftwidth=4
 set softtabstop=4
+set paste
 set backspace=2
 set number
 set nowrapscan

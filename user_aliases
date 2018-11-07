@@ -1,0 +1,7 @@
+#dotfiles
+dotfiles=~/Documents/dotfiles
+alias vim='vim -u $dotfiles/.vimrc'
+alias vimrc='vim $dotfiles/.vimrc'
+alias bashrc='vim $dotfiles/.bashrc && source $dotfiles/.bashrc'
+alias zshrc='vim $dotfiles/.zshrc && source $dotfiles/.zshrc'
+alias profile='vim $dotfile/.profile && source $dotfiles/.profile'
