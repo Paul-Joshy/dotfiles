@@ -156,3 +156,4 @@ alias happybeing='fuser -k 4200/tcp; cd $projects/happybeing-dashboard/ && npm s
 function pkginstall () { cd ~/Documents/projects/nsmiles-api-server/ && rm -dR ~/Documents/test/* ; cp package.json ~/Documents/test/package.json && cd ~/Documents/test/ && npm install && npm install --save $@ && cd ~/Documents/projects/nsmiles-api-server/ && rsync -rvz ~/Documents/test/node_modules .; }
 #alias nsmiles='enterprisebe & sleep 2 && guake --new-tab=2 --execute-command="apiserver" & sleep 2 &&  guake --new-tab=3 --execute-comand="webapp"'
 source ~/.profile
+echo "blah"
