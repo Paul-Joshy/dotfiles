@@ -1,0 +1,50 @@
+search i3
+search html
+search .desktop
+search pdf
+mkdir services
+mkdir models
+touch SampleModel.model.ts
+search primeng
+search re
+bulkrename
+ren
+rename matches-leagues.component.scss
+rename matche-leagues.component.ts
+rename matches-leagues.component.ts
+touch matches-leagues.compoent.{ts,scss}
+:qtouch matches-leagues.compoent.{ts,scss}
+shell xdg-open %s
+shell chromium-browser %s
+search js
+rename fantasy-field
+touch matches-leagues-teams.component.{html,scss}
+touch matches-leagues-teams.component,{html,scss}
+delete
+@
+shell touch matches-leagues-teams.component.{html,scss}
+shell -p
+Q
+search mission
+shell ub
+shell u
+shell 
+shell subl %s
+open_with vi
+search 
+cd /media/
+shell -p vi
+search cd Netwo
+shell @vi %s
+search download
+search mint
+
+shell vo %s
+search f
+cd
+search x
+shell  %s
+shell vim -u NONE %s
+open_with 
+open_with
+shell vi %s
