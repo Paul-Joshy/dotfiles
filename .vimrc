@@ -13,7 +13,8 @@ inoremap '' ''<Esc>i
 inoremap (( ()<Esc>i
 inoremap [[ []<Esc>i
 inoremap {{ {}<Esc>i
-nnoremap cd :Codi
+nnoremap cl "+
+" nnoremap cd :Codi
 " vnoremap yc "+y
 " map <C-z> "+p
 " map <C=P> "+P
@@ -23,6 +24,7 @@ nnoremap cd :Codi
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
+
 call plug#begin('~/.vim/plugged')
 " Plug 'kien/ctrlp.vim' Depreciated
 Plug 'christoomey/vim-sort-motion'
@@ -44,8 +46,8 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-syntastic/syntastic'
-
-
+Plug 'tpope/vim-jdaddy'
+Plug 'Quramy/tsuquyomi'
 " Initialize plugin system
 call plug#end()
 
