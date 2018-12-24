@@ -96,7 +96,7 @@ set $workspace1 "1. General"
 set $workspace2 "2. Coding"
 set $workspace3 "3. Personal"
 set $workspace4 "4. Communications"
-set $workspace5 "5. Servers & passwords"
+set $workspace5 "5. Servers and passwords"
 set $workspace6 "6. Databases"
 set $workspace7 "7. Postman"
 set $workspace8 "8. Notes"
@@ -125,6 +125,20 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace 10
+
+# assign programs to workspaces
+assign [class="Google-chrome"] $workspace1
+assign [class="Chromium-browser"] $workspace1
+assign [class="Code"] $workspace2
+assign [class="TelegramDesktop"] $workspace3
+assign [class="whatsdesk"] $workspace3
+assign [class="Flock"] $workspace4
+assign [class="Bitwarden"] $workspace5
+assign [class="keepassxc"] $workspace5
+assign [class="MongoDB Compass"] $workspace6
+assign [class="Postman"] $workspace7
+assign [class="Boostnote"] $workspace8
+# assign [class="Google-chrome"] $workspace1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

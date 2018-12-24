@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 call plug#end()
 
@@ -29,3 +30,11 @@ inoremap '' ''<Esc>i
 inoremap `` ``<Esc>i
 inoremap {<CR> {}<Esc>i<CR><Esc>kA<CR>
 inoremap [<CR> []<Esc>i<CR><Esc>kA<CR>
+
+nnoremap cl "+
+" nnoremap cd :Codi
+" vnoremap yc "+y
+" map <C-z> "+p
+" map <C=P> "+P
+" nnoremap gc "+p
+" nnoremap Gc "+P
