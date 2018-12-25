@@ -45,7 +45,7 @@ alias profile="edit $profile"
 alias vimrc="vi $vimrc"
 alias i3config="vi $i3/config"
 
-alias wifilist='nmcli dev wifi'
+alias wifilist='watch -n 1 "nmcli dev wifi"'
 function wificonnect() { nmcli --ask device wifi connect $@; }
 function fcd() { cd $@ || mkdir -p $@ && cd $@; }
 
