@@ -3,6 +3,7 @@ set background=dark
 syntax on
 set number
 set relativenumber
+set tabstop=4
 set shiftwidth=4
 call plug#begin('~/.vim/plugged')
 
@@ -38,3 +39,6 @@ nnoremap cl "+
 " map <C=P> "+P
 " nnoremap gc "+p
 " nnoremap Gc "+P
+
+" map escape key to caps lock
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'

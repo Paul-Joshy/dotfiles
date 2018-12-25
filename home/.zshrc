@@ -105,5 +105,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/home/user/.jabba/jabba.sh" ] && source "/home/user/.jabba/jabba.sh"
 
 # User aliases
-alias zshrc="vi ~/.zshrc && source ~/.zshrc"
+alias zshrc='edit $zshrc'
 source ~/.profile

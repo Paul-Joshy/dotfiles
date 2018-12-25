@@ -40,8 +40,8 @@ i3=$dotfiles/config/i3
 
 function edit(){ vi $@ && source $@; }
 alias profile="edit $profile"
-alias bashrc="edit $bashrc"
-alias zshrc="edit $zshrc"
+# alias bashrc="edit $bashrc"
+# alias zshrc="edit $zshrc"
 alias vimrc="vi $vimrc"
 alias i3config="vi $i3/config"
 
@@ -57,3 +57,6 @@ alias logs='tail -f logs.txt'
 alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite npm start'
+alias internet='speedtest-cli && ping 8.8.8.8'
+
+fortune -s

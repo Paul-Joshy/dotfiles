@@ -123,4 +123,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/home/user/.jabba/jabba.sh" ] && source "/home/user/.jabba/jabba.sh"
 
 # User aliases
-alias bashrc='vi ~/.bashrc && source ~/.bashrc'
+alias bashrc='edit $bashrc'
