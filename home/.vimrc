@@ -41,4 +41,5 @@ nnoremap cl "+
 " nnoremap Gc "+P
 
 " map escape key to caps lock
-" xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
