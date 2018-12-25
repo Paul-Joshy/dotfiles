@@ -41,4 +41,4 @@ nnoremap cl "+
 " nnoremap Gc "+P
 
 " map escape key to caps lock
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+" xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
