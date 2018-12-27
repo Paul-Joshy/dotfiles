@@ -1,4 +1,3 @@
-c
 games
 mkdir games
 search approves
@@ -41,10 +40,11 @@ mkdir wallpapers
 cd $dotfiles
 cd Pictures/
 cd /home/user/Documents/dotfiles/
-shell vi %s
 cd /home/user/Pictures/wallpapers/
 
 cd Pictures
 cd /home/user/Pictures
 cd /home/user/Pictures/wallpapers
 delete
+shell vi %s
+open_with 

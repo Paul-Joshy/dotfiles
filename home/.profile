@@ -61,3 +61,5 @@ alias internet='speedtest-cli && ping 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 
 fortune -s
+
+source ~/.config/up/up.sh

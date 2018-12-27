@@ -34,3 +34,5 @@
 ! LightGrey + White
 *color7:  #a89984
 *color15: #ebdbb2
+
+URxvt*font: xft:DejaVu Sans Mono:size=11
