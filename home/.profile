@@ -60,6 +60,10 @@ alias serverstart='logwrite npm start'
 alias internet='speedtest-cli && ping 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 
+# Git commands
+alias gitignore='vi .gitignore'
+
 fortune -s
 
 source ~/.config/up/up.sh
+source $dotfiles/work/work_aliases.sh

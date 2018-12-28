@@ -1,50 +1,6 @@
-games
-mkdir games
-search approves
-search approve
-movies
-search approved
-search mov
-search movies
-mkdir tv-shows
-mkdir foreign
-split -1
-mkdir cartoons
-cd /media
-cd /media/user/SAMSUNG 250
-mkdir tamil
-rename
-rename documentary
-mkdir animated
-mkdir batman
-search batman
-mkdir hindi
-search ma
-search maayanadhi
-search Mayaanadhi
-search Mayaa
-shell mv -R %s ../movies/english/
-search grave
-search Grave
-cd /media/
-shell mv %s anime/
-shell xdg-open
-shell rm %s
-cd /media/user/SAMSUNG 250/tv-shows/Mr.Robot/Mr.Robot.Season.1.Complete.720p.WEBdl.EN-SUB.x264-[MULVAcoded]
-shell  %s
-shell vlc %s
-shell xdg-open %s
-shell code %s
-cd
-mkdir wallpapers
-cd $dotfiles
-cd Pictures/
-cd /home/user/Documents/dotfiles/
-cd /home/user/Pictures/wallpapers/
-
-cd Pictures
-cd /home/user/Pictures
-cd /home/user/Pictures/wallpapers
 delete
-shell vi %s
 open_with 
+cd /home/user/Documents/projects
+shell code %s
+shell gedit %s
+cd /home/user/Documents/personal/projects

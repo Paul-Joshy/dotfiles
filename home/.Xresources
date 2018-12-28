@@ -36,3 +36,4 @@
 *color15: #ebdbb2
 
 URxvt*font: xft:DejaVu Sans Mono:size=11
+URxvt.scrollBar: false
