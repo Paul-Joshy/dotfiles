@@ -1,6 +1,15 @@
-delete
 open_with 
 cd /home/user/Documents/projects
 shell code %s
 shell gedit %s
+Cd /
+cd /
 cd /home/user/Documents/personal/projects
+cd 
+cd /media/user/SAMSUNG 250
+cd /media/user/
+search dido
+search Dido
+cd /media/user/SAMSUNG 2503/movies/animated
+search light
+delete
