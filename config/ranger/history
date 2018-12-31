@@ -1,6 +1,5 @@
 open_with 
 cd /home/user/Documents/projects
-shell code %s
 shell gedit %s
 Cd /
 cd /
@@ -13,3 +12,7 @@ search Dido
 cd /media/user/SAMSUNG 2503/movies/animated
 search light
 delete
+shell code %s
+shell guake -n "cd  %s"
+shell guake -n %s
+

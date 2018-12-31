@@ -49,6 +49,10 @@ alias wifilist='watch -c "nmcli dev wifi"' # outputs the list of wifi
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
 function li(){ sudo light -S $@; } # changes the brighness percent
+alias play='playerctl play'
+alias pause='playerctl pause'
+alias next='playerctl next'
+alias prev='playerctl previous'
 
 # Development
 alias mongostart='sudo service mongod start' # starts mongodb server
