@@ -53,10 +53,10 @@ alias play='playerctl play'
 alias pause='playerctl pause'
 alias next='playerctl next'
 alias prev='playerctl previous'
+function apti() {sudo apt install -y $@;}
 
 # Development
 alias mongostart='sudo service mongod start' # starts mongodb server
-# alias serverstart='unbuffer npm start | tee -a logs.txt'
 function killp () { fuser -k $@/tcp;  } # kills process based on port
 alias logs='tail -f logs.txt' # outputs a live stream of a file that's being written live
 alias vimrc='vi ~/.vimrc'
@@ -68,7 +68,9 @@ alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresourc
 # Git commands
 alias gitignore='vi .gitignore'
 
-fortune -s
+fortune -s | lolcat
 
 source ~/.config/up/up.sh
 source $dotfiles/work/work_aliases.sh
+
+alias download_music='youtube-dl --extract-audio --audio-format mp3 -a download-list -o '%(title)s.%(ext)s' && cat download-list >> downloaded-list && echo "" > download-list'

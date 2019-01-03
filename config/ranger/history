@@ -12,7 +12,21 @@ search Dido
 cd /media/user/SAMSUNG 2503/movies/animated
 search light
 delete
-shell code %s
 shell guake -n "cd  %s"
 shell guake -n %s
 
+shell  %s
+shell q
+shell vi %s
+bulkrename
+shell taffy --artist  %s
+shell cal %s
+shell taffy --author "Rivers and Robots" --album "All things new" %s
+shell -p t
+shell taffy --artist "Lorne" --album "Maze" %s
+search Downlo
+search mp3
+shell Fall %s
+rename Fall Down.mp3
+shell -p 
+shell code %s
