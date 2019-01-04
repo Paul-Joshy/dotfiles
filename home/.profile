@@ -67,6 +67,7 @@ alias internet='speedtest-cli && ping 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 
 # Git commands
+function gits(){echo $(alias | grep "$@") && git $@; }
 alias gitignore='vi .gitignore'
 
 fortune -s | lolcat
