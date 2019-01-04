@@ -45,6 +45,7 @@ alias profile="edit $profile"
 alias vimrc="vi $vimrc"
 alias i3config="vi $i3/config"
 
+# General
 alias wifilist='watch -c "nmcli dev wifi"' # outputs the list of wifi
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
@@ -53,7 +54,7 @@ alias play='playerctl play'
 alias pause='playerctl pause'
 alias next='playerctl next'
 alias prev='playerctl previous'
-function apti() {sudo apt install -y $@;}
+function apti() { sudo apt install -y $@; }
 
 # Development
 alias mongostart='sudo service mongod start' # starts mongodb server
@@ -73,4 +74,7 @@ fortune -s | lolcat
 source ~/.config/up/up.sh
 source $dotfiles/work/work_aliases.sh
 
-alias download_music='youtube-dl --extract-audio --audio-format mp3 -a download-list -o '%(title)s.%(ext)s' && cat download-list >> downloaded-list && echo "" > download-list'
+# Music
+function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
+alias comments='sed -i "/#.*/!d"' 
+alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && cat download-list >> downloaded-list && comments download-list'
