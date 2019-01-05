@@ -16,7 +16,6 @@ shell guake -n %s
 
 shell  %s
 shell q
-shell vi %s
 bulkrename
 shell taffy --artist  %s
 shell cal %s
@@ -33,3 +32,4 @@ cd **/Downloaded
 cd
 shell zathura %s
 delete
+shell vi %s
