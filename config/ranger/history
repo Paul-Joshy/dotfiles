@@ -11,7 +11,6 @@ search dido
 search Dido
 cd /media/user/SAMSUNG 2503/movies/animated
 search light
-delete
 shell guake -n "cd  %s"
 shell guake -n %s
 
@@ -30,3 +29,7 @@ shell Fall %s
 rename Fall Down.mp3
 shell -p 
 shell code %s
+cd **/Downloaded
+cd
+shell zathura %s
+delete

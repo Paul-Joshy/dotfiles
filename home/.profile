@@ -76,6 +76,7 @@ source ~/.config/up/up.sh
 source $dotfiles/work/work_aliases.sh
 
 # Music
+alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
 alias comments='sed -i "/#.*/!d"' 
-alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && cat download-list >> downloaded-list && comments download-list'
+alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> downloaded-list && comments download-list'
