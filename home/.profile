@@ -69,6 +69,7 @@ alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresourc
 # Git commands
 function gits(){echo $(alias | grep "$@") && git $@; }
 alias gitignore='vi .gitignore'
+alias gcop='git checkout -p'
 
 fortune -s | lolcat
 

@@ -31,9 +31,10 @@ cd **/Downloaded
 cd
 shell zathura %s
 shell %s
-cd $dotfiles
 cd /home/user/Documents/dotfiles/config/ranger
 rename bookmarks
 shell vi %s
-
 delete
+cd $dotfiles
+shell cd $dotfiles
+

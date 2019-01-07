@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-scripts/ReplaceWithRegister'
+" Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
@@ -49,3 +50,13 @@ au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 nnoremap j gj
 nnoremap k gk
 " nnoremap l gl
+
+" Syntastic defaults
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
