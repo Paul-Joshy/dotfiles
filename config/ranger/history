@@ -13,7 +13,6 @@ cd /media/user/SAMSUNG 2503/movies/animated
 search light
 shell guake -n "cd  %s"
 shell guake -n %s
-
 shell  %s
 shell q
 bulkrename
@@ -31,5 +30,10 @@ shell code %s
 cd **/Downloaded
 cd
 shell zathura %s
-delete
+shell %s
+cd $dotfiles
+cd /home/user/Documents/dotfiles/config/ranger
+rename bookmarks
 shell vi %s
+
+delete
