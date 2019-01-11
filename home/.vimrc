@@ -17,6 +17,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'tpope/vim-sensible'
 " Plug 'vim-syntastic/syntastic'
 
 call plug#end()

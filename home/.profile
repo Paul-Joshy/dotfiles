@@ -35,7 +35,7 @@ dotfiles=~/Documents/dotfiles
 profile=$dotfiles/home/.profile
 zshrc=$dotfiles/home/.zshrc
 bashrc=$dotfiles/home/.bashrc
-vimrc=$dotfilrs/home/.vimrc
+vimrc=$dotfiles/home/.vimrc
 i3=$dotfiles/config/i3
 
 function edit(){ vi $@ && source $@; } # edit files and source them
@@ -57,12 +57,13 @@ alias prev='playerctl previous'
 function apti() { sudo apt install -y $@; }
 
 # Development
+alias npms='npm i -s'
 alias mongostart='sudo service mongod start' # starts mongodb server
 function killp () { fuser -k $@/tcp;  } # kills process based on port
 alias logs='tail -f logs.txt' # outputs a live stream of a file that's being written live
 alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
-alias serverstart='logwrite npm start'
+alias serverstart='logwrite $(cat startscript) || logwrite npm start'
 alias internet='speedtest-cli && ping 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 
@@ -71,13 +72,31 @@ function gits(){echo $(alias | grep "$@") && git $@; }
 alias gitignore='vi .gitignore'
 alias gcop='git checkout -p'
 
-fortune -s | lolcat
-
-source ~/.config/up/up.sh
-source $dotfiles/work/work_aliases.sh
-
 # Music
 alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
 alias comments='sed -i "/#.*/!d"' 
 alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> downloaded-list && comments download-list'
+
+# Videos
+alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> downloaded-list && comments download-list'
+
+# Todo
+todoadd(){ echo $@ >> ~/Documents/todo && reset; }
+caplog(){ echo $@ >> ~/Documents/captains_log && clear; }
+vidadd(){ echo $@ >> ~/Videos/Downloaded/download-list; }
+alias todoedit='vi ~/Documents/todo'
+alias todoview='cat ~/Documents/todo | removecomments'
+alias ta='todoadd'
+alias cl='caplog'
+alias te='todoedit'
+alias tv='todoview'
+alias va='vidadd'
+
+# Screenshots
+# clipboard='/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i+"i" $f'
+
+fortune -s | lolcat
+
+source ~/.config/up/up.sh
+source $dotfiles/work/work_aliases.sh

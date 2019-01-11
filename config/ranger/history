@@ -1,11 +1,3 @@
-open_with 
-cd /home/user/Documents/projects
-shell gedit %s
-Cd /
-cd /
-cd /home/user/Documents/personal/projects
-cd 
-cd /media/user/SAMSUNG 250
 cd /media/user/
 search dido
 search Dido
@@ -26,15 +18,33 @@ search mp3
 shell Fall %s
 rename Fall Down.mp3
 shell -p 
-shell code %s
 cd **/Downloaded
-cd
+cp $work
+shell -p co
+cd $work
+$work
+rename Sing Eternal.mp3
+cd /home/user/Downloads/
+search Sing
+search sing
+shell mv %s "Penumbra/cover art.jpg"
+search pwsh
+cd /home/user/Documents/personal/projects
 shell zathura %s
-shell %s
-cd /home/user/Documents/dotfiles/config/ranger
-rename bookmarks
-shell vi %s
-delete
+search profile
 cd $dotfiles
-shell cd $dotfiles
+cd /home/user/Documents/dotfiles/
+shell mk %s
+delete
 
+mkdir ModifiedETL
+shell touch mongooseConnector.js %s
+cd
+shell %s
+open_with 
+shell vi %s
+mkdir daredevil
+mkdir "music videos"
+mkdir luke smith
+shell code %s
+shell subl %s

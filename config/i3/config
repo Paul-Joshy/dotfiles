@@ -139,6 +139,7 @@ assign [class="keepassxc"] $workspace5
 assign [class="MongoDB Compass"] $workspace6
 assign [class="Postman"] $workspace7
 assign [class="Boostnote"] $workspace8
+assign [class="Sublime_text"] $workspace8
 for_window [class="Spotify"] move to workspace $workspace9
 # assign [class="Google-chrome"] $workspace1
 
@@ -204,6 +205,7 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # Screenshots
 bindsym Print exec --no-startup-id scrot
+bindsym Ctrl+Print --release exec scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
 bindsym $mod+Print --release exec --no-startup-id scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s
 
