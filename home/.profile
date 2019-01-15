@@ -66,6 +66,7 @@ function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite $(cat startscript) || logwrite npm start'
 alias internet='speedtest-cli && ping 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
+alias t='tmux'
 
 # Git commands
 function gits(){echo $(alias | grep "$@") && git $@; }

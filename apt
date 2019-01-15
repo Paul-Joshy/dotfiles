@@ -1,0 +1,47 @@
+vim
+i3
+# i3-status
+dmenu
+j4-dmenu-desktop
+rxvt-unicode
+# unbuffer
+speedtest-cli
+zathura*
+openvpn
+flatpak
+# chromium
+daemonize
+stow
+nginx
+# urxvt
+powerline
+# i3bars
+i3blocks
+tlp
+htop
+fortune
+xcalib
+nnn
+espeak
+# systemctl
+# photorestore
+tree
+dunst
+bd
+# pushd
+virtualbox
+mpd
+ncmpcpp
+oneko
+light
+playerctl
+# taffy
+ruby
+# taglib
+sxiv
+lame
+qutebrowser
+surf
+xclip
+links2
+neofetch
