@@ -59,6 +59,7 @@ function debug(){ vi $(which $@); }
 
 # Personal work
 personal=~/Documents/personal/
+servers=~/Documents/servers/
 
 # Development
 alias npms='npm i -s'
@@ -77,8 +78,10 @@ export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory run
 function gits(){echo $(alias | grep "$@") && git $@; }
 alias gitignore='vi .gitignore'
 alias gcop='git checkout -p'
+alias gitconfig='vi $dotfiles/home/.gitconfig'
 
 # Music
+alias youtube-dl='youtube-dl --ignore-errors'
 alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
 alias comments='sed -i "/#.*/!d"' 

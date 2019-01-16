@@ -141,7 +141,21 @@ assign [class="Postman"] $workspace7
 assign [class="Boostnote"] $workspace8
 assign [class="Sublime_text"] $workspace8
 for_window [class="Spotify"] move to workspace $workspace9
+# assign [class="mpv"] $workspace9
 # assign [class="Google-chrome"] $workspace1
+
+# Configure layouts
+
+# Make mpv floatable
+for_window [class="mpv"] resize set 500 350
+for_window [class="mpv"] resize set 500 350
+for_window [instance="mpv"] floating enable
+for_window [instance="mpv"] floating enable
+for_window [class="mpv"] sticky enable
+for_window [instance="mpv"] sticky enable
+
+# Make pop ups floatable
+for_window [window_role="pop-up"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

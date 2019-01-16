@@ -2,7 +2,7 @@
 	email = paul.joshy@ideaplunge.in
 	name = Paul Joshy
 [alias]
-	st = status
+	st = status --short
 	l = log
 	a = add
 	c = commit
@@ -12,3 +12,5 @@
 	ps = push
 	pl = pull
 	b = branch
+	d = diff
+	dc = diff --cached

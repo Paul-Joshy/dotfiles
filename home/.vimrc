@@ -46,6 +46,9 @@ nnoremap cl "+
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
+" au InsertEnter * set cul
+" au InsertLeave * set nocul
+
 " map virtual logical navigation to hjkl
 " nnoremap h gh
 nnoremap j gj
