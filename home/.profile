@@ -55,6 +55,10 @@ alias pause='playerctl pause'
 alias next='playerctl next'
 alias prev='playerctl previous'
 function apti() { sudo apt install -y $@; }
+function debug(){ vi $(which $@); }
+
+# Personal work
+personal=~/Documents/personal/
 
 # Development
 alias npms='npm i -s'
@@ -67,6 +71,7 @@ alias serverstart='logwrite $(cat startscript) || logwrite npm start'
 alias internet='speedtest-cli && ping 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 alias t='tmux'
+export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
 
 # Git commands
 function gits(){echo $(alias | grep "$@") && git $@; }

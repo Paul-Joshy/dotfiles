@@ -6,6 +6,7 @@ j4-dmenu-desktop
 rxvt-unicode
 # unbuffer
 speedtest-cli
+# zathura
 zathura*
 openvpn
 flatpak

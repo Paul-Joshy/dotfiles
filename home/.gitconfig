@@ -1,0 +1,14 @@
+[user]
+	email = paul.joshy@ideaplunge.in
+	name = Paul Joshy
+[alias]
+	st = status
+	l = log
+	a = add
+	c = commit
+	ch = checkout
+	cb = checkout -b
+	cp = checkout -p
+	ps = push
+	pl = pull
+	b = branch
