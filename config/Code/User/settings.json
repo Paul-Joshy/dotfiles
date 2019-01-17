@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "files.autoSave": "afterDelay",
+    "typescript.preferences.quoteStyle": "single",
+    "javascript.preferences.quoteStyle": "single",
+    "prettier.singleQuote": true,
+    "terminal.integrated.rendererType": "dom",
+    "workbench.colorTheme": "Gruvbox Dark (Soft)"
+}
