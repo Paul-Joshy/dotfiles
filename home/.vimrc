@@ -1,3 +1,5 @@
+set clipboard=unnamedplus " make cliboard the default register
+set spell
 set nocp
 set background=dark
 syntax on

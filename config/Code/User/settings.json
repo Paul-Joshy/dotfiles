@@ -11,5 +11,6 @@
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#135564",
         "editor.selectionHighlightBackground": "#135564"
-    }
+    },
+    "window.zoomLevel": 0
 }

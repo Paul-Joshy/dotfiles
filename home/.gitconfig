@@ -14,3 +14,4 @@
 	b = branch
 	d = diff
 	dc = diff --cached
+	ignore = update-index --assume-unchanged

@@ -56,7 +56,8 @@ alias next='playerctl next'
 alias prev='playerctl previous'
 function apti() { sudo apt install -y $@; }
 function debug(){ vi $(which $@); }
-function rcd(){pushd $1 && $2 && popd; }
+# function rcd(){pushd $1 && $(sed "%/s/rcd//g") && popd; }
+function rcd(){pushd $@ && popd;}
 
 # Personal work
 personal=~/Documents/personal/
@@ -70,7 +71,7 @@ alias logs='tail -f logs.txt' # outputs a live stream of a file that's being wri
 alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite $(cat startscript) || logwrite npm start'
-alias internet='speedtest-cli && ping 8.8.8.8'
+alias internet='speedtest-cli && ping -c 4 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 alias t='tmux'
 export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
