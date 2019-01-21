@@ -34,7 +34,7 @@ inoremap `` ``<Esc>i
 inoremap {<CR> {}<Esc>i<CR><Esc>kA<CR>
 inoremap [<CR> []<Esc>i<CR><Esc>kA<CR>
 
-nnoremap cl "+
+nnoremap <C-q> "*y
 " nnoremap cd :Codi
 " vnoremap yc "+y
 " map <C-z> "+p

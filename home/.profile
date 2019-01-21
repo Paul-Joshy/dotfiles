@@ -56,6 +56,7 @@ alias next='playerctl next'
 alias prev='playerctl previous'
 function apti() { sudo apt install -y $@; }
 function debug(){ vi $(which $@); }
+function rcd(){pushd $1 && $2 && popd; }
 
 # Personal work
 personal=~/Documents/personal/
@@ -81,14 +82,14 @@ alias gcop='git checkout -p'
 alias gitconfig='vi $dotfiles/home/.gitconfig'
 
 # Music
-alias youtube-dl='youtube-dl --ignore-errors'
+alias youtube-dl='youtube-dl --ignore-errors --continue'
 alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
 alias comments='sed -i "/#.*/!d"' 
-alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> downloaded-list && comments download-list'
+alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Music/Downloaded/downloaded-list && comments download-list'
 
 # Videos
-alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> downloaded-list && comments download-list'
+alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Videos/Downloaded/downloaded-list && comments download-list'
 
 # Todo
 todoadd(){ echo $@ >> ~/Documents/todo && reset; }
@@ -104,6 +105,9 @@ alias va='vidadd'
 
 # Screenshots
 # clipboard='/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i+"i" $f'
+
+# Random
+function cowstomize(){cowsay -f $@ zoo wee mama;}
 
 fortune -s | lolcat
 
