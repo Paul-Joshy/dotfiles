@@ -31,7 +31,7 @@ fi
 # User commands
 
 # Dotfiles
-dotfiles=~/Documents/dotfiles
+dotfiles=~/dotfiles
 profile=$dotfiles/home/.profile
 zshrc=$dotfiles/home/.zshrc
 bashrc=$dotfiles/home/.bashrc
