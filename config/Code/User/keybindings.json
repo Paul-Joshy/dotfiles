@@ -1,3 +1,15 @@
 // Place your key bindings in this file to override the defaults
 [
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpenNavigateNextInFilePicker"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "-workbench.action.terminal.focusFindWidget"
+  }
 ]

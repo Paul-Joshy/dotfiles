@@ -56,8 +56,8 @@ alias next='playerctl next'
 alias prev='playerctl previous'
 function apti() { sudo apt install -y $@; }
 function debug(){ vi $(which $@); }
-# function rcd(){pushd $1 && $(sed "%/s/rcd//g") && popd; }
-function rcd(){pushd $@ && popd;}
+function rcd(){ awk -F"," '{print "pushd " $1 " && " $2 " && popd"}' | bash; }
+alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
 
 # Personal work
 personal=~/Documents/personal/

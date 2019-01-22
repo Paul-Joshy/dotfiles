@@ -1,4 +1,6 @@
 set clipboard=unnamedplus " make cliboard the default register
+set undofile " Maintain undo history between session
+set undodir=~/.vim/undodir
 set spell
 set nocp
 set background=dark
