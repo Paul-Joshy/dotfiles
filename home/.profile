@@ -47,6 +47,7 @@ alias i3config="vi $i3/config"
 
 # General
 alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
+alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
 function li(){ sudo light -S $@; } # changes the brighness percent
@@ -71,10 +72,10 @@ alias logs='tail -f logs.txt' # outputs a live stream of a file that's being wri
 alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite $(cat startscript) || logwrite npm start'
-alias internet='speedtest-cli && ping -c 4 8.8.8.8'
 alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
 alias t='tmux'
 export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
+function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions
 
 # Git commands
 function gits(){echo $(alias | grep "$@") && git $@; }
@@ -92,10 +93,11 @@ alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomme
 # Videos
 alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Videos/Downloaded/downloaded-list && comments download-list'
 
-# Todo
+# Logs
 todoadd(){ echo $@ >> ~/Documents/todo && reset; }
 caplog(){ echo $@ >> ~/Documents/captains_log && clear; }
 vidadd(){ echo $@ >> ~/Videos/Downloaded/download-list; }
+tipsadd() {echo $@ >> ~/Documents/tips; }
 alias todoedit='vi ~/Documents/todo'
 alias todoview='cat ~/Documents/todo | removecomments'
 alias ta='todoadd'
@@ -110,7 +112,8 @@ alias va='vidadd'
 # Random
 function cowstomize(){cowsay -f $@ zoo wee mama;}
 
-fortune -s | lolcat
+# fortune -s | lolcat
+sort -R ~/Documents/tips | head -n1
 
 source ~/.config/up/up.sh
 source $dotfiles/work/work_aliases.sh
