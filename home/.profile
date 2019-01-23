@@ -29,6 +29,8 @@ fi
 [ -s "/home/user/.jabba/jabba.sh" ] && source "/home/user/.jabba/jabba.sh"
 
 # User commands
+source ~/.profile-shortcuts
+
 
 # Dotfiles
 dotfiles=~/Documents/dotfiles
@@ -37,6 +39,7 @@ zshrc=$dotfiles/home/.zshrc
 bashrc=$dotfiles/home/.bashrc
 vimrc=$dotfiles/home/.vimrc
 i3=$dotfiles/config/i3
+
 
 function edit(){ vi $@ && source $@; } # edit files and source them
 alias profile="edit $profile"
@@ -60,6 +63,9 @@ function debug(){ vi $(which $@); }
 function rcd(){ awk -F"," '{print "pushd " $1 " && " $2 " && popd"}' | bash; }
 alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
 alias update_ranger_shortcuts="cat $dotfiles/scripts/shortcuts | /$dotfiles/scripts/rangershortcuts.awk > $dotfiles/config/ranger/shortcuts.conf"
+alias update_profile_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
+alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
+alias  shortcuts="cat $df/scripts/shortcuts"
 
 # Personal work
 personal=~/Documents/personal/
@@ -118,3 +124,4 @@ sort -R ~/Documents/tips | head -n1
 
 source ~/.config/up/up.sh
 source $dotfiles/work/work_aliases.sh
+

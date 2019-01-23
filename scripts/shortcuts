@@ -1,4 +1,4 @@
-Gn ~/Documents/projects/environments/
+en ~/Documents/projects/environments/
 dw ~/Downloads/
 wk ~/Documents/projects/
 dv ~/Videos/Downloaded/
@@ -8,4 +8,7 @@ sv ~/Documents/servers/
 wp ~/Pictures/wallpapers/
 ss ~/Pictures/screenshots/
 cm ~/Documents/personal/comics/
-
+dp ~/Documents/mongodump/
+df ~/Documents/dotfiles
+dc ~/Documents/
+sc ~/Documents/projects/scripts/
