@@ -59,6 +59,7 @@ function apti() { sudo apt install -y $@; }
 function debug(){ vi $(which $@); }
 function rcd(){ awk -F"," '{print "pushd " $1 " && " $2 " && popd"}' | bash; }
 alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
+alias update_ranger_shortcuts="cat $dotfiles/scripts/shortcuts | /$dotfiles/scripts/rangershortcuts.awk > $dotfiles/config/ranger/shortcuts.conf"
 
 # Personal work
 personal=~/Documents/personal/
