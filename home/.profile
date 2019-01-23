@@ -65,7 +65,8 @@ alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initia
 alias update_ranger_shortcuts="cat $dotfiles/scripts/shortcuts | /$dotfiles/scripts/rangershortcuts.awk > $dotfiles/config/ranger/shortcuts.conf"
 alias update_profile_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
 alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
-alias  shortcuts="cat $df/scripts/shortcuts"
+alias shortcuts="cat $df/scripts/shortcuts"
+alias r="ranger"
 
 # Personal work
 personal=~/Documents/personal/
