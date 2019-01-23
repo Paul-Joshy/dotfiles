@@ -1,15 +1,18 @@
-en ~/Documents/projects/environments/
-dw ~/Downloads/
-wk ~/Documents/projects/
-dv ~/Videos/Downloaded/
-dm ~/Music/Downloaded/
-pr ~/Documents/personal/
-sv ~/Documents/servers/
-wp ~/Pictures/wallpapers/
-ss ~/Pictures/screenshots/
-cm ~/Documents/personal/comics/
-dp ~/Documents/mongodump/
-df ~/Documents/dotfiles
-dc ~/Documents/
-sc ~/Documents/projects/scripts/
-h ~/
+
+en=~/Documents/projects/environments/
+dw=~/Downloads/
+wk=~/Documents/projects/
+dv=~/Videos/Downloaded/
+dm=~/Music/Downloaded/
+pr=~/Documents/personal/
+sv=~/Documents/servers/
+wp=~/Pictures/wallpapers/
+ss=~/Pictures/screenshots/
+cm=~/Documents/personal/comics/
+dp=~/Documents/mongodump/
+df=~/Documents/dotfiles
+dc=~/Documents/
+sc=~/Documents/projects/scripts/
+h=~/
+lg=~/Documents/personal/ledger/
+lv=~/Videos/Downloaded/informative/general\ linux\ stuff/

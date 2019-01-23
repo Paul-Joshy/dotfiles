@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-abolish'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-sensible'
+Plug 'ledger/vim-ledger'
 " Plug 'vim-syntastic/syntastic'
 
 call plug#end()

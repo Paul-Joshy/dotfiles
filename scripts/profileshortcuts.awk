@@ -6,7 +6,7 @@
 # function mvvar(){ mv $@ /path;}
 # function cpvar(){ cp $@ /path;}
 
-awk '{
+awk 'FS="=" {
 	print $1"="$2
 	print "alias "$1"=\42cd "$2"\42"
 	print "function mv"$1"(){ mv $@ "$2";}"
