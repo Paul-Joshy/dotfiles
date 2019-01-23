@@ -67,6 +67,7 @@ alias update_profile_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/profile
 alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
 alias shortcuts="cat $df/scripts/shortcuts"
 alias r="ranger"
+alias p="pwd"
 
 # Personal work
 personal=~/Documents/personal/
