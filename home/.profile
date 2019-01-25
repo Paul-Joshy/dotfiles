@@ -71,6 +71,9 @@ alias s="cat $s"
 alias r="ranger"
 alias p="pwd"
 
+# Ledger
+alias l="ledger -f $lg/main.ledger"
+
 # Personal work
 personal=~/Documents/personal/
 servers=~/Documents/servers/
