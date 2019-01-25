@@ -29,16 +29,20 @@ fi
 [ -s "/home/user/.jabba/jabba.sh" ] && source "/home/user/.jabba/jabba.sh"
 
 # User commands
+
+# sources
 source ~/.profile-shortcuts
+source ~/.config/up/up.sh
+source $df/work/work_aliases.sh
 
 
 # Dotfiles
 dotfiles=~/Documents/dotfiles
-profile=$dotfiles/home/.profile
-zshrc=$dotfiles/home/.zshrc
-bashrc=$dotfiles/home/.bashrc
-vimrc=$dotfiles/home/.vimrc
-i3=$dotfiles/config/i3
+profile=$df/home/.profile
+zshrc=$df/home/.zshrc
+bashrc=$df/home/.bashrc
+vimrc=$df/home/.vimrc
+i3=$df/config/i3
 
 
 function edit(){ vi $@ && source $@; } # edit files and source them
@@ -49,31 +53,34 @@ alias vimrc="vi $vimrc"
 alias i3config="vi $i3/config"
 
 # General
-alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
-alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
-function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
 function li(){ sudo light -S $@; } # changes the brighness percent
-alias play='playerctl play'
-alias pause='playerctl pause'
-alias next='playerctl next'
-alias prev='playerctl previous'
 function apti() { sudo apt install -y $@; }
 function debug(){ vi $(which $@); }
 function rcd(){ awk -F"," '{print "pushd " $1 " && " $2 " && popd"}' | bash; }
-alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
-alias update_ranger_shortcuts="cat $dotfiles/scripts/shortcuts | /$dotfiles/scripts/rangershortcuts.awk > $dotfiles/config/ranger/shortcuts.conf"
+alias r="ranger"
+alias p="pwd"
+alias removecomments='sed "/#.*/d"'
+function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
+alias comments='sed -i "/#.*/!d"' 
+
+# Internet
+alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
+alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
+function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
+
+#Shortcuts
+alias update_ranger_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/rangershortcuts.awk > $df/config/ranger/shortcuts.conf"
 alias update_profile_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
 alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
 s=$df/scripts/shortcuts
 alias es="vi $s && update_shortcuts"
 alias s="cat $s"
-alias r="ranger"
-alias p="pwd"
 
 # Emacs and spacemacs
 alias emacs_copy='pushd $ec/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d .emacs.d && popd'
 alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d/ .emacs.d && popd'
+
 # function emacs(){
 # 	pushd $ec/ &&
 # 		rm -fdR ~/.emacs.d/* &&
@@ -91,7 +98,6 @@ alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~
 # 		popd;
 # }
 
-
 # Ledger
 alias l="ledger -f $lg/main.ledger"
 
@@ -107,26 +113,28 @@ alias logs='tail -f logs.txt' # outputs a live stream of a file that's being wri
 alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite $(cat startscript) || logwrite npm start'
-alias xresources='vi $dotfiles/home/.Xresources && xrdb $dotfiles/home/.Xresources'
+alias xresources='vi $df/home/.Xresources && xrdb $df/home/.Xresources'
 alias t='tmux'
 export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
 function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions
 
 # Git commands
+alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
 function gits(){echo $(alias | grep "$@") && git $@; }
 alias gitignore='vi .gitignore'
 alias gcop='git checkout -p'
-alias gitconfig='vi $dotfiles/home/.gitconfig'
+alias gitconfig='vi $df/home/.gitconfig'
 
-# Music
+# Music & Video
 alias youtube-dl='youtube-dl --ignore-errors --continue'
-alias removecomments='sed "/#.*/d"'
-function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
-alias comments='sed -i "/#.*/!d"' 
 alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Music/Downloaded/downloaded-list && comments download-list'
-
-# Videos
 alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Videos/Downloaded/downloaded-list && comments download-list'
+
+#playerctl commands
+alias play='playerctl play'
+alias pause='playerctl pause'
+alias next='playerctl next'
+alias prev='playerctl previous'
 
 # Logs
 todoadd(){ echo $@ >> ~/Documents/todo && reset; }
@@ -141,15 +149,9 @@ alias te='todoedit'
 alias tv='todoview'
 alias va='vidadd'
 
-# Screenshots
-# clipboard='/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i+"i" $f'
-
 # Random
 function cowstomize(){cowsay -f $@ zoo wee mama;}
 
 # fortune -s | lolcat
 sort -R ~/Documents/tips | head -n1
-
-source ~/.config/up/up.sh
-source $dotfiles/work/work_aliases.sh
 
