@@ -1,0 +1,27 @@
+* bugs
+** TODO rangershortcuts and profileshortcuts scripts
+
+files:
+[[file:scripts/rangershortcuts.awk][rangershortcuts]]
+[[file:scripts/profileshortcuts.awk][profile shortcuts]]
+
+Issue:
+Scripts for the first item in the [[file:scripts/shortcuts][shortcuts file]] isn't working properly
+** TODO keybindings for screenshots
+
+Files:
+[[file:config/i3/config][i3 config file]]
+
+Issue:
+scrot keybindings not working for i3
+** TODO emacs snippet shortcut not working 
+
+* Features
+** emacs
+*** TODO Add support for using the [[file:scripts/shortcuts][shortcut]] variables
+*** TODO add export support for the foll
+**** Twitter bootstrap
+**** Latex Support
+**** PPT support using beamer
+** ledger
+*** TODO Add script to convert telegram entries to journal entries
