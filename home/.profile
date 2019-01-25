@@ -71,6 +71,27 @@ alias s="cat $s"
 alias r="ranger"
 alias p="pwd"
 
+# Emacs and spacemacs
+alias emacs_copy='pushd $ec/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d .emacs.d && popd'
+alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d/ .emacs.d && popd'
+# function emacs(){
+# 	pushd $ec/ &&
+# 		rm -fdR ~/.emacs.d/* &&
+# 		stow -vt ~/.emacs.d/ .emacs.d &&
+# 		emacs $1 &&
+# 		popd;
+# }
+
+
+# function spacemacs(){
+# 	pushd $ec/spacemacs/ &&
+# 		rm -fdR ~/.emacs.d/* &&
+# 		stow -vt ~/.emacs.d/ .emacs.d &&
+# 		emacs $1 &&
+# 		popd;
+# }
+
+
 # Ledger
 alias l="ledger -f $lg/main.ledger"
 

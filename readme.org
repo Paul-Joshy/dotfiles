@@ -16,12 +16,23 @@ Issue:
 scrot keybindings not working for i3
 ** TODO emacs snippet shortcut not working 
 
-* Features
+* Wishlist
+** work mode
+
+ - Open all projects specified in a file in vscode
+ - Run the programs
+
 ** emacs
 *** TODO Add support for using the [[file:scripts/shortcuts][shortcut]] variables
 *** TODO add export support for the foll
 **** Twitter bootstrap
 **** Latex Support
 **** PPT support using beamer
+*** Toggle between emacs and spacemacs 
 ** ledger
 *** TODO Add script to convert telegram entries to journal entries
+
+- Or hopefully, a telegram bot
+** i3
+*** TODO Change the default theme
+*** TODO Change clock to 12 hr format
