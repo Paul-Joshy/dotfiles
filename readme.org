@@ -40,8 +40,16 @@ scrot keybindings not working for i3
 *** TODO Add support for using the [[file:scripts/shortcuts][shortcut]] variables
 *** TODO add export support for the foll
 **** Twitter bootstrap
-**** Latex Support
+
+- Working now but export option keeps dissapearing
+- Possible hack using entr to open in html when it's written
+
+**** DONE Latex Support
 **** PPT support using beamer
+
+- Able to write to pdf and run it via libreoffice Impress
+- Export option doesn't exist in the menu yet
+
 *** Toggle between emacs and spacemacs 
 ** ledger
 *** TODO Add script to convert telegram entries to journal entries
@@ -50,3 +58,15 @@ scrot keybindings not working for i3
 ** i3
 *** TODO Change the default theme
 *** TODO Change clock to 12 hr format
+** youtube-dl
+
+- Modify download script to store file path along with url in [[file:~/Videos/Downloaded/downloaded-list][downloaded list]]
+
+*** Music
+
+- Create a script to:
+
+- Download songs
+- Parse metadata stored in [[file:~/Music/Downloaded/downloaded-list][downloaded list]] to get music tags and download location
+- Sort song download location based on album
+- Add metadata and cover image based on parsed metadata
