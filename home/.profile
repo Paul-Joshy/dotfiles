@@ -128,7 +128,7 @@ alias gitconfig='vi $df/home/.gitconfig'
 # Music & Video
 alias youtube-dl='youtube-dl --ignore-errors --continue'
 alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Music/Downloaded/downloaded-list && comments download-list'
-alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && removecomments download-list >> ~/Videos/Downloaded/downloaded-list && comments download-list'
+alias download_video='youtube-dl $(parsecomments download-list) -o '%(title)s.%(ext)s' && echo $(pwd) >> $dv/downloaded-list && removecomments download-list >> ~/Videos/Downloaded/downloaded-list && comments download-list'
 
 #playerctl commands
 alias play='playerctl play'
