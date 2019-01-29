@@ -100,5 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # User aliases
+setopt extendedglob
 alias zshrc='edit $zshrc'
 source ~/.profile

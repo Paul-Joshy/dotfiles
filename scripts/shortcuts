@@ -9,7 +9,7 @@ wp ~/Pictures/wallpapers/
 ss ~/Pictures/screenshots/
 cm ~/Documents/personal/comics/
 dp ~/Documents/mongodump/
-df ~/Documents/dotfiles
+dt ~/Documents/dotfiles
 dc ~/Documents/
 sc ~/Documents/work-projects/scripts/
 h ~/

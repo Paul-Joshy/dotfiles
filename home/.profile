@@ -33,16 +33,16 @@ fi
 # sources
 source ~/.profile-shortcuts
 source ~/.config/up/up.sh
-source $df/work/work_aliases.sh
+source $dt/work/work_aliases.sh
 
 
 # Dotfiles
 dotfiles=~/Documents/dotfiles
-profile=$df/home/.profile
-zshrc=$df/home/.zshrc
-bashrc=$df/home/.bashrc
-vimrc=$df/home/.vimrc
-i3=$df/config/i3
+profile=$dt/home/.profile
+zshrc=$dt/home/.zshrc
+bashrc=$dt/home/.bashrc
+vimrc=$dt/home/.vimrc
+i3=$dt/config/i3
 
 
 function edit(){ vi $@ && source $@; } # edit files and source them
@@ -70,10 +70,10 @@ alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 
 #Shortcuts
-alias update_ranger_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/rangershortcuts.awk > $df/config/ranger/shortcuts.conf"
-alias update_profile_shortcuts="cat $df/scripts/shortcuts | /$df/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
+alias update_ranger_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/rangershortcuts.awk > $dt/config/ranger/shortcuts.conf"
+alias update_profile_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
 alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
-s=$df/scripts/shortcuts
+s=$dt/scripts/shortcuts
 alias es="vi $s && update_shortcuts"
 alias s="cat $s"
 
@@ -113,7 +113,7 @@ alias logs='tail -f logs.txt' # outputs a live stream of a file that's being wri
 alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite $(cat startscript) || logwrite npm start'
-alias xresources='vi $df/home/.Xresources && xrdb $df/home/.Xresources'
+alias xresources='vi $dt/home/.Xresources && xrdb $dt/home/.Xresources'
 alias t='tmux'
 export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
 function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions
@@ -123,7 +123,7 @@ alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initia
 function gits(){echo $(alias | grep "$@") && git $@; }
 alias gitignore='vi .gitignore'
 alias gcop='git checkout -p'
-alias gitconfig='vi $df/home/.gitconfig'
+alias gitconfig='vi $dt/home/.gitconfig'
 
 # Music & Video
 alias youtube-dl='youtube-dl --ignore-errors --continue'
