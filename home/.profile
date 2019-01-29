@@ -155,3 +155,6 @@ function cowstomize(){cowsay -f $@ zoo wee mama;}
 # fortune -s | lolcat
 sort -R ~/Documents/tips | head -n1
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
