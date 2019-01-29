@@ -131,7 +131,7 @@ assign [class="Google-chrome"] $workspace1
 assign [class="Chromium-browser"] $workspace1
 assign [class="Code"] $workspace2
 assign [class="TelegramDesktop"] $workspace3
-assign [class="whatsdesk"] $workspace3
+assign [class="Whatsdesk"] $workspace3
 assign [class="Mailspring"] $workspace3
 assign [class="Flock"] $workspace4
 assign [class="Bitwarden"] $workspace5
@@ -143,7 +143,6 @@ assign [class="Sublime_text"] $workspace8
 assign [class="Emacs"] $workspace8
 for_window [class="Spotify"] move to workspace $workspace9
 # assign [class="mpv"] $workspace9
-# assign [class="Google-chrome"] $workspace1
 
 # Configure layouts
 
