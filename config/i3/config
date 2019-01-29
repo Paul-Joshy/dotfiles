@@ -159,6 +159,16 @@ exec urxvt -name Scratch -e ranger
 for_window[class="URxvt" instance="Scratch"] move window to scratchpad, border 1pixel
 bindsym $mod+minus [class="URxvt" instance="Scratch"] scratchpad show
 
+# Vim scratchpad
+exec urxvt -name Vim -e vim
+for_window[class="URxvt" instance="Vim"] move window to scratchpad, border 1pixel
+bindsym $mod+m [class="URxvt" instance="Vim"] scratchpad show
+
+# Tmux scratchpad
+exec urxvt -name Tmux -e tmux
+for_window[class="URxvt" instance="Tmux"] move window to scratchpad, border 1pixel
+bindsym $mod+t [class="URxvt" instance="Tmux"] scratchpad show
+
 # Make pop ups floatable
 for_window [window_role="pop-up"] floating enable
 
