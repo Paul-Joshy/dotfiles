@@ -43,10 +43,12 @@ zshrc=$dt/home/.zshrc
 bashrc=$dt/home/.bashrc
 vimrc=$dt/home/.vimrc
 i3=$dt/config/i3
+rcconf=$dt/config/ranger/rc.conf
 
 
 function edit(){ vi $@ && source $@; } # edit files and source them
 alias profile="edit $profile"
+alias rcconf="vi $rcconf"
 # alias bashrc="edit $bashrc"
 # alias zshrc="edit $zshrc"
 alias vimrc="vi $vimrc"
@@ -63,7 +65,8 @@ alias p="pwd"
 alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
 alias comments='sed -i "/#.*/!d"' 
-
+alias rs="reset"
+alias imagetag="exiftool"
 # Internet
 alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
 alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed

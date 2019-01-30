@@ -29,7 +29,6 @@ Files:
 Issue:
 scrot keybindings not working for i3
 ** TODO emacs snippet shortcut not working 
-
 * Wishlist
 ** work mode
 
@@ -50,7 +49,12 @@ scrot keybindings not working for i3
 - Able to write to pdf and run it via libreoffice Impress
 - Export option doesn't exist in the menu yet
 
-*** Toggle between emacs and spacemacs 
+*** Toggle between emacs and spacemacs
+*** Config default modes
+
+- Ledger mode: Ledger-mode + Company Mode + Split terminal
+- Org Mode: Org Mode + Org Bullets mode + Org Indent Mod
+
 ** ledger
 *** TODO Add script to convert telegram entries to journal entries
 
@@ -58,6 +62,7 @@ scrot keybindings not working for i3
 ** i3
 *** TODO Change the default theme
 *** TODO Change clock to 12 hr format
+*** Create scratchpad which runs org mode
 ** youtube-dl
 
 - Modify download script to store file path along with url in [[file:~/Videos/Downloaded/downloaded-list][downloaded list]]
@@ -69,4 +74,8 @@ scrot keybindings not working for i3
 - Download songs
 - Parse metadata stored in [[file:~/Music/Downloaded/downloaded-list][downloaded list]] to get music tags and download location
 - Sort song download location based on album
-- Add metadata and cover image based on parsed metadata
+- Add metadata and cover image based on parsed metadat
+** URXVT
+
+- Get copy paste shortcuts to work
+ 

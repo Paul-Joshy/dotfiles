@@ -132,6 +132,7 @@ assign [class="Chromium-browser"] $workspace1
 assign [class="Code"] $workspace2
 assign [class="TelegramDesktop"] $workspace3
 assign [class="Whatsdesk"] $workspace3
+assign [class="whatsdesk"] $workspace3
 assign [class="Mailspring"] $workspace3
 assign [class="Flock"] $workspace4
 assign [class="Bitwarden"] $workspace5
@@ -154,20 +155,36 @@ for_window [instance="mpv"] floating enable
 for_window [class="mpv"] sticky enable
 for_window [instance="mpv"] sticky enable
 
+
+exec /usr/libexec/gnome-settings-daemon
+# Scratchpads
+
+# URxvt scratchpad
+exec urxvt -name Vanilla
+for_window[class="URxvt" instance="Vanilla"] move window to scratchpad, border 1pixel
+bindsym $mod+minus [class="URxvt" instance="Vanilla"] scratchpad show
+
 # Ranger urxvt scratchpad
 exec urxvt -name Scratch -e ranger
+# exec_always urxvt -name Scratch -e ranger
 for_window[class="URxvt" instance="Scratch"] move window to scratchpad, border 1pixel
-bindsym $mod+minus [class="URxvt" instance="Scratch"] scratchpad show
+bindsym $mod+equal [class="URxvt" instance="Scratch"] scratchpad show
 
 # Vim scratchpad
 exec urxvt -name Vim -e vim
+# exec_always urxvt -name Vim -e vim
 for_window[class="URxvt" instance="Vim"] move window to scratchpad, border 1pixel
 bindsym $mod+m [class="URxvt" instance="Vim"] scratchpad show
+
+# Org mode scratchpad (not working)
+# exec urxvt -name Emacs -c emacs ~/Documents/org-files/scratchpad.org
+# for_window[class="Urxvt" instance="Emacs"] move window to scratchpad, border 1pixel
+# bindsym $mod+o [class="URxvt" instance="Emacs"] scratchpad show
 
 # Tmux scratchpad
 exec urxvt -name Tmux -e tmux
 for_window[class="URxvt" instance="Tmux"] move window to scratchpad, border 1pixel
-bindsym $mod+t [class="URxvt" instance="Tmux"] scratchpad show
+bindsym $mod+shift+minus [class="URxvt" instance="Tmux"] scratchpad show
 
 # Make pop ups floatable
 for_window [window_role="pop-up"] floating enable
@@ -233,10 +250,21 @@ bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
 # Screenshots
-bindsym Print exec --no-startup-id scrot
-bindsym Ctrl+Print --release exec scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
-bindsym $mod+Print --release exec --no-startup-id scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s
+# bindsym Print exec --no-startup-id scrot
+# bindsym Ctrl+Print --release exec scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+# bindsym $mod+Print --release exec --no-startup-id scrot -w
+# bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s
+
+# # Desktop screenshot
+# bindsym --release Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
+# # Choose window
+# bindsym --release Mod1+Sys_Req exec "import -window `xwininfo | awk '/.*Window id:.*/ {print $4}'` ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png"
+# # Selection screenshot
+# bindsym --release Shift+Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
+
+bindsym --release Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+bindsym --release Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
