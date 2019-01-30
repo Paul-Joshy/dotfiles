@@ -3,3 +3,4 @@
 pkg install $(cat apt) -y &&
 stow -vt ~/ home &&
 sh scripts/curl.sh
+source scripts/.initial-profile

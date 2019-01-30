@@ -70,7 +70,6 @@ alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 
 #Shortcuts
-alias add_shortcuts="cat ~/dotfiles/scripts/shortcuts | sh ~/dotfiles/scripts/profilesshortcuts.awk >> ~/.profile-shortcuts && source ~/.profile && source ~/.profile-shortcuts"
 alias update_ranger_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/rangershortcuts.awk > $dt/config/ranger/shortcuts.conf"
 alias update_profile_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
 alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
