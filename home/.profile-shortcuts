@@ -1,0 +1,192 @@
+en=~/Documents/work-projects/environments/
+alias en="cd ~/Documents/work-projects/environments/"
+alias ren="r ~/Documents/work-projects/environments/"
+alias nen="nnn ~/Documents/work-projects/environments/"
+alias xen="nemo ~/Documents/work-projects/environments/"
+function mven(){ mv $@ ~/Documents/work-projects/environments/;}
+function cpen(){ cp $@ ~/Documents/work-projects/environments/;}
+
+dw=~/Downloads/
+alias dw="cd ~/Downloads/"
+alias rdw="r ~/Downloads/"
+alias ndw="nnn ~/Downloads/"
+alias xdw="nemo ~/Downloads/"
+function mvdw(){ mv $@ ~/Downloads/;}
+function cpdw(){ cp $@ ~/Downloads/;}
+
+wk=~/Documents/work-projects/
+alias wk="cd ~/Documents/work-projects/"
+alias rwk="r ~/Documents/work-projects/"
+alias nwk="nnn ~/Documents/work-projects/"
+alias xwk="nemo ~/Documents/work-projects/"
+function mvwk(){ mv $@ ~/Documents/work-projects/;}
+function cpwk(){ cp $@ ~/Documents/work-projects/;}
+
+dv=~/Videos/Downloaded/
+alias dv="cd ~/Videos/Downloaded/"
+alias rdv="r ~/Videos/Downloaded/"
+alias ndv="nnn ~/Videos/Downloaded/"
+alias xdv="nemo ~/Videos/Downloaded/"
+function mvdv(){ mv $@ ~/Videos/Downloaded/;}
+function cpdv(){ cp $@ ~/Videos/Downloaded/;}
+
+dm=~/Music/Downloaded/
+alias dm="cd ~/Music/Downloaded/"
+alias rdm="r ~/Music/Downloaded/"
+alias ndm="nnn ~/Music/Downloaded/"
+alias xdm="nemo ~/Music/Downloaded/"
+function mvdm(){ mv $@ ~/Music/Downloaded/;}
+function cpdm(){ cp $@ ~/Music/Downloaded/;}
+
+pr=~/Documents/personal/
+alias pr="cd ~/Documents/personal/"
+alias rpr="r ~/Documents/personal/"
+alias npr="nnn ~/Documents/personal/"
+alias xpr="nemo ~/Documents/personal/"
+function mvpr(){ mv $@ ~/Documents/personal/;}
+function cppr(){ cp $@ ~/Documents/personal/;}
+
+sv=~/Documents/servers/
+alias sv="cd ~/Documents/servers/"
+alias rsv="r ~/Documents/servers/"
+alias nsv="nnn ~/Documents/servers/"
+alias xsv="nemo ~/Documents/servers/"
+function mvsv(){ mv $@ ~/Documents/servers/;}
+function cpsv(){ cp $@ ~/Documents/servers/;}
+
+wp=~/Pictures/wallpapers/
+alias wp="cd ~/Pictures/wallpapers/"
+alias rwp="r ~/Pictures/wallpapers/"
+alias nwp="nnn ~/Pictures/wallpapers/"
+alias xwp="nemo ~/Pictures/wallpapers/"
+function mvwp(){ mv $@ ~/Pictures/wallpapers/;}
+function cpwp(){ cp $@ ~/Pictures/wallpapers/;}
+
+ss=~/Pictures/screenshots/
+alias ss="cd ~/Pictures/screenshots/"
+alias rss="r ~/Pictures/screenshots/"
+alias nss="nnn ~/Pictures/screenshots/"
+alias xss="nemo ~/Pictures/screenshots/"
+function mvss(){ mv $@ ~/Pictures/screenshots/;}
+function cpss(){ cp $@ ~/Pictures/screenshots/;}
+
+cm=~/Documents/personal/comics/
+alias cm="cd ~/Documents/personal/comics/"
+alias rcm="r ~/Documents/personal/comics/"
+alias ncm="nnn ~/Documents/personal/comics/"
+alias xcm="nemo ~/Documents/personal/comics/"
+function mvcm(){ mv $@ ~/Documents/personal/comics/;}
+function cpcm(){ cp $@ ~/Documents/personal/comics/;}
+
+dp=~/Documents/mongodump/
+alias dp="cd ~/Documents/mongodump/"
+alias rdp="r ~/Documents/mongodump/"
+alias ndp="nnn ~/Documents/mongodump/"
+alias xdp="nemo ~/Documents/mongodump/"
+function mvdp(){ mv $@ ~/Documents/mongodump/;}
+function cpdp(){ cp $@ ~/Documents/mongodump/;}
+
+dt=~/Documents/dotfiles
+alias dt="cd ~/Documents/dotfiles"
+alias rdt="r ~/Documents/dotfiles"
+alias ndt="nnn ~/Documents/dotfiles"
+alias xdt="nemo ~/Documents/dotfiles"
+function mvdt(){ mv $@ ~/Documents/dotfiles;}
+function cpdt(){ cp $@ ~/Documents/dotfiles;}
+
+dc=~/Documents/
+alias dc="cd ~/Documents/"
+alias rdc="r ~/Documents/"
+alias ndc="nnn ~/Documents/"
+alias xdc="nemo ~/Documents/"
+function mvdc(){ mv $@ ~/Documents/;}
+function cpdc(){ cp $@ ~/Documents/;}
+
+sc=~/Documents/work-projects/scripts/
+alias sc="cd ~/Documents/work-projects/scripts/"
+alias rsc="r ~/Documents/work-projects/scripts/"
+alias nsc="nnn ~/Documents/work-projects/scripts/"
+alias xsc="nemo ~/Documents/work-projects/scripts/"
+function mvsc(){ mv $@ ~/Documents/work-projects/scripts/;}
+function cpsc(){ cp $@ ~/Documents/work-projects/scripts/;}
+
+h=~/
+alias h="cd ~/"
+alias rh="r ~/"
+alias nh="nnn ~/"
+alias xh="nemo ~/"
+function mvh(){ mv $@ ~/;}
+function cph(){ cp $@ ~/;}
+
+lg=~/Documents/personal/ledger/
+alias lg="cd ~/Documents/personal/ledger/"
+alias rlg="r ~/Documents/personal/ledger/"
+alias nlg="nnn ~/Documents/personal/ledger/"
+alias xlg="nemo ~/Documents/personal/ledger/"
+function mvlg(){ mv $@ ~/Documents/personal/ledger/;}
+function cplg(){ cp $@ ~/Documents/personal/ledger/;}
+
+lv=~/Videos/Downloaded/informative/general-linux-stuff/
+alias lv="cd ~/Videos/Downloaded/informative/general-linux-stuff/"
+alias rlv="r ~/Videos/Downloaded/informative/general-linux-stuff/"
+alias nlv="nnn ~/Videos/Downloaded/informative/general-linux-stuff/"
+alias xlv="nemo ~/Videos/Downloaded/informative/general-linux-stuff/"
+function mvlv(){ mv $@ ~/Videos/Downloaded/informative/general-linux-stuff/;}
+function cplv(){ cp $@ ~/Videos/Downloaded/informative/general-linux-stuff/;}
+
+ec=~/Documents/emacs-conf/
+alias ec="cd ~/Documents/emacs-conf/"
+alias rec="r ~/Documents/emacs-conf/"
+alias nec="nnn ~/Documents/emacs-conf/"
+alias xec="nemo ~/Documents/emacs-conf/"
+function mvec(){ mv $@ ~/Documents/emacs-conf/;}
+function cpec(){ cp $@ ~/Documents/emacs-conf/;}
+
+tg=~/Downloads/Telegram-Desktop/
+alias tg="cd ~/Downloads/Telegram-Desktop/"
+alias rtg="r ~/Downloads/Telegram-Desktop/"
+alias ntg="nnn ~/Downloads/Telegram-Desktop/"
+alias xtg="nemo ~/Downloads/Telegram-Desktop/"
+function mvtg(){ mv $@ ~/Downloads/Telegram-Desktop/;}
+function cptg(){ cp $@ ~/Downloads/Telegram-Desktop/;}
+
+md=/media/user/
+alias md="cd /media/user/"
+alias rmd="r /media/user/"
+alias nmd="nnn /media/user/"
+alias xmd="nemo /media/user/"
+function mvmd(){ mv $@ /media/user/;}
+function cpmd(){ cp $@ /media/user/;}
+
+of=~/Documents/org-files/
+alias of="cd ~/Documents/org-files/"
+alias rof="r ~/Documents/org-files/"
+alias nof="nnn ~/Documents/org-files/"
+alias xof="nemo ~/Documents/org-files/"
+function mvof(){ mv $@ ~/Documents/org-files/;}
+function cpof(){ cp $@ ~/Documents/org-files/;}
+
+ms=~/Music/
+alias ms="cd ~/Music/"
+alias rms="r ~/Music/"
+alias nms="nnn ~/Music/"
+alias xms="nemo ~/Music/"
+function mvms(){ mv $@ ~/Music/;}
+function cpms(){ cp $@ ~/Music/;}
+
+eb=~/Documents/ebooks/
+alias eb="cd ~/Documents/ebooks/"
+alias reb="r ~/Documents/ebooks/"
+alias neb="nnn ~/Documents/ebooks/"
+alias xeb="nemo ~/Documents/ebooks/"
+function mveb(){ mv $@ ~/Documents/ebooks/;}
+function cpeb(){ cp $@ ~/Documents/ebooks/;}
+
+vw=~/vimwiki/
+alias vw="cd ~/vimwiki/"
+alias rvw="r ~/vimwiki/"
+alias nvw="nnn ~/vimwiki/"
+alias xvw="nemo ~/vimwiki/"
+function mvvw(){ mv $@ ~/vimwiki/;}
+function cpvw(){ cp $@ ~/vimwiki/;}
+
