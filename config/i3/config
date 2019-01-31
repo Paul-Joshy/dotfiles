@@ -155,12 +155,15 @@ for_window [instance="mpv"] floating enable
 for_window [class="mpv"] sticky enable
 for_window [instance="mpv"] sticky enable
 
+# Log work time
+exec ./Documents/dotfiles/scripts/recordstart.bash
 
-exec /usr/libexec/gnome-settings-daemon
+
 # Scratchpads
 
 # URxvt scratchpad
 exec urxvt -name Vanilla
+# execi_always urxvt -name Vanilla
 for_window[class="URxvt" instance="Vanilla"] move window to scratchpad, border 1pixel
 bindsym $mod+minus [class="URxvt" instance="Vanilla"] scratchpad show
 
@@ -171,7 +174,7 @@ for_window[class="URxvt" instance="Scratch"] move window to scratchpad, border 1
 bindsym $mod+equal [class="URxvt" instance="Scratch"] scratchpad show
 
 # Vim scratchpad
-exec urxvt -name Vim -e vim
+exec urxvt -name Vim -e vim vimwiki/index.wiki
 # exec_always urxvt -name Vim -e vim
 for_window[class="URxvt" instance="Vim"] move window to scratchpad, border 1pixel
 bindsym $mod+m [class="URxvt" instance="Vim"] scratchpad show
@@ -235,7 +238,7 @@ bar {
 exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
 
 # startup programs
-exec guake
+# exec guake
 exec redshift
 exec_always "feh --bg-fill ~/Pictures/wallpapers/wallpaper"
 
@@ -255,6 +258,11 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 # bindsym $mod+Print --release exec --no-startup-id scrot -w
 # bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s
 
+# Desktop screenshot
+bindsym --release Print exec "scrot ~/user/Pictures/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
+# Selection screenshot
+bindsym --release Shift+Print exec "scrot ~/user/Pictures/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
+
 # # Desktop screenshot
 # bindsym --release Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"
 # # Choose window
@@ -262,9 +270,9 @@ bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 # # Selection screenshot
 # bindsym --release Shift+Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"
 
-bindsym --release Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-bindsym --release Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
-bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+# bindsym --release Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+# bindsym --release Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
+# bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad

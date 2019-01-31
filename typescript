@@ -1,0 +1,306 @@
+Script started on 2019-01-31 23:04:17+0530
+ip addr | awk '/inet / {sub(/\/.*/, "", $2); print $2}' - Get public IP address
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;32m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hscript
+[J[0mscript        [Jscriptreplay  [J[01;34mscripts[0m/    [J[A[m[27m[24m[27Cscript[K
+[J[7mscript      [0m  [Jscriptreplay  [J[01;34mscripts[0m/    [J[A[m[27m[24m[27Cscript[K
+[7mscript      [0m  [7mscript      [0m  [A[m[27m[24m[27Cscript[Kreplay
+[14C[7mscriptreplay[0m  script        [A[m[27m[24m[27Cscriptreplay[Ks[1m/[m    
+[28C[7mscripts/    [0m[14Cscriptreplay  [A[m[27m[24m[27Cscripts[1m/[m[K
+[J[A[35C[m >[?2004l
+[J]2;scripts]1;scripts[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles/scripts]1;..files/scripts[m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hllsa>[?2004l
+]2;ls --color=tty -lah]1;lsatotal 48K
+drwxrwxr-x 2 user user 4.0K Jan 31 15:15 [0m[01;34m.[0m
+drwxrwxr-x 7 user user 4.0K Jan 31 23:04 [01;34m..[0m
+-rwxrwxr-x 1 user user  337 Jan 30 14:53 [01;32mcurl.sh[0m
+-rwxrwxr-x 1 user user  440 Jan 29 10:28 [01;32mprofileshortcuts.awk[0m
+-rwxrwxr-x 1 user user  256 Jan 29 10:28 [01;32mrangershortcuts.awk[0m
+-rwxrwxr-x 1 user user  121 Jan 31 14:56 [01;32mrecordend.bash[0m
+-rwxrwxr-x 1 user user  179 Jan 31 15:13 [01;32mrecordstart.bash[0m
+-rw-rw-r-- 1 user user  604 Jan 31 11:05 shortcuts
+-rw-rw-r-- 1 user user  12K Jan 29 10:28 .shortcuts.ranger.swp
+-rw-rw-r-- 1 user user   45 Jan 31 15:15 workmodes
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles/scripts]1;..files/scripts[m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hlls>[?2004l
+]2;ls --color=tty]1;ls[0m[01;32mcurl.sh[0m               [01;32mrangershortcuts.awk[0m  [01;32mrecordstart.bash[0m  workmodes
+[01;32mprofileshortcuts.awk[0m  [01;32mrecordend.bash[0m       shortcuts
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles/scripts]1;..files/scripts[m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hvvi recordstart.bash[1m [m[m >[?2004l
+]2;vi recordstart.bash]1;vi[?2004h[?1049h[?1h=[?2004h[1;44r[?12h[?12l[27m[23m[29m[m[38;5;223m[48;5;235m[H[2J[?25l[44;1H"recordstart.bash" 3L, 179C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[44;1H[?25h[?12$p[?2004l[?2004h[?25l[1;1H[38;5;214m[48;5;237m1   [m[38;5;223m[48;5;235m[38;5;245m#!/[m[38;5;223m[48;5;235m[4m[38;5;245musr[m[38;5;223m[48;5;235m[38;5;245m/bin/[m[38;5;223m[48;5;235m[4m[38;5;245menv[m[38;5;223m[48;5;235m[38;5;245m bash[m[38;5;223m[48;5;235m
+[38;5;243m  1 
+  2 [m[38;5;223m[48;5;235mcat /home/user/Documents/dotfiles/scripts/workmodes | dmenu | [38;5;167mecho[m[38;5;223m[48;5;235m[38;5;142m i [m[38;5;223m[48;5;235m[38;5;108m$([m[38;5;223m[48;5;235m[38;5;208mdate +[m[38;5;223m[48;5;235m"[38;5;142m%Y/%m/%d %H:%M:%S[m[38;5;223m[48;5;235m"[38;5;108m)[m[38;5;223m[48;5;235m[38;5;142m [m[38;5;223m[48;5;235m[38;5;108m$([m[38;5;223m[48;5;235m[38;5;208maww[m[38;5;223m[48;5;235m[4;1H[38;5;243m    [m[38;5;223m[48;5;235m[38;5;208mk [m[38;5;223m[48;5;235m'[38;5;142m{print $1}[m[38;5;223m[48;5;235m'[38;5;108m)[m[38;5;223m[48;5;235m[38;5;142m [m[38;5;223m[48;5;235m>> ~/Documents/personal/ledger/logtimes
+[38;5;239m~                                                                                                         [6;1H~                                                                                                         [7;1H~                                                                                                         [8;1H~                                                                                                         [9;1H~                                                                                                         [10;1H~                                                                                                         [11;1H~                                                                                                         [12;1H~                                                                                                         [13;1H~                                                                                                         [14;1H~                                                                                                         [15;1H~                                                                                                         [16;1H~                                                                                                         [17;1H~                                                                                                         [18;1H~                                                                                                         [19;1H~                                                                                                         [20;1H~                                                                                                         [21;1H~                                                                                                         [22;1H~                                                                                                         [23;1H~                                                                                                         [24;1H~                                                                                                         [25;1H~                                                                                                         [26;1H~                                                                                                         [27;1H~                                                                                                         [28;1H~                                                                                                         [29;1H~                                                                                                         [30;1H~                                                                                                         [31;1H~                                                                                                         [32;1H~                                                                                                         [33;1H~                                                                                                         [34;1H~                                                                                                         [35;1H~                                                                                                         [36;1H~                                                                                                         [37;1H~                                                                                                         [38;1H~                                                                                                         [39;1H~                                                                                                         [40;1H~                                                                                                         [41;1H~                                                                                                         [42;1H~                                                                                                         [m[38;5;223m[48;5;235m[43;1H[38;5;235m[48;5;246m [m[38;5;223m[48;5;235m[1m[38;5;235m[48;5;246mNORMAL[m[38;5;223m[48;5;235m[38;5;235m[48;5;246m  SPELL [EN] [m[38;5;223m[48;5;235m[38;5;246m[48;5;237m recordstart.bash                              sh [m[38;5;223m[48;5;235m[38;5;246m[48;5;239m utf-8[unix] [m[38;5;223m[48;5;235m[38;5;235m[48;5;246m  33% [m[38;5;223m[48;5;235m[1m[38;5;235m[48;5;246m☰    1/3 ㏑[m[38;5;223m[48;5;235m[38;5;235m[48;5;246m :  1 ]2;recordstart.bash (~/Documents/dotfiles/scripts) - VIM]1;recordstart.bash[1;5H[?25h[?25l[m[38;5;223m[48;5;235m[44;1H[K[44;1H:[?2004h[?25hq[?25l[?25h[?25l[44;1H[K[1;5H[?25h[?25l[44;1H:[?2004h[?25hq[?25l[?25h[?25l[?25h[?2004l[?2004h]2;recordstart.bash (~/Documents/dotfiles/scripts) - VIM]1;recordstart.bash[?2004l]2;vi recordstart.bash]1;vi[44;1H[K[44;1H[?2004l[?1l>[r[?1049l[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles/scripts]1;..files/scripts[m[27m[24m[J[01;32m➜  [36mscripts[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hddt>[?2004l
+]2;cd ~/Documents/dotfiles]1;dt[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;32m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hlls>[?2004l
+]2;ls --color=tty]1;lsapt     _config.yml  npm              readme.html  readme.pdf  ruby_gems  snaps    typescript
+[0m[01;34mconfig[0m  [01;34mhome[0m         python_programs  readme.org   readme.tex  [01;34mscripts[0m    stow.sh  [01;34mwork[0m
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;32m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hggit st>[?2004l
+]2;git st]1;git [31mM[m config/i3/config
+ [31mM[m config/ranger/rc.conf
+ [31mM[m config/ranger/shortcuts.conf
+ [31mM[m home/.profile
+ [31mM[m home/.vimrc
+ [31mM[m home/.zshrc
+ [31mM[m scripts/shortcuts
+[31m??[m npm
+[31m??[m scripts/recordend.bash
+[31m??[m scripts/recordstart.bash
+[31m??[m scripts/workmodes
+[31m??[m typescript
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;32m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hggti    ggcop>[?2004l
+]2;git checkout -p]1;gcop[1mdiff --git a/config/i3/config b/config/i3/config[m
+[1mindex 543e2a5..7ea830b 100644[m
+[1m--- a/config/i3/config[m
+[1m+++ b/config/i3/config[m
+[36m@@ -155,12 +155,15 @@[m [mfor_window [instance="mpv"] floating enable[m
+ for_window [class="mpv"] sticky enable[m
+ for_window [instance="mpv"] sticky enable[m
+ [m
+[32m+[m[32m# Log work time[m
+[32m+[m[32mexec ./Documents/dotfiles/scripts/recordstart.bash[m
+[32m+[m
+ [m
+[31m-exec /usr/libexec/gnome-settings-daemon[m
+ # Scratchpads[m
+ [m
+ # URxvt scratchpad[m
+ exec urxvt -name Vanilla[m
+[32m+[m[32m# execi_always urxvt -name Vanilla[m
+ for_window[class="URxvt" instance="Vanilla"] move window to scratchpad, border 1pixel[m
+ bindsym $mod+minus [class="URxvt" instance="Vanilla"] scratchpad show[m
+ [m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,j,J,g,/,s,e,?]? [mn
+[36m@@ -171,7 +174,7 @@[m [mfor_window[class="URxvt" instance="Scratch"] move window to scratchpad, border 1[m
+ bindsym $mod+equal [class="URxvt" instance="Scratch"] scratchpad show[m
+ [m
+ # Vim scratchpad[m
+[31m-exec urxvt -name Vim -e vim[m
+[32m+[m[32mexec urxvt -name Vim -e vim vimwiki/index.wiki[m
+ # exec_always urxvt -name Vim -e vim[m
+ for_window[class="URxvt" instance="Vim"] move window to scratchpad, border 1pixel[m
+ bindsym $mod+m [class="URxvt" instance="Vim"] scratchpad show[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,j,J,g,/,e,?]? [mn
+[36m@@ -235,7 +238,7 @@[m [mbar {[m
+ exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50[m
+ [m
+ # startup programs[m
+[31m-exec guake[m
+[32m+[m[32m# exec guake[m
+ exec redshift[m
+ exec_always "feh --bg-fill ~/Pictures/wallpapers/wallpaper"[m
+ [m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,j,J,g,/,e,?]? [mn
+[36m@@ -255,6 +258,11 @@[m [mbindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness[m
+ # bindsym $mod+Print --release exec --no-startup-id scrot -w[m
+ # bindsym $mod+Shift+Print --release exec --no-startup-id scrot -s[m
+ [m
+[32m+[m[32m# Desktop screenshot[m
+[32m+[m[32mbindsym --release Print exec "scrot ~/user/Pictures/screenshots/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"[m
+[32m+[m[32m# Selection screenshot[m
+[32m+[m[32mbindsym --release Shift+Print exec "scrot ~/user/Pictures/screenshots/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"[m
+[32m+[m
+ # # Desktop screenshot[m
+ # bindsym --release Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -m -e 'xclip -selection c -t image/png < $f'"[m
+ # # Choose window[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,j,J,g,/,e,?]? [mn
+[36m@@ -262,9 +270,9 @@[m [mbindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness[m
+ # # Selection screenshot[m
+ # bindsym --release Shift+Print exec "scrot ~/Bilder/Bildschirmfotos/$(date --iso-8601='seconds').png -s -e 'xclip -selection c -t image/png < $f'"[m
+ [m
+[31m-bindsym --release Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"[m
+[31m-bindsym --release Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"[m
+[31m-bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"[m
+[32m+[m[32m# bindsym --release Print exec "scrot -m '/home/user/Pictures/screenshots/%s_%H%M_%d.%m.%Y_$wx$h.png'"[m
+[32m+[m[32m# bindsym --release Shift+Print exec "scrot -s '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"[m
+[32m+[m[32m# bindsym --release $mod+Shift+Print exec "scrot -u -d 4 '/home/user/Pictures/screenshots/%s_%H%M_%d%m%Y_$wx$h.png'"[m
+ [m
+ # Touchpad controls[m
+ bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,g,/,e,?]? [mn
+
+[1mdiff --git a/config/ranger/rc.conf b/config/ranger/rc.conf[m
+[1mindex 1237411..088e439 100644[m
+[1m--- a/config/ranger/rc.conf[m
+[1m+++ b/config/ranger/rc.conf[m
+[36m@@ -622,6 +622,7 @@[m [mmap oem shell emacs %s &[m
+ map ompv shell mpv %s &[m
+ map ovlc shell vlc %s &[m
+ map oxdg shell xdg-open %s &[m
+[32m+[m[32mmap onano shell nano %s &[m
+ [m
+ # Image tag editing[m
+ map ita console shell exiftool -artist="[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,e,?]? [mn
+
+[1mdiff --git a/config/ranger/shortcuts.conf b/config/ranger/shortcuts.conf[m
+[1mindex 8d0afad..8c23991 100644[m
+[1m--- a/config/ranger/shortcuts.conf[m
+[1m+++ b/config/ranger/shortcuts.conf[m
+[36m@@ -74,9 +74,9 @@[m [mmap yttg shell cp %s ~/Downloads/Telegram-Desktop/[m
+ map mttg shell mv %s ~/Downloads/Telegram-Desktop/[m
+ map gttg cd ~/Downloads/Telegram-Desktop/[m
+ [m
+[31m-map ytmd shell cp %s /media/[m
+[31m-map mtmd shell mv %s /media/[m
+[31m-map gtmd cd /media/[m
+[32m+[m[32mmap ytmd shell cp %s /media/user/[m
+[32m+[m[32mmap mtmd shell mv %s /media/user/[m
+[32m+[m[32mmap gtmd cd /media/user/[m
+ [m
+ map ytof shell cp %s ~/Documents/org-files/[m
+ map mtof shell mv %s ~/Documents/org-files/[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,j,J,g,/,e,?]? [mn
+[36m@@ -86,3 +86,7 @@[m [mmap ytms shell cp %s ~/Music/[m
+ map mtms shell mv %s ~/Music/[m
+ map gtms cd ~/Music/[m
+ [m
+[32m+[m[32mmap yteb shell cp %s ~/Documents/ebooks/[m
+[32m+[m[32mmap mteb shell mv %s ~/Documents/ebooks/[m
+[32m+[m[32mmap gteb cd ~/Documents/ebooks/[m
+[32m+[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,g,/,e,?]? [mn
+
+[1mdiff --git a/home/.profile b/home/.profile[m
+[1mindex e2f3dbd..da95f12 100644[m
+[1m--- a/home/.profile[m
+[1m+++ b/home/.profile[m
+[36m@@ -72,6 +72,12 @@[m [malias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi[m
+ alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed[m
+ function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID[m
+ [m
+[32m+[m[32m# Time logging[m
+[32m+[m[32malias in="$dt/scripts/recordstart.bash| sh"[m
+[32m+[m[32malias out="$dt/scripts/recordend.bash| sh"[m
+[32m+[m[32malias shutdown="out && shutdown"[m
+[32m+[m[32malias reboot="out && reboot"[m
+[32m+[m
+ #Shortcuts[m
+ alias update_ranger_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/rangershortcuts.awk > $dt/config/ranger/shortcuts.conf"[m
+ alias update_profile_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/profileshortcuts.awk > ~/.profile-shortcuts"[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,j,J,g,/,e,?]? [mn
+[36m@@ -103,6 +109,7 @@[m [malias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~[m
+ [m
+ # Ledger[m
+ alias l="ledger -f $lg/main.ledger"[m
+[32m+[m[32malias t="ledger -f $lg/logtimes"[m
+ [m
+ # Personal work[m
+ personal=~/Documents/personal/[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,j,J,g,/,e,?]? [mn
+[36m@@ -117,7 +124,6 @@[m [malias vimrc='vi ~/.vimrc'[m
+ function logwrite(){ unbuffer $@ | tee -a logs.txt; }[m
+ alias serverstart='logwrite $(cat startscript) || logwrite npm start'[m
+ alias xresources='vi $dt/home/.Xresources && xrdb $dt/home/.Xresources'[m
+[31m-alias t='tmux'[m
+ export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue[m
+ function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions[m
+ [m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,K,g,/,e,?]? [mn
+
+[1mdiff --git a/home/.vimrc b/home/.vimrc[m
+[1mindex f46c145..fee4319 100644[m
+[1m--- a/home/.vimrc[m
+[1m+++ b/home/.vimrc[m
+[36m@@ -23,7 +23,9 @@[m [mPlug 'tpope/vim-abolish'[m
+ Plug 'vim-scripts/ReplaceWithRegister'[m
+ Plug 'tpope/vim-sensible'[m
+ Plug 'ledger/vim-ledger'[m
+[32m+[m[32m" Plug 'easymotion/vim-easymotion'[m
+ " Plug 'vim-syntastic/syntastic'[m
+[32m+[m[32mPlug 'vimwiki/vimwiki'[m
+ [m
+ call plug#end()[m
+ [m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,s,e,?]? [mn
+
+[1mdiff --git a/home/.zshrc b/home/.zshrc[m
+[1mindex 9d131bf..e8d3b05 100644[m
+[1m--- a/home/.zshrc[m
+[1m+++ b/home/.zshrc[m
+[36m@@ -103,3 +103,11 @@[m [msource $ZSH/oh-my-zsh.sh[m
+ setopt extendedglob[m
+ alias zshrc='edit $zshrc'[m
+ source ~/.profile[m
+[32m+[m
+[32m+[m[32m# PM functions[m
+[32m+[m[32msource ~/.pm/pm.zsh[m
+[32m+[m[32malias pma="pm add"[m
+[32m+[m[32malias pmg="pm go"[m
+[32m+[m[32malias pmrm="pm remove"[m
+[32m+[m[32malias pml="pm list"[m
+[32m+[m[32m# end PM[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,e,?]? [mn
+
+[1mdiff --git a/scripts/shortcuts b/scripts/shortcuts[m
+[1mindex 65e5e02..293812e 100644[m
+[1m--- a/scripts/shortcuts[m
+[1m+++ b/scripts/shortcuts[m
+[36m@@ -17,6 +17,7 @@[m [mlg ~/Documents/personal/ledger/[m
+ lv ~/Videos/Downloaded/informative/general-linux-stuff/[m
+ ec ~/Documents/emacs-conf/[m
+ tg ~/Downloads/Telegram-Desktop/[m
+[31m-md /media/[m
+[32m+[m[32mmd /media/user/[m
+ of ~/Documents/org-files/[m
+ ms ~/Music/[m
+[32m+[m[32meb ~/Documents/ebooks/[m
+[1;34mDiscard this hunk from worktree [y,n,q,a,d,s,e,?]? [mn
+
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;32m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004hggcam >[?2004l
+]2;git commit -a -m]1;gcam"error: switch `m' requires a value
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;31m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m) [33m✗[00m [K=[?2004h" gcam U      ggit st>[?2004l
+]2;git st]1;git [31mM[m config/i3/config
+ [31mM[m config/ranger/rc.conf
+ [31mM[m config/ranger/shortcuts.conf
+ [31mM[m home/.profile
+ [31mM[m home/.vimrc
+ [31mM[m home/.zshrc
+ [31mM[m scripts/shortcuts
+[31m??[m npm
+[31m??[m scripts/recordend.bash
+[31m??[m scripts/recordstart.bash
+[31m??[m scripts/workmodes
+[31m??[m typescript
+[1m[7m%[27m[1m[m                                                                                                          ]2;user@user-Latitude-E7440: ~/Documents/dotfiles]1;..ents/dotfiles[m[27m[24m[J[01;32m➜  [36mdotfiles[00m [01;34mgit:([31mmaster[34m

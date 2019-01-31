@@ -17,6 +17,7 @@ lg ~/Documents/personal/ledger/
 lv ~/Videos/Downloaded/informative/general-linux-stuff/
 ec ~/Documents/emacs-conf/
 tg ~/Downloads/Telegram-Desktop/
-md /media/
+md /media/user/
 of ~/Documents/org-files/
 ms ~/Music/
+eb ~/Documents/ebooks/

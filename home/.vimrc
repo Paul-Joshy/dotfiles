@@ -23,7 +23,9 @@ Plug 'tpope/vim-abolish'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'tpope/vim-sensible'
 Plug 'ledger/vim-ledger'
+" Plug 'easymotion/vim-easymotion'
 " Plug 'vim-syntastic/syntastic'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 

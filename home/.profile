@@ -72,6 +72,12 @@ alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
 alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 
+# Time logging
+alias in="$dt/scripts/recordstart.bash| sh"
+alias out="$dt/scripts/recordend.bash| sh"
+alias shutdown="out && shutdown"
+alias reboot="out && reboot"
+
 #Shortcuts
 alias update_ranger_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/rangershortcuts.awk > $dt/config/ranger/shortcuts.conf"
 alias update_profile_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
@@ -103,6 +109,7 @@ alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~
 
 # Ledger
 alias l="ledger -f $lg/main.ledger"
+alias t="ledger -f $lg/logtimes"
 
 # Personal work
 personal=~/Documents/personal/
@@ -117,7 +124,6 @@ alias vimrc='vi ~/.vimrc'
 function logwrite(){ unbuffer $@ | tee -a logs.txt; }
 alias serverstart='logwrite $(cat startscript) || logwrite npm start'
 alias xresources='vi $dt/home/.Xresources && xrdb $dt/home/.Xresources'
-alias t='tmux'
 export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
 function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions
 
