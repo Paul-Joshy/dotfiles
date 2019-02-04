@@ -175,7 +175,7 @@ bindsym $mod+equal [class="URxvt" instance="Scratch"] scratchpad show
 
 # Vim scratchpad
 exec urxvt -name Vim -e vim vimwiki/index.wiki
-# exec_always urxvt -name Vim -e vim
+# exec_always urxvt -name Vim -e vim vimwiki/index.wiki
 for_window[class="URxvt" instance="Vim"] move window to scratchpad, border 1pixel
 bindsym $mod+m [class="URxvt" instance="Vim"] scratchpad show
 

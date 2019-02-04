@@ -11,6 +11,11 @@ set tabstop=4
 set shiftwidth=4
 call plug#begin('~/.vim/plugged')
 
+" Executes line written in shells and returns output
+nnoremap Q !!$SHELL<CR>
+" Space is the new save
+nnoremap <Space>  :w<CR>
+
 Plug 'tpope/vim-jdaddy'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
@@ -33,7 +38,9 @@ colorscheme gruvbox
 
 " snippets
 inoremap (( ()<Esc>i
+inoremap (; ();<Esc>hi
 inoremap {{ {}<Esc>i
+inoremap {; {};<Esc>hi
 inoremap [[ []<Esc>i
 inoremap "" ""<Esc>i
 inoremap '' ''<Esc>i
