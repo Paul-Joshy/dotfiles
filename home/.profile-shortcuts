@@ -190,3 +190,11 @@ alias xvw="nemo ~/vimwiki/"
 function mvvw(){ mv $@ ~/vimwiki/;}
 function cpvw(){ cp $@ ~/vimwiki/;}
 
+og="~/Videos/Downloaded/informative/origami/"
+alias og="cd "~/Videos/Downloaded/informative/origami/""
+alias rog="r "~/Videos/Downloaded/informative/origami/""
+alias nog="nnn "~/Videos/Downloaded/informative/origami/""
+alias xog="nemo "~/Videos/Downloaded/informative/origami/""
+function mvog(){ mv $@ "~/Videos/Downloaded/informative/origami/";}
+function cpog(){ cp $@ "~/Videos/Downloaded/informative/origami/";}
+

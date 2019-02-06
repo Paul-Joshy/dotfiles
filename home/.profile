@@ -69,9 +69,13 @@ alias rs="reset"
 alias imagetag="exiftool"
 # Internet
 alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
+alias wifirescan='nmcli dev wifi rescan'
 alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
 alias a="alias"
+alias wlist="wifilist"
+alias wscan="wifirescan"
+alias wspeed="internet"
 
 # Time logging
 alias in="$dt/scripts/recordstart.bash| sh"
