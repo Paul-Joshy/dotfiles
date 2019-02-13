@@ -160,6 +160,13 @@ for_window [instance="mpv"] sticky enable
 # Log work time
 exec ./Documents/dotfiles/scripts/recordstart.bash
 
+#i3lock
+bindsym $mod+Escape exec ./Documents/dotfiles/scripts/i3lock.sh
+
+#screensize
+bindsym $mod+i exec ./.screenlayout/big.sh
+bindsym $mod+o exec ./.screenlayout/small.sh
+
 
 # Scratchpads
 

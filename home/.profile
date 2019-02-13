@@ -78,6 +78,7 @@ alias wscan="wifirescan"
 alias wspeed="internet"
 alias big="sh ~/.screenlayout/big.sh"
 alias small="sh ~/.screenlayout/small.sh"
+alias lock="sh $dt/scripts/i3lock.sh"
 
 # Time logging
 alias in="$dt/scripts/recordstart.bash| sh"
