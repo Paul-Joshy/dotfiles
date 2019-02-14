@@ -76,6 +76,8 @@ alias a="alias"
 alias wlist="wifilist"
 alias wscan="wifirescan"
 alias wspeed="internet"
+
+# Custom scripts
 alias big="sh ~/.screenlayout/big.sh"
 alias small="sh ~/.screenlayout/small.sh"
 alias lock="sh $dt/scripts/i3lock.sh"
