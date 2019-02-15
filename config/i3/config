@@ -99,7 +99,7 @@ set $workspace1 "1. General"
 set $workspace2 "2. Coding"
 set $workspace3 "3. Personal"
 set $workspace4 "4. Communications"
-set $workspace5 "5. Servers and password managers"
+set $workspace5 "5. Password managers"
 set $workspace6 "6. Databases"
 set $workspace7 "7. Postman"
 set $workspace8 "8. Notes"
@@ -164,7 +164,9 @@ for_window [instance="mpv"] sticky enable
 exec ./Documents/dotfiles/scripts/recordstart.bash
 
 #i3lock
-bindsym $mod+Escape exec ./Documents/dotfiles/scripts/i3lock.sh
+exec xautolock -time 5 -locker 'i3lock Documents/dotfiles/scripts/i3lock.sh' & #screenshot is not rendering
+bindsym Control+mod1+l exec ./Documents/dotfiles/scripts/i3lock.sh
+# bindsym $mod+Escape exec ./Documents/dotfiles/scripts/i3lock.sh
 
 #screensize
 bindsym $mod+i exec ./.screenlayout/big.sh
