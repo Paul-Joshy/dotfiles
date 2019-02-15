@@ -96,4 +96,4 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "get date
-inoremap <C-d> <C-r>=strftime('%F')<CR>
+inoremap <C-d> <C-r>=strftime('%y/%m/%d')<CR>
