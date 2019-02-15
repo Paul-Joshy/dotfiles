@@ -47,7 +47,7 @@ Plug 'ledger/vim-ledger'
 " Plug 'vim-syntastic/syntastic'
 Plug 'vimwiki/vimwiki'
 Plug 'mildred/vim-ledger-mode'
-
+Plug 'arecarn/vim-selection'
 call plug#end()
 
 colorscheme gruvbox
