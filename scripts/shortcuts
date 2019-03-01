@@ -11,7 +11,7 @@ cm ~/Documents/personal/comics/
 dp ~/Documents/mongodump/
 dt ~/Documents/dotfiles
 dc ~/Documents/
-sc ~/Documents/work-projects/scripts/
+sc ~/Documents/dotfiles/scripts/
 h ~/
 lg ~/Documents/personal/ledger/
 lv ~/Videos/Downloaded/informative/general-linux-stuff/
@@ -24,3 +24,6 @@ eb ~/Documents/ebooks/
 vw ~/vimwiki/
 og ~/Videos/Downloaded/informative/origami/
 sd /etc/systemd/system/
+rg ~/Documents/dotfiles/config/ranger/
+eu ~/Documents/personal/projects/edex-ui/
+pp ~/Documents/personal/projects/

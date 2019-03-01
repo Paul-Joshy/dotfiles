@@ -102,13 +102,13 @@ alias xdc="nemo ~/Documents/"
 function mvdc(){ mv $@ ~/Documents/;}
 function cpdc(){ cp $@ ~/Documents/;}
 
-sc=~/Documents/work-projects/scripts/
-alias sc="cd ~/Documents/work-projects/scripts/"
-alias rsc="r ~/Documents/work-projects/scripts/"
-alias nsc="nnn ~/Documents/work-projects/scripts/"
-alias xsc="nemo ~/Documents/work-projects/scripts/"
-function mvsc(){ mv $@ ~/Documents/work-projects/scripts/;}
-function cpsc(){ cp $@ ~/Documents/work-projects/scripts/;}
+sc=~/Documents/dotfiles/scripts/
+alias sc="cd ~/Documents/dotfiles/scripts/"
+alias rsc="r ~/Documents/dotfiles/scripts/"
+alias nsc="nnn ~/Documents/dotfiles/scripts/"
+alias xsc="nemo ~/Documents/dotfiles/scripts/"
+function mvsc(){ mv $@ ~/Documents/dotfiles/scripts/;}
+function cpsc(){ cp $@ ~/Documents/dotfiles/scripts/;}
 
 h=~/
 alias h="cd ~/"
@@ -205,4 +205,28 @@ alias nsd="nnn /etc/systemd/system/"
 alias xsd="nemo /etc/systemd/system/"
 function mvsd(){ mv $@ /etc/systemd/system/;}
 function cpsd(){ cp $@ /etc/systemd/system/;}
+
+rg=~/Documents/dotfiles/config/ranger/
+alias rg="cd ~/Documents/dotfiles/config/ranger/"
+alias rrg="r ~/Documents/dotfiles/config/ranger/"
+alias nrg="nnn ~/Documents/dotfiles/config/ranger/"
+alias xrg="nemo ~/Documents/dotfiles/config/ranger/"
+function mvrg(){ mv $@ ~/Documents/dotfiles/config/ranger/;}
+function cprg(){ cp $@ ~/Documents/dotfiles/config/ranger/;}
+
+eu=~/Documents/personal/projects/edex-ui/
+alias eu="cd ~/Documents/personal/projects/edex-ui/"
+alias reu="r ~/Documents/personal/projects/edex-ui/"
+alias neu="nnn ~/Documents/personal/projects/edex-ui/"
+alias xeu="nemo ~/Documents/personal/projects/edex-ui/"
+function mveu(){ mv $@ ~/Documents/personal/projects/edex-ui/;}
+function cpeu(){ cp $@ ~/Documents/personal/projects/edex-ui/;}
+
+pp=~/Documents/personal/projects/
+alias pp="cd ~/Documents/personal/projects/"
+alias rpp="r ~/Documents/personal/projects/"
+alias npp="nnn ~/Documents/personal/projects/"
+alias xpp="nemo ~/Documents/personal/projects/"
+function mvpp(){ mv $@ ~/Documents/personal/projects/;}
+function cppp(){ cp $@ ~/Documents/personal/projects/;}
 

@@ -95,15 +95,15 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1. General"
-set $workspace2 "2. Coding"
-set $workspace3 "3. Personal"
-set $workspace4 "4. Communications"
-set $workspace5 "5. Password managers"
-set $workspace6 "6. Databases"
-set $workspace7 "7. Postman"
-set $workspace8 "8. Notes"
-set $workspace9 "9. Chill"
+set $workspace1  "1. General"
+set $workspace2  "2. Coding"
+set $workspace3  "3. Personal"
+set $workspace4  "4. Communications"
+set $workspace5  "5. Password managers"
+set $workspace6  "6. Databases"
+set $workspace7  "7. Postman"
+set $workspace8  "8. Notes"
+set $workspace9  "9. Chill"
 set $workspace10 "10. Extras"
 
 # switch to workspace
@@ -136,10 +136,12 @@ assign [class="Chromium-browser"] $workspace1
 assign [class="Firefox"] $workspace1
 assign [class="Code"] $workspace2
 assign [class="TelegramDesktop"] $workspace3
+assign [class="Bettergram"] $workspace3
 assign [class="Whatsdesk"] $workspace3
 assign [class="whatsdesk"] $workspace3
 assign [class="Mailspring"] $workspace3
 assign [class="Flock"] $workspace4
+assign [class="Station"] $workspace3
 assign [class="Bitwarden"] $workspace5
 assign [class="keepassxc"] $workspace5
 assign [class="MongoDB Compass"] $workspace6
@@ -159,12 +161,14 @@ for_window [instance="mpv"] floating enable
 for_window [instance="mpv"] floating enable
 for_window [class="mpv"] sticky enable
 for_window [instance="mpv"] sticky enable
+for_window [class="Nemo"] floating enable
+for_window [class="Nemo"] resize set 1000 500
 
 # Log work time
 exec ./Documents/dotfiles/scripts/recordstart.bash
 
 #i3lock
-exec xautolock -time 5 -locker 'i3lock Documents/dotfiles/scripts/i3lock.sh' & #screenshot is not rendering
+exec xautolock -time 10 -locker 'i3lock Documents/dotfiles/scripts/i3lock.sh' & #screenshot is not rendering
 bindsym Control+mod1+l exec ./Documents/dotfiles/scripts/i3lock.sh
 # bindsym $mod+Escape exec ./Documents/dotfiles/scripts/i3lock.sh
 
@@ -172,6 +176,10 @@ bindsym Control+mod1+l exec ./Documents/dotfiles/scripts/i3lock.sh
 bindsym $mod+i exec ./.screenlayout/big.sh
 bindsym $mod+o exec ./.screenlayout/small.sh
 
+# Program shortcuts
+bindsym $mod+c exec google-chrome
+bindsym $mod+Shift+c exec chromium-browser
+bindsym $mod+Shift+f exec nemo
 
 # Scratchpads
 
@@ -200,6 +208,7 @@ bindsym $mod+m [class="URxvt" instance="Vim"] scratchpad show
 
 # Tmux scratchpad
 exec urxvt -name Tmux -e tmux
+# exec_always urxvt -name Tmux -e tmux
 for_window[class="URxvt" instance="Tmux"] move window to scratchpad, border 1pixel
 bindsym $mod+shift+minus [class="URxvt" instance="Tmux"] scratchpad show
 
@@ -207,11 +216,11 @@ bindsym $mod+shift+minus [class="URxvt" instance="Tmux"] scratchpad show
 for_window [window_role="pop-up"] floating enable
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+# bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "./Documents/dotfiles/scripts/recordend.bash && i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -241,12 +250,51 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#
+# Window Colours
+  client.focused $base0D $base0D $base00 $base01
+  client.focused_inactive $base02 $base02 $base03 $base01
+  client.unfocused $base01 $base01 $base03 $base01
+  client.urgent $base02 $base08 $base07 $base08
+
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+# bar {
+#         status_command i3status
+# }
+
 bar {
-        status_command i3status
+    position bottom
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    colors {
+        # bar background color
+        background $bg
+        # text color used for blocks that do not have a color specified.
+        statusline $yellow
+        # workspaces section            
+        #                    border  backgr. text
+        focused_workspace    $aqua $aqua $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red $red $bg
+    }
 }
 
-
-# Custom commands
+# green gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $green $green $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
 
 # Trackpad enable natural scrolling
 exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelta=-50
@@ -339,3 +387,4 @@ set $volumestep 5
 bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
+

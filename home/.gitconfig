@@ -5,7 +5,7 @@
 	st = status --short
 	l = log
 	a = add *
-	c = commit
+	c = commit -m
 	ch = checkout
 	cb = checkout -b
 	cp = checkout -p
@@ -15,4 +15,5 @@
 	d = diff
 	dc = diff --cached
 	ignore = update-index --assume-unchanged
+	skip = update-index --skip-worktree
 	store = config credential.helper store

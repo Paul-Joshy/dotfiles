@@ -34,7 +34,7 @@ fi
 source ~/.profile-shortcuts
 source ~/.config/up/up.sh
 source $dt/work/work_aliases.sh
-
+source /etc/zsh_command_not_found
 
 # Dotfiles
 dotfiles=~/Documents/dotfiles
@@ -58,9 +58,12 @@ alias i3config="vi $i3/config"
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
 function li(){ sudo light -S $@; } # changes the brighness percent
 function apti() { sudo apt install -y $@; }
+alias update="sudo apt update -y"
+alias upgrade="sudo apt dist-upgrade -y"
 function debug(){ vi $(which $@); }
 function rcd(){ awk -F"," '{print "pushd " $1 " && " $2 " && popd"}' | bash; }
 alias r="ranger"
+alias n="nnn"
 alias p="pwd"
 alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
@@ -68,33 +71,40 @@ alias comments='sed -i "/#.*/!d"'
 alias rs="reset"
 alias imagetag="exiftool"
 # Internet
-alias wifilist='watch -c "unbuffer nmcli dev wifi"' # outputs the list of wifi
+alias wifilist='watch -c "nmcli dev wifi"' # outputs the list of wifi
 alias wifirescan='nmcli dev wifi rescan'
 alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
+alias net="internet"
 function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
+alias wconnect="wificonnect"
 alias a="alias"
 alias wlist="wifilist"
 alias wscan="wifirescan"
 alias wspeed="internet"
+alias rnet="sudo systemctl restart NetworkManager.service"
 
 # Custom scripts
+
+## Display
 alias big="sh ~/.screenlayout/big.sh"
 alias small="sh ~/.screenlayout/small.sh"
 alias lock="sh $dt/scripts/i3lock.sh"
 
-# Time logging
+## Time logging
 alias in="$dt/scripts/recordstart.bash| sh"
 alias out="$dt/scripts/recordend.bash| sh"
 alias shutdown="out && shutdown"
 alias reboot="out && reboot"
+alias i3shutdown="out && i3-msg-exit"
 
-#Shortcuts
+## Shortcuts
 alias update_ranger_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/rangershortcuts.awk > $dt/config/ranger/shortcuts.conf"
 alias update_profile_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/profileshortcuts.awk > ~/.profile-shortcuts"
 alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && source ~/.profile-shortcuts"
+
 s=$dt/scripts/shortcuts
 alias es="vi $s && update_shortcuts"
-alias s="cat $s"
+alias s="cat $s| less"
 
 # Emacs and spacemacs
 alias emacs_copy='pushd $ec/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d .emacs.d && popd'
@@ -120,6 +130,8 @@ alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~
 # Ledger
 alias l="ledger -f $lg/main.ledger"
 alias t="ledger -f $lg/logtimes"
+alias lbtm="echo 'Ledger Balance this month' && l b --S amount --flat --period \"this month\"" # Ledger balance this month
+alias lblm="echo 'Ledger balance last month' && l b --S amount --flat --period \"last month\"" # Ledger balance last month
 
 # Personal work
 personal=~/Documents/personal/
@@ -128,6 +140,7 @@ servers=~/Documents/servers/
 # Development
 alias npms='npm i -s'
 alias mongostart='sudo service mongod start' # starts mongodb server
+function findp () { ps -A | grep $(fuser $@/tcp) } # finds process based on port
 function killp () { fuser -k $@/tcp;  } # kills process based on port
 alias logs='tail -f logs.txt' # outputs a live stream of a file that's being written live
 alias vimrc='vi ~/.vimrc'
@@ -136,6 +149,8 @@ alias serverstart='logwrite $(cat startscript) || logwrite npm start'
 alias xresources='vi $dt/home/.Xresources && xrdb $dt/home/.Xresources'
 export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory running out issue
 function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions
+alias ngs="ng s"
+alias ngsp="ng s --prod"
 
 # Git commands
 alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
@@ -155,18 +170,18 @@ alias pause='playerctl pause'
 alias next='playerctl next'
 alias prev='playerctl previous'
 
-# Logs
-todoadd(){ echo $@ >> ~/Documents/todo && reset; }
-caplog(){ echo $@ >> ~/Documents/captains_log && clear; }
-vidadd(){ echo $@ >> ~/Videos/Downloaded/download-list; }
-tipsadd() {echo $@ >> ~/Documents/tips; }
-alias todoedit='vi ~/Documents/todo'
-alias todoview='cat ~/Documents/todo | removecomments'
-alias ta='todoadd'
-alias cl='caplog'
-alias te='todoedit'
-alias tv='todoview'
-alias va='vidadd'
+# # Logs
+# todoadd(){ echo $@ >> ~/Documents/todo && reset; }
+# caplog(){ echo $@ >> ~/Documents/captains_log && clear; }
+# vidadd(){ echo $@ >> ~/Videos/Downloaded/download-list; }
+# tipsadd() {echo $@ >> ~/Documents/tips; }
+# alias todoedit='vi ~/Documents/todo'
+# alias todoview='cat ~/Documents/todo | removecomments'
+# alias ta='todoadd'
+# alias cl='caplog'
+# alias te='todoedit'
+# alias tv='todoview'
+# alias va='vidadd'
 
 # Random
 function cowstomize(){cowsay -f $@ zoo wee mama;}
