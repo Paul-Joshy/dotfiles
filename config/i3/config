@@ -268,26 +268,40 @@ set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
 
-# bar {
-#         status_command i3status
-# }
-
 bar {
-    position bottom
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    colors {
-        # bar background color
-        background $bg
-        # text color used for blocks that do not have a color specified.
-        statusline $yellow
-        # workspaces section            
-        #                    border  backgr. text
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-    }
+        status_command i3status
+		colors {
+			# bar background color
+			background $bg
+			# text color used for blocks that do not have a color specified.
+			statusline $yellow
+			# workspaces section            
+			#                    border  backgr. text
+			focused_workspace    $aqua $aqua $darkgray
+			inactive_workspace   $darkgray $darkgray $yellow
+			active_workspace     $darkgray $darkgray $yellow
+			urgent_workspace     $red $red $bg
+		}
+
 }
+
+# bar {
+#     	position bottom
+# 		status command i3status
+#     # status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#     colors {
+#         # bar background color
+#         background $bg
+#         # text color used for blocks that do not have a color specified.
+#         statusline $yellow
+#         # workspaces section            
+#         #                    border  backgr. text
+#         focused_workspace    $aqua $aqua $darkgray
+#         inactive_workspace   $darkgray $darkgray $yellow
+#         active_workspace     $darkgray $darkgray $yellow
+#         urgent_workspace     $red $red $bg
+#     }
+# }
 
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border

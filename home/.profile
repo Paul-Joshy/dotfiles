@@ -53,6 +53,7 @@ alias rcconf="vi $rcconf"
 # alias zshrc="edit $zshrc"
 alias vimrc="vi $vimrc"
 alias i3config="vi $i3/config"
+alias vvim="vim -u NONE"
 
 # General
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
@@ -82,6 +83,9 @@ alias wlist="wifilist"
 alias wscan="wifirescan"
 alias wspeed="internet"
 alias rnet="sudo systemctl restart NetworkManager.service"
+alias xclip="xclip -selection c"
+alias history-uniq="history | awk '{$1=\"\"; print;}'| sort| uniq"
+alias l="ls"
 
 # Custom scripts
 
@@ -89,6 +93,9 @@ alias rnet="sudo systemctl restart NetworkManager.service"
 alias big="sh ~/.screenlayout/big.sh"
 alias small="sh ~/.screenlayout/small.sh"
 alias lock="sh $dt/scripts/i3lock.sh"
+
+#git
+alias gitremote="sh $dt/scripts/gitremote"
 
 ## Time logging
 alias in="$dt/scripts/recordstart.bash| sh"
@@ -128,7 +135,7 @@ alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~
 # }
 
 # Ledger
-alias l="ledger -f $lg/main.ledger"
+alias lf="ledger -f $lg/main.ledger"
 alias t="ledger -f $lg/logtimes"
 alias lbtm="echo 'Ledger Balance this month' && l b --S amount --flat --period \"this month\"" # Ledger balance this month
 alias lblm="echo 'Ledger balance last month' && l b --S amount --flat --period \"last month\"" # Ledger balance last month
@@ -140,6 +147,7 @@ servers=~/Documents/servers/
 # Development
 alias npms='npm i -s'
 alias mongostart='sudo service mongod start' # starts mongodb server
+alias mongozip="mongorestore --drop --gzip"
 function findp () { ps -A | grep $(fuser $@/tcp) } # finds process based on port
 function killp () { fuser -k $@/tcp;  } # kills process based on port
 alias logs='tail -f logs.txt' # outputs a live stream of a file that's being written live
@@ -151,14 +159,19 @@ export NODE_OPTIONS=--max_old_space_size=4096 # to fix the javascript memory run
 function bashtouch(){ touch $@ && echo "#!/usr/bin/env bash" >> $@ && chmod +x $@ && vi $@;  } # create bash file, add shebangs and give exec permissions
 alias ngs="ng s"
 alias ngsp="ng s --prod"
+# alias ip="$dt/scripts/ip"
+function ip(){
+	$dt/scripts/ip;
+	$dt/scripts/ip | tail -n 1| xclip &&
+		echo "Copied ip to clipboard!"
+}
 
 # Git commands
 alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
-function gits(){echo $(alias | grep "$@") && git $@; }
+function gits(){echo $( alias | grep "git $@") && git $@; }
 alias gitignore='vi .gitignore'
 alias gcop='git checkout -p'
 alias gitconfig='vi $dt/home/.gitconfig'
-
 # Music & Video
 alias youtube-dl='youtube-dl --ignore-errors --continue'
 alias download_music='youtube-dl --extract-audio --audio-format mp3 $(parsecomments download-list) -o "%(title)s.%(ext)s" && removecomments download-list >> ~/Music/Downloaded/downloaded-list && comments download-list'
