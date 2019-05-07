@@ -58,6 +58,8 @@ alias vvim="vim -u NONE"
 # General
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present
 function li(){ sudo light -S $@; } # changes the brighness percent
+alias lumos="li 100"
+alias nox="li 10"
 function apti() { sudo apt install -y $@; }
 alias update="sudo apt update -y"
 alias upgrade="sudo apt dist-upgrade -y"
@@ -70,22 +72,26 @@ alias removecomments='sed "/#.*/d"'
 function parsecomments(){ cat $@ | sed "/#.*/d" | awk '{print $1}'; }
 alias comments='sed -i "/#.*/!d"' 
 alias rs="reset"
+alias rsh="rs && h"
 alias imagetag="exiftool"
 # Internet
 alias wifilist='watch -c "nmcli dev wifi"' # outputs the list of wifi
 alias wifirescan='nmcli dev wifi rescan'
 alias internet='speedtest-cli && ping -c 4 8.8.8.8' # check for internet speed
 alias net="internet"
-function wificonnect() { nmcli --ask device wifi connect $@; } # prompt which asks for wifi password after typing wifi SSID
+alias wificonnect="sc && ./wificonnect ; cd -"
+alias wifiautoconnect="sc && ./wifiautoconnect; cd -"
 alias wconnect="wificonnect"
+alias waconnect="wifiautoconnect"
 alias a="alias"
 alias wlist="wifilist"
 alias wscan="wifirescan"
 alias wspeed="internet"
 alias rnet="sudo systemctl restart NetworkManager.service"
-alias xclip="xclip -selection c"
+# alias xclip="xclip -selection c"
 alias history-uniq="history | awk '{$1=\"\"; print;}'| sort| uniq"
 alias l="ls"
+alias v="vim"
 
 # Custom scripts
 
@@ -103,6 +109,7 @@ alias out="$dt/scripts/recordend.bash| sh"
 alias shutdown="out && shutdown"
 alias reboot="out && reboot"
 alias i3shutdown="out && i3-msg-exit"
+alias clip="xclip -selection C"
 
 ## Shortcuts
 alias update_ranger_shortcuts="cat $dt/scripts/shortcuts | /$dt/scripts/rangershortcuts.awk > $dt/config/ranger/shortcuts.conf"
@@ -137,8 +144,8 @@ alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~
 # Ledger
 alias lf="ledger -f $lg/main.ledger"
 alias t="ledger -f $lg/logtimes"
-alias lbtm="echo 'Ledger Balance this month' && l b --S amount --flat --period \"this month\"" # Ledger balance this month
-alias lblm="echo 'Ledger balance last month' && l b --S amount --flat --period \"last month\"" # Ledger balance last month
+alias lbtm="echo 'Ledger Balance this month' && lf b -S amount --flat --period \"this month\"" # Ledger balance this month
+alias lblm="echo 'Ledger balance last month' && lf b -S amount --flat --period \"last month\"" # Ledger balance last month
 
 # Personal work
 personal=~/Documents/personal/
@@ -149,6 +156,7 @@ alias npms='npm i -s'
 alias mongostart='sudo service mongod start' # starts mongodb server
 alias mongozip="mongorestore --drop --gzip"
 function findp () { ps -A | grep $(fuser $@/tcp) } # finds process based on port
+alias killvid="fuser -k /dev/video0"
 function killp () { fuser -k $@/tcp;  } # kills process based on port
 alias logs='tail -f logs.txt' # outputs a live stream of a file that's being written live
 alias vimrc='vi ~/.vimrc'
@@ -162,9 +170,10 @@ alias ngsp="ng s --prod"
 # alias ip="$dt/scripts/ip"
 function ip(){
 	$dt/scripts/ip;
-	$dt/scripts/ip | tail -n 1| xclip &&
+	$dt/scripts/ip | tail -n 1| xclip -selection C &&
 		echo "Copied ip to clipboard!"
 }
+function hastebin(){ cat $@| haste| xclip -selection c; } # Import file to hastebin and store link in clipboard
 
 # Git commands
 alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
@@ -205,3 +214,4 @@ sort -R ~/Documents/tips | head -n1
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+export EDITOR="vim"

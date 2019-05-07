@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
 git remote -v| tail -n 1 | awk '{print $2}'|xclip -selection C;
+echo "Git remotes"
+echo "==========="
 git remote -v;
 echo "copied to clipboard!";

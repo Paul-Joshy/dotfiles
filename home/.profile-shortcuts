@@ -230,3 +230,35 @@ alias xpp="nemo ~/Documents/personal/projects/"
 function mvpp(){ mv $@ ~/Documents/personal/projects/;}
 function cppp(){ cp $@ ~/Documents/personal/projects/;}
 
+mm=~/Documents/micropearls-media/
+alias mm="cd ~/Documents/micropearls-media/"
+alias rmm="r ~/Documents/micropearls-media/"
+alias nmm="nnn ~/Documents/micropearls-media/"
+alias xmm="nemo ~/Documents/micropearls-media/"
+function mvmm(){ mv $@ ~/Documents/micropearls-media/;}
+function cpmm(){ cp $@ ~/Documents/micropearls-media/;}
+
+ds=~/Documents/work-projects/dist-files/
+alias ds="cd ~/Documents/work-projects/dist-files/"
+alias rds="r ~/Documents/work-projects/dist-files/"
+alias nds="nnn ~/Documents/work-projects/dist-files/"
+alias xds="nemo ~/Documents/work-projects/dist-files/"
+function mvds(){ mv $@ ~/Documents/work-projects/dist-files/;}
+function cpds(){ cp $@ ~/Documents/work-projects/dist-files/;}
+
+dsmp=~/Documents/work-projects/dist-files/micropearls-api/
+alias dsmp="cd ~/Documents/work-projects/dist-files/micropearls-api/"
+alias rdsmp="r ~/Documents/work-projects/dist-files/micropearls-api/"
+alias ndsmp="nnn ~/Documents/work-projects/dist-files/micropearls-api/"
+alias xdsmp="nemo ~/Documents/work-projects/dist-files/micropearls-api/"
+function mvdsmp(){ mv $@ ~/Documents/work-projects/dist-files/micropearls-api/;}
+function cpdsmp(){ cp $@ ~/Documents/work-projects/dist-files/micropearls-api/;}
+
+nm=/etc/NetworkManager/
+alias nm="cd /etc/NetworkManager/"
+alias rnm="r /etc/NetworkManager/"
+alias nnm="nnn /etc/NetworkManager/"
+alias xnm="nemo /etc/NetworkManager/"
+function mvnm(){ mv $@ /etc/NetworkManager/;}
+function cpnm(){ cp $@ /etc/NetworkManager/;}
+
