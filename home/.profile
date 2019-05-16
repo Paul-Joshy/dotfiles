@@ -206,7 +206,8 @@ alias prev='playerctl previous'
 # alias va='vidadd'
 
 # Random
-function cowstomize(){cowsay -f $@ zoo wee mama;}
+function cowstomize(){cowsay -f $(cat $sc/formats.txt | dmenu -l 10) zoo wee mama;}
+alias cows="cowstomize"
 
 # fortune -s | lolcat
 sort -R ~/Documents/tips | head -n1

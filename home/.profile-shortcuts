@@ -262,3 +262,11 @@ alias xnm="nemo /etc/NetworkManager/"
 function mvnm(){ mv $@ /etc/NetworkManager/;}
 function cpnm(){ cp $@ /etc/NetworkManager/;}
 
+vd=~/Videos/
+alias vd="cd ~/Videos/"
+alias rvd="r ~/Videos/"
+alias nvd="nnn ~/Videos/"
+alias xvd="nemo ~/Videos/"
+function mvvd(){ mv $@ ~/Videos/;}
+function cpvd(){ cp $@ ~/Videos/;}
+

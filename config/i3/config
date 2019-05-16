@@ -409,4 +409,3 @@ set $volumestep 5
 bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
-
