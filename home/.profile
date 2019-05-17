@@ -82,7 +82,7 @@ alias net="internet"
 alias wificonnect="sc && ./wificonnect ; cd -"
 alias wifiautoconnect="sc && ./wifiautoconnect; cd -"
 alias wconnect="wificonnect"
-alias winfo="sc && ./winfo; cd -"
+alias winfo="sc && ./winfo | less; cd -"
 alias wpass="sc && ./winfo | grep psk; cd -"
 alias waconnect="wifiautoconnect"
 alias a="alias"
@@ -172,7 +172,7 @@ alias ngsp="ng s --prod"
 # alias ip="$dt/scripts/ip"
 function ip(){
 	$dt/scripts/ip;
-	$dt/scripts/ip | tail -n 1| xclip -selection C &&
+	$dt/scripts/ip | head -4 | tail -1| xclip -selection C &&
 		echo "Copied ip to clipboard!"
 }
 function hastebin(){ cat $@| haste| xclip -selection c; } # Import file to hastebin and store link in clipboard
