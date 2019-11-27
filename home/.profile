@@ -98,6 +98,8 @@ alias sound="alsamixer"
 
 # Custom scripts
 
+alias hostip="sh /$dt/scripts/hostip"
+
 ## Display
 alias big="sh ~/.screenlayout/big.sh"
 alias small="sh ~/.screenlayout/small.sh"
