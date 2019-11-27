@@ -26,13 +26,13 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-[ -s "/home/user/.jabba/jabba.sh" ] && source "/home/user/.jabba/jabba.sh"
+[ -s "/home/paul/.jabba/jabba.sh" ] && source "/home/paul/.jabba/jabba.sh"
 
 # User commands
 
 # sources
 source ~/.profile-shortcuts
-source ~/.config/up/up.sh
+# source ~/.config/up/up.sh
 source $dt/work/work_aliases.sh
 source /etc/zsh_command_not_found
 
@@ -93,7 +93,8 @@ alias rnet="sudo systemctl restart NetworkManager.service"
 # alias xclip="xclip -selection c"
 alias history-uniq="history | awk '{$1=\"\"; print;}'| sort| uniq"
 alias l="ls"
-alias v="vim"
+# alias v="vim"
+alias sound="alsamixer"
 
 # Custom scripts
 
@@ -104,6 +105,10 @@ alias lock="sh $dt/scripts/i3lock.sh"
 
 #git
 alias gitremote="sh $dt/scripts/gitremote"
+
+# Typos
+alias gti="git"
+alias usdo="sudo"
 
 ## Time logging
 alias in="$dt/scripts/recordstart.bash| sh"
@@ -212,7 +217,7 @@ function cowstomize(){cowsay -f $(cat $sc/formats.txt | dmenu -l 10) zoo wee mam
 alias cows="cowstomize"
 
 # fortune -s | lolcat
-sort -R ~/Documents/tips | head -n1
+# sort -R ~/Documents/tips | head -n1
 
 
 export NVM_DIR="$HOME/.nvm"

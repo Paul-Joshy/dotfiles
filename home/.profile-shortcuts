@@ -78,13 +78,13 @@ alias xcm="nemo ~/Documents/personal/comics/"
 function mvcm(){ mv $@ ~/Documents/personal/comics/;}
 function cpcm(){ cp $@ ~/Documents/personal/comics/;}
 
-dp=~/Documents/mongodump/
-alias dp="cd ~/Documents/mongodump/"
-alias rdp="r ~/Documents/mongodump/"
-alias ndp="nnn ~/Documents/mongodump/"
-alias xdp="nemo ~/Documents/mongodump/"
-function mvdp(){ mv $@ ~/Documents/mongodump/;}
-function cpdp(){ cp $@ ~/Documents/mongodump/;}
+dp=~/Documents/work-projects/db-dumps/
+alias dp="cd ~/Documents/work-projects/db-dumps/"
+alias rdp="r ~/Documents/work-projects/db-dumps/"
+alias ndp="nnn ~/Documents/work-projects/db-dumps/"
+alias xdp="nemo ~/Documents/work-projects/db-dumps/"
+function mvdp(){ mv $@ ~/Documents/work-projects/db-dumps/;}
+function cpdp(){ cp $@ ~/Documents/work-projects/db-dumps/;}
 
 dt=~/Documents/dotfiles
 alias dt="cd ~/Documents/dotfiles"
@@ -269,4 +269,12 @@ alias nvd="nnn ~/Videos/"
 alias xvd="nemo ~/Videos/"
 function mvvd(){ mv $@ ~/Videos/;}
 function cpvd(){ cp $@ ~/Videos/;}
+
+sk=~/snap/skype/common/
+alias sk="cd ~/snap/skype/common/"
+alias rsk="r ~/snap/skype/common/"
+alias nsk="nnn ~/snap/skype/common/"
+alias xsk="nemo ~/snap/skype/common/"
+function mvsk(){ mv $@ ~/snap/skype/common/;}
+function cpsk(){ cp $@ ~/snap/skype/common/;}
 

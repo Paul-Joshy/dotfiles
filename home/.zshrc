@@ -3,7 +3,7 @@ bindkey \^U backward-kill-line
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/user/.oh-my-zsh"
+  export ZSH="/home/paul/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -66,6 +66,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -105,7 +106,7 @@ alias zshrc='edit $zshrc'
 source ~/.profile
 
 # PM functions
-source ~/.pm/pm.zsh
+# source ~/.pm/pm.zsh
 alias pma="pm add"
 alias pmg="pm go"
 alias pmrm="pm remove"

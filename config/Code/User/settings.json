@@ -12,8 +12,10 @@
         "editor.selectionBackground": "#135564",
         "editor.selectionHighlightBackground": "#135564"
     },
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "breadcrumbs.enabled": true,
     "gitlens.views.repositories.files.layout": "list",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "gitlens.mode.active": "review",
+    "aws.samcli.location": "/home/paul/.local/bin/sam"
 }

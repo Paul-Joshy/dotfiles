@@ -133,7 +133,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # assign programs to workspaces
 assign [class="Google-chrome"] $workspace1
 assign [class="Chromium-browser"] $workspace1
-assign [class="Firefox"] $workspace1
+assign [class="Firefox"] $workspace9
 assign [class="Code"] $workspace2
 assign [class="TelegramDesktop"] $workspace3
 assign [class="Bettergram"] $workspace3
@@ -144,8 +144,9 @@ assign [class="Flock"] $workspace4
 assign [class="Skype"] $workspace4
 assign [class="Station"] $workspace3
 assign [class="Bitwarden"] $workspace5
-assign [class="keepassxc"] $workspace5
+assign [class="KeePassXC"] $workspace5
 assign [class="MongoDB Compass"] $workspace6
+assign [class="Mysql-workbench-bin"] $workspace6
 assign [class="Postman"] $workspace7
 assign [class="Boostnote"] $workspace8
 assign [class="Sublime_text"] $workspace8
@@ -173,7 +174,7 @@ for_window [class="vlc"] sticky enable
 for_window [instance="vlc"] sticky enable
 
 # Log work time
-exec ./Documents/dotfiles/scripts/recordstart.bash
+# exec ./Documents/dotfiles/scripts/recordstart.bash
 
 #i3lock
 exec xautolock -time 10 -locker 'i3lock Documents/dotfiles/scripts/i3lock.sh' & #screenshot is not rendering
@@ -228,7 +229,7 @@ for_window [window_role="pop-up"] floating enable
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "./Documents/dotfiles/scripts/recordend.bash && i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

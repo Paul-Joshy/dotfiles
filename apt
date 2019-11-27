@@ -1,6 +1,7 @@
 vim
+scrot
 i3
-# i3-status
+i3status
 dmenu
 j4-dmenu-desktop
 rxvt-unicode
@@ -10,7 +11,7 @@ speedtest-cli
 zathura*
 openvpn
 flatpak
-# chromium
+chromium-browser
 daemonize
 stow
 nginx
@@ -34,8 +35,8 @@ virtualbox
 mpd
 ncmpcpp
 oneko
-light
-playerctl
+# light
+# playerctl
 # taffy
 ruby
 # taglib
@@ -44,8 +45,10 @@ lame
 qutebrowser
 surf
 xclip
-links2
+# links2
 neofetch
 xautolock
-ledger
-ohcount
+# ledger
+# ohcount
+lxappearance
+imagemagick
