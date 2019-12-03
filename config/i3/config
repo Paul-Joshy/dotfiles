@@ -152,6 +152,7 @@ assign [class="Boostnote"] $workspace8
 assign [class="Sublime_text"] $workspace8
 assign [class="Emacs"] $workspace8
 for_window [class="Spotify"] move to workspace $workspace9
+assign [class="Headset"] $workspace9
 # assign [class="mpv"] $workspace9
 
 # Configure layouts

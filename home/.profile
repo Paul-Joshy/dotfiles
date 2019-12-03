@@ -182,7 +182,7 @@ function ip(){
 	$dt/scripts/ip | head -4 | tail -1| xclip -selection C &&
 		echo "Copied ip to clipboard!"
 }
-function hastebin(){ cat $@| haste| xclip -selection c; } # Import file to hastebin and store link in clipboard
+function hb(){ cat $@| hastebin| xclip -selection c; } # Import file to hastebin and store link in clipboard
 
 # Git commands
 alias gitfind='find -name .git | sed "/Documents/!d"' #finds all projects initialized with git in documents
