@@ -49,6 +49,7 @@ rcconf=$dt/config/ranger/rc.conf
 function edit(){ vi $@ && source $@; } # edit files and source them
 alias profile="edit $profile"
 alias rcconf="vi $rcconf"
+alias waliases="vi $dt/work/work_aliases.sh && source $profile"
 # alias bashrc="edit $bashrc"
 # alias zshrc="edit $zshrc"
 alias vimrc="vi $vimrc"
@@ -95,6 +96,8 @@ alias history-uniq="history | awk '{$1=\"\"; print;}'| sort| uniq"
 alias l="ls"
 # alias v="vim"
 alias sound="alsamixer"
+alias slsd="sls deploy"
+alias slsdf="sls deploy --force"
 
 # Custom scripts
 
@@ -107,9 +110,12 @@ alias lock="sh $dt/scripts/i3lock.sh"
 
 #git
 alias gitremote="sh $dt/scripts/gitremote"
+alias gpo="git pull origin"
+alias gr="gitremote"
 
 # Typos
 alias gti="git"
+alias itg="git"
 alias usdo="sudo"
 
 ## Time logging

@@ -150,13 +150,13 @@ alias xtg="nemo ~/Downloads/Telegram-Desktop/"
 function mvtg(){ mv $@ ~/Downloads/Telegram-Desktop/;}
 function cptg(){ cp $@ ~/Downloads/Telegram-Desktop/;}
 
-md=/media/user/
-alias md="cd /media/user/"
-alias rmd="r /media/user/"
-alias nmd="nnn /media/user/"
-alias xmd="nemo /media/user/"
-function mvmd(){ mv $@ /media/user/;}
-function cpmd(){ cp $@ /media/user/;}
+md=/media/paul/
+alias md="cd /media/paul/"
+alias rmd="r /media/paul/"
+alias nmd="nnn /media/paul/"
+alias xmd="nemo /media/paul/"
+function mvmd(){ mv $@ /media/paul/;}
+function cpmd(){ cp $@ /media/paul/;}
 
 of=~/Documents/org-files/
 alias of="cd ~/Documents/org-files/"
@@ -277,4 +277,12 @@ alias nsk="nnn ~/snap/skype/common/"
 alias xsk="nemo ~/snap/skype/common/"
 function mvsk(){ mv $@ ~/snap/skype/common/;}
 function cpsk(){ cp $@ ~/snap/skype/common/;}
+
+pe=~/Documents/personal/project-euler/
+alias pe="cd ~/Documents/personal/project-euler/"
+alias rpe="r ~/Documents/personal/project-euler/"
+alias npe="nnn ~/Documents/personal/project-euler/"
+alias xpe="nemo ~/Documents/personal/project-euler/"
+function mvpe(){ mv $@ ~/Documents/personal/project-euler/;}
+function cppe(){ cp $@ ~/Documents/personal/project-euler/;}
 

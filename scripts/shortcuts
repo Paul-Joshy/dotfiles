@@ -17,7 +17,7 @@ lg ~/Documents/personal/ledger/
 lv ~/Videos/Downloaded/informative/general-linux-stuff/
 ec ~/Documents/emacs-conf/
 tg ~/Downloads/Telegram-Desktop/
-md /media/user/
+md /media/paul/
 of ~/Documents/org-files/
 ms ~/Music/
 eb ~/Documents/ebooks/
@@ -33,3 +33,4 @@ dsmp ~/Documents/work-projects/dist-files/micropearls-api/
 nm /etc/NetworkManager/
 vd ~/Videos/
 sk ~/snap/skype/common/
+pe ~/Documents/personal/project-euler/

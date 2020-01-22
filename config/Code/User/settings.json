@@ -7,15 +7,24 @@
     "javascript.preferences.quoteStyle": "single",
     "prettier.singleQuote": true,
     "terminal.integrated.rendererType": "dom",
-    "workbench.colorTheme": "Gruvbox Dark (Soft)",
     "workbench.colorCustomizations": {
         "editor.selectionBackground": "#135564",
-        "editor.selectionHighlightBackground": "#135564"
+        "editor.selectionHighlightBackground": "#135564",
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
     },
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "breadcrumbs.enabled": true,
     "gitlens.views.repositories.files.layout": "list",
     "workbench.startupEditor": "newUntitledFile",
-    "gitlens.mode.active": "review",
-    "aws.samcli.location": "/home/paul/.local/bin/sam"
+    "gitlens.mode.active": "zen",
+    "aws.samcli.location": "/home/paul/.local/bin/sam",
+    "vim.debug.silent": true,
+    "vim.hlsearch": true,
+    "vim.statusBarColorControl": true,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "~/.vimrc",
+    "vim.visualstar": true,
+    "html.mirrorCursorOnMatchingTag": false
 }

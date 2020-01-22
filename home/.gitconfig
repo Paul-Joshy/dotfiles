@@ -17,3 +17,11 @@
 	ignore = update-index --assume-unchanged
 	skip = update-index --skip-worktree
 	store = config credential.helper store
+[merge]
+	tool = vscode
+[mergetool "vscode"]
+	 cmd = code --wait $MERGED
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cms = code --wait --diff $LOCAL $REMOTE
