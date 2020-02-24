@@ -1,4 +1,4 @@
-# ~/.profile: executed by the command interpreter for login shells.
+# ~t/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
 # see /usr/share/doc/bash/examples/startup-files for examples.
@@ -135,9 +135,20 @@ s=$dt/scripts/shortcuts
 alias es="vi $s && update_shortcuts"
 alias s="cat $s| less"
 
+# Google translate
+function translateenglish(){ trans --brief :en "$@"; }
+alias tren="translateenglish"
+function translategerman(){ trans --brief :de "$@"; }
+alias trde="translategerman"
+function translatespanish(){ trans --brief :es "$@"; }
+alias tres="translatespanish"
+
 # Emacs and spacemacs
 alias emacs_copy='pushd $ec/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d .emacs.d && popd'
 alias spacemacs_copy='pushd $ec/spacemacs/ && rm -fdR ~/.emacs.d/* && stow -vt ~/.emacs.d/ .emacs.d && popd'
+
+# Buku aliases
+alias webo="buku -t --np --oa"
 
 # function emacs(){
 # 	pushd $ec/ &&
@@ -223,6 +234,12 @@ alias prev='playerctl previous'
 # Random
 function cowstomize(){cowsay -f $(cat $sc/formats.txt | dmenu -l 10) zoo wee mama;}
 alias cows="cowstomize"
+
+# fun stuff
+# alias usetheforceluke='$(fc -ln -1) --force'
+# alias nowwatchmewhip='$(fc -ln -1) --watch'
+# alias justfuckingdoit='sudo sh -c "$(fc -ln -1)"'
+
 
 # fortune -s | lolcat
 # sort -R ~/Documents/tips | head -n1

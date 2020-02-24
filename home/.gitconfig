@@ -17,6 +17,7 @@
 	ignore = update-index --assume-unchanged
 	skip = update-index --skip-worktree
 	store = config credential.helper store
+	rsh = reset --hard HEAD
 [merge]
 	tool = vscode
 [mergetool "vscode"]

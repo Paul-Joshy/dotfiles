@@ -14,11 +14,11 @@
         "statusBar.noFolderBackground": "#005f5f",
         "statusBar.debuggingBackground": "#005f5f"
     },
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "breadcrumbs.enabled": true,
     "gitlens.views.repositories.files.layout": "list",
     "workbench.startupEditor": "newUntitledFile",
-    "gitlens.mode.active": "zen",
+    "gitlens.mode.active": "review",
     "aws.samcli.location": "/home/paul/.local/bin/sam",
     "vim.debug.silent": true,
     "vim.hlsearch": true,
@@ -26,5 +26,9 @@
     "vim.vimrc.enable": true,
     "vim.vimrc.path": "~/.vimrc",
     "vim.visualstar": true,
-    "html.mirrorCursorOnMatchingTag": false
+    "html.mirrorCursorOnMatchingTag": false,
+    "vim.cursorStylePerMode.replace": "underline",
+    "git.autofetch": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "javascript.updateImportsOnFileMove.enabled": "always"
 }

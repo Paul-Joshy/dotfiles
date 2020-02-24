@@ -48,6 +48,8 @@ Plug 'ledger/vim-ledger'
 Plug 'vimwiki/vimwiki'
 Plug 'mildred/vim-ledger-mode'
 Plug 'arecarn/vim-selection'
+Plug 'reedes/vim-pencil'
+Plug 'vim-scripts/fountain.vim'
 call plug#end()
 
 colorscheme gruvbox
@@ -56,6 +58,8 @@ colorscheme gruvbox
 inoremap (( ()<Esc>i
 inoremap (; ();<Esc>hi
 inoremap {{ {}<Esc>i
+inoremap <% <%  %><Esc>hhi
+inoremap <= <%=  %><Esc>hhi
 inoremap {; {};<Esc>hi
 inoremap [[ []<Esc>i
 inoremap "" ""<Esc>i
@@ -97,3 +101,9 @@ let g:syntastic_check_on_wq = 0
 
 "get date
 inoremap <C-d> <C-r>=strftime('%y/%m/%d')<CR>
+
+" vscode configs
+nnoremap qe :tabonly<CR>
+
+" Fountain
+nnoremap write :set filetype=fountain<CR>:set background=light<CR>
