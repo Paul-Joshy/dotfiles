@@ -173,7 +173,7 @@ for_window [instance="vlc"] floating enable
 for_window [instance="vlc"] floating enable
 for_window [class="vlc"] sticky enable
 for_window [instance="vlc"] sticky enable
-
+for_window [instance="fontpreview"] floating enable
 # Log work time
 # exec ./Documents/dotfiles/scripts/recordstart.bash
 

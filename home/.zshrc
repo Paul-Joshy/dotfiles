@@ -112,3 +112,5 @@ alias pmg="pm go"
 alias pmrm="pm remove"
 alias pml="pm list"
 # end PM
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

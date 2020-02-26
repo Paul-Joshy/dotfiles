@@ -50,6 +50,7 @@ Plug 'mildred/vim-ledger-mode'
 Plug 'arecarn/vim-selection'
 Plug 'reedes/vim-pencil'
 Plug 'vim-scripts/fountain.vim'
+Plug 'mole/vim-node'
 call plug#end()
 
 colorscheme gruvbox
@@ -104,6 +105,9 @@ inoremap <C-d> <C-r>=strftime('%y/%m/%d')<CR>
 
 " vscode configs
 nnoremap qe :tabonly<CR>
+nnoremap qq :q<CR>
+nnoremap qa :qa<CR>
 
-" Fountain
-nnoremap write :set filetype=fountain<CR>:set background=light<CR>
+" Tis the time to screenplay
+nnoremap scr :set filetype=fountain<CR>:set background=light<CR>
+nnoremap lbg :set background=light<CR>

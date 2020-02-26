@@ -234,6 +234,7 @@ alias prev='playerctl previous'
 # Random
 function cowstomize(){cowsay -f $(cat $sc/formats.txt | dmenu -l 10) zoo wee mama;}
 alias cows="cowstomize"
+alias font="~/scripts/fontpreview| sh"
 
 # fun stuff
 # alias usetheforceluke='$(fc -ln -1) --force'
