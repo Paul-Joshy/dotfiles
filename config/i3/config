@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Helvetica !5
+font xft:URWGothic-Book 11
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +30,7 @@ font pango:Helvetica !5
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec rxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -43,7 +43,7 @@ exec preload
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 10"
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym $mod+j focus left
@@ -97,7 +97,7 @@ bindsym $mod+a focus parent
 
 set $workspace1  "1. General"
 set $workspace2  "2. Coding"
-set $workspace3  "3. Personal"
+set $workspace3  "3. Telegram"
 set $workspace4  "4. Communications"
 set $workspace5  "5. Password managers"
 set $workspace6  "6. Databases"
@@ -135,6 +135,7 @@ assign [class="Google-chrome"] $workspace1
 assign [class="Chromium-browser"] $workspace1
 assign [class="Firefox"] $workspace9
 assign [class="Code"] $workspace2
+assign [class="jetbrains-webstorm"] $workspace2
 assign [class="TelegramDesktop"] $workspace3
 assign [class="Bettergram"] $workspace3
 assign [class="Whatsdesk"] $workspace3
@@ -280,40 +281,23 @@ set $darkgray #1d2021
 set $white #ffffff
 set $black #000000
 
-bar {
-        status_command i3status
-		colors {
-			# bar background color
-			background $bg
-			# text color used for blocks that do not have a color specified.
-			statusline $yellow
-			# workspaces section            
-			#                    border  backgr. text
-			focused_workspace    $aqua $aqua $darkgray
-			inactive_workspace   $darkgray $darkgray $yellow
-			active_workspace     $darkgray $darkgray $yellow
-			urgent_workspace     $red $red $bg
-		}
-
-}
-
 # bar {
-#     	position bottom
-# 		status command i3status
-#     # status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#     colors {
-#         # bar background color
-#         background $bg
-#         # text color used for blocks that do not have a color specified.
-#         statusline $yellow
-#         # workspaces section            
-#         #                    border  backgr. text
-#         focused_workspace    $aqua $aqua $darkgray
-#         inactive_workspace   $darkgray $darkgray $yellow
-#         active_workspace     $darkgray $darkgray $yellow
-#         urgent_workspace     $red $red $bg
-#     }
+#         status_command i3status
+# 		colors {
+# 			# bar background color
+# 			background $bg
+# 			# text color used for blocks that do not have a color specified.
+# 			statusline $yellow
+# 			# workspaces section            
+# 			#                    border  backgr. text
+# 			focused_workspace    $aqua $aqua $darkgray
+# 			inactive_workspace   $darkgray $darkgray $yellow
+# 			active_workspace     $darkgray $darkgray $yellow
+# 			urgent_workspace     $red $red $bg
+# 		}
+
 # }
+
 
 # green gruvbox
 # class                 border|backgr|text|indicator|child_border
@@ -329,6 +313,7 @@ exec --no-startup-id synclient HorizEdgeScroll=1 VertEdgeScroll=1 VertScrollDelt
 # exec guake
 exec redshift
 exec_always "feh --bg-fill ~/Pictures/wallpapers/wallpaper"
+exec_always --no--startup-id $HOME/scripts/polybarstart
 
 # io config
 # Pulse Audio controls
@@ -413,3 +398,47 @@ set $volumestep 5
 bindsym XF86AudioRaiseVolume exec $volumepath/volume -np -i $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioLowerVolume exec $volumepath/volume -np -d $volumestep -t $statuscmd -u $statussig
 bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statussig
+
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 0
+
+# Gaps
+gaps inner 10
+gaps outer -4
+
+smart_gaps on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+new_window pixel 1
+new_float normal
+
+hide_edge_borders none

@@ -22,6 +22,30 @@ alias xwk="nemo ~/Documents/work-projects/"
 function mvwk(){ mv $@ ~/Documents/work-projects/;}
 function cpwk(){ cp $@ ~/Documents/work-projects/;}
 
+ww=~/Documents/work-projects/watchesworld.co.uk/
+alias ww="cd ~/Documents/work-projects/watchesworld.co.uk/"
+alias rww="r ~/Documents/work-projects/watchesworld.co.uk/"
+alias nww="nnn ~/Documents/work-projects/watchesworld.co.uk/"
+alias xww="nemo ~/Documents/work-projects/watchesworld.co.uk/"
+function mvww(){ mv $@ ~/Documents/work-projects/watchesworld.co.uk/;}
+function cpww(){ cp $@ ~/Documents/work-projects/watchesworld.co.uk/;}
+
+wo=~/Documents/work-projects/orders.watchesworld.com/
+alias wo="cd ~/Documents/work-projects/orders.watchesworld.com/"
+alias rwo="r ~/Documents/work-projects/orders.watchesworld.com/"
+alias nwo="nnn ~/Documents/work-projects/orders.watchesworld.com/"
+alias xwo="nemo ~/Documents/work-projects/orders.watchesworld.com/"
+function mvwo(){ mv $@ ~/Documents/work-projects/orders.watchesworld.com/;}
+function cpwo(){ cp $@ ~/Documents/work-projects/orders.watchesworld.com/;}
+
+wm=~/Documents/work-media/
+alias wm="cd ~/Documents/work-media/"
+alias rwm="r ~/Documents/work-media/"
+alias nwm="nnn ~/Documents/work-media/"
+alias xwm="nemo ~/Documents/work-media/"
+function mvwm(){ mv $@ ~/Documents/work-media/;}
+function cpwm(){ cp $@ ~/Documents/work-media/;}
+
 dv=~/Videos/Downloaded/
 alias dv="cd ~/Videos/Downloaded/"
 alias rdv="r ~/Videos/Downloaded/"
@@ -158,13 +182,13 @@ alias xmd="nemo /media/paul/"
 function mvmd(){ mv $@ /media/paul/;}
 function cpmd(){ cp $@ /media/paul/;}
 
-of=~/Documents/org-files/
-alias of="cd ~/Documents/org-files/"
-alias rof="r ~/Documents/org-files/"
-alias nof="nnn ~/Documents/org-files/"
-alias xof="nemo ~/Documents/org-files/"
-function mvof(){ mv $@ ~/Documents/org-files/;}
-function cpof(){ cp $@ ~/Documents/org-files/;}
+of=~/Documents/personal/org-files/
+alias of="cd ~/Documents/personal/org-files/"
+alias rof="r ~/Documents/personal/org-files/"
+alias nof="nnn ~/Documents/personal/org-files/"
+alias xof="nemo ~/Documents/personal/org-files/"
+function mvof(){ mv $@ ~/Documents/personal/org-files/;}
+function cpof(){ cp $@ ~/Documents/personal/org-files/;}
 
 ms=~/Music/
 alias ms="cd ~/Music/"
@@ -285,4 +309,28 @@ alias npe="nnn ~/Documents/personal/project-euler/"
 alias xpe="nemo ~/Documents/personal/project-euler/"
 function mvpe(){ mv $@ ~/Documents/personal/project-euler/;}
 function cppe(){ cp $@ ~/Documents/personal/project-euler/;}
+
+ev=~/Documents/emvigo-org-files/
+alias ev="cd ~/Documents/emvigo-org-files/"
+alias rev="r ~/Documents/emvigo-org-files/"
+alias nev="nnn ~/Documents/emvigo-org-files/"
+alias xev="nemo ~/Documents/emvigo-org-files/"
+function mvev(){ mv $@ ~/Documents/emvigo-org-files/;}
+function cpev(){ cp $@ ~/Documents/emvigo-org-files/;}
+
+sp=~/Downloads/harbor-master/images/idom/sneak-peak/
+alias sp="cd ~/Downloads/harbor-master/images/idom/sneak-peak/"
+alias rsp="r ~/Downloads/harbor-master/images/idom/sneak-peak/"
+alias nsp="nnn ~/Downloads/harbor-master/images/idom/sneak-peak/"
+alias xsp="nemo ~/Downloads/harbor-master/images/idom/sneak-peak/"
+function mvsp(){ mv $@ ~/Downloads/harbor-master/images/idom/sneak-peak/;}
+function cpsp(){ cp $@ ~/Downloads/harbor-master/images/idom/sneak-peak/;}
+
+sl=~/Downloads/harbor-master/images/idom/slide-show/
+alias sl="cd ~/Downloads/harbor-master/images/idom/slide-show/"
+alias rsl="r ~/Downloads/harbor-master/images/idom/slide-show/"
+alias nsl="nnn ~/Downloads/harbor-master/images/idom/slide-show/"
+alias xsl="nemo ~/Downloads/harbor-master/images/idom/slide-show/"
+function mvsl(){ mv $@ ~/Downloads/harbor-master/images/idom/slide-show/;}
+function cpsl(){ cp $@ ~/Downloads/harbor-master/images/idom/slide-show/;}
 

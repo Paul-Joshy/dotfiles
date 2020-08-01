@@ -1,4 +1,4 @@
-set clipboard=unnamedplus " make cliboard the default register
+set clipboard=unnamedplus " make clipboard the default register
 set undofile " Maintain undo history between session
 set undodir=~/.vim/undodir
 set spell
@@ -19,7 +19,7 @@ nnoremap <Space>  :w<CR>
 "Mode cursor Settings
 
 let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_SR.="\e[3 q" "SR = REPLACE mode
 let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 
 "Cursor settings:
@@ -51,6 +51,7 @@ Plug 'arecarn/vim-selection'
 Plug 'reedes/vim-pencil'
 Plug 'vim-scripts/fountain.vim'
 Plug 'mole/vim-node'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 colorscheme gruvbox
@@ -86,9 +87,12 @@ au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 " map virtual logical navigation to hjkl
 " nnoremap h gh
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 " nnoremap l gl
+
+nnoremap j jzz
+nnoremap k kzz
 
 " Syntastic defaults
 set statusline+=%#warningmsg#
@@ -111,3 +115,7 @@ nnoremap qa :qa<CR>
 " Tis the time to screenplay
 nnoremap scr :set filetype=fountain<CR>:set background=light<CR>
 nnoremap lbg :set background=light<CR>
+nnoremap dbg :set background=dark<CR>
+" nnoremap e <C-e>
+" nnoremap y <C-y>
+nnoremap <C-a> ggvG

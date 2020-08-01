@@ -19,10 +19,12 @@
 	store = config credential.helper store
 	rsh = reset --hard HEAD
 [merge]
-	tool = vscode
+	tool = meld
 [mergetool "vscode"]
 	 cmd = code --wait $MERGED
 [diff]
-	tool = vscode
+	tool = meld
 [difftool "vscode"]
 	cms = code --wait --diff $LOCAL $REMOTE
+[core]
+	autocrlf = input

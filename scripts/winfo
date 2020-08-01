@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo cat "/etc/NetworkManager/system-connections/$(ls /etc/NetworkManager/system-connections | dmenu -i -l 10)"
+sudo cat "/etc/NetworkManager/system-connections/$(ls /etc/NetworkManager/system-connections | rofi -dmenu -i -l 10)"

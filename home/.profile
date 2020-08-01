@@ -99,7 +99,13 @@ alias sound="alsamixer"
 alias slsd="sls deploy"
 alias slsdf="sls deploy --force"
 
+# dunst
+alias pausenoti='notify-send "DUNST_COMMAND_PAUSE"'
+alias resnoti='notify-send "DUNST_COMMAND_RESUME"'
+
 # Custom scripts
+PATH="$HOME/scripts:$PATH"
+export PATH
 
 alias hostip="sh /$dt/scripts/hostip"
 
@@ -232,7 +238,7 @@ alias prev='playerctl previous'
 # alias va='vidadd'
 
 # Random
-function cowstomize(){cowsay -f $(cat $sc/formats.txt | dmenu -l 10) zoo wee mama;}
+function cowstomize(){cowsay -f $(cat $sc/formats.txt | fzf) zoo wee mama;}
 alias cows="cowstomize"
 alias font="~/scripts/fontpreview| sh"
 
