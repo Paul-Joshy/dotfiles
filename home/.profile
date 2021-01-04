@@ -55,6 +55,7 @@ alias waliases="vi $dt/work/work_aliases.sh && source $profile"
 alias vimrc="vi $vimrc"
 alias i3config="vi $i3/config"
 alias vvim="vim -u NONE"
+alias tl="timeline"
 
 # General
 function fcd() { cd $@ || mkdir -p $@ && cd $@; } # changes directory to a user provided directory or creates a new one if not present

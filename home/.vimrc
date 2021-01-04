@@ -109,7 +109,8 @@ inoremap <C-d> <C-r>=strftime('%y/%m/%d')<CR>
 
 " vscode configs
 nnoremap qe :tabonly<CR>
-nnoremap qq :q<CR>
+nnoremap ZQ :q<CR>
+nnoremap ZZ :wq<CR>
 nnoremap qa :qa<CR>
 
 " Tis the time to screenplay

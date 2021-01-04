@@ -54,10 +54,13 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
+font-3 = Font Awesome 5 Free:pixelsize=10;3
+font-4 = Font Awesome 5 Free Solid:pixelsize=10;3
+font-5 = Font Awesome 5 Brands:pixelsize=10;3
 
 modules-left = date bspwm i3 mpd
 modules-center = xwindow
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature powermenu
+modules-right =  filesystem xbacklight alsa xkeyboard memory cpu wlan eth battery temperature powermenu
 
 tray-position = right
 tray-padding = 2
@@ -224,8 +227,9 @@ interface = wlp6s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
+format-prefix =" "
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected =  %essid%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -266,8 +270,8 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = 
+; format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
@@ -326,6 +330,7 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+click-left = sound
 
 [module/battery]
 type = internal/battery
@@ -339,8 +344,8 @@ format-charging-underline = #ffb52a
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix = " "
+; format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
