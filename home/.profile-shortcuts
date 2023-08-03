@@ -1,0 +1,152 @@
+dt=~/Documents/dotfiles
+alias dt="cd ~/Documents/dotfiles"
+alias rdt="r ~/Documents/dotfiles"
+alias ndt="nnn ~/Documents/dotfiles"
+alias xdt="open ~/Documents/dotfiles"
+function mvdt(){ mv $@ ~/Documents/dotfiles;}
+function cpdt(){ cp $@ ~/Documents/dotfiles;}
+
+sc=~/Documents/dotfiles/scripts/
+alias sc="cd ~/Documents/dotfiles/scripts/"
+alias rsc="r ~/Documents/dotfiles/scripts/"
+alias nsc="nnn ~/Documents/dotfiles/scripts/"
+alias xsc="open ~/Documents/dotfiles/scripts/"
+function mvsc(){ mv $@ ~/Documents/dotfiles/scripts/;}
+function cpsc(){ cp $@ ~/Documents/dotfiles/scripts/;}
+
+dw=~/Downloads
+alias dw="cd ~/Downloads"
+alias rdw="r ~/Downloads"
+alias ndw="nnn ~/Downloads"
+alias xdw="open ~/Downloads"
+function mvdw(){ mv $@ ~/Downloads;}
+function cpdw(){ cp $@ ~/Downloads;}
+
+dc=~/Documents
+alias dc="cd ~/Documents"
+alias rdc="r ~/Documents"
+alias ndc="nnn ~/Documents"
+alias xdc="open ~/Documents"
+function mvdc(){ mv $@ ~/Documents;}
+function cpdc(){ cp $@ ~/Documents;}
+
+h=~/
+alias h="cd ~/"
+alias rh="r ~/"
+alias nh="nnn ~/"
+alias xh="open ~/"
+function mvh(){ mv $@ ~/;}
+function cph(){ cp $@ ~/;}
+
+rg=~/.config/ranger/
+alias rg="cd ~/.config/ranger/"
+alias rrg="r ~/.config/ranger/"
+alias nrg="nnn ~/.config/ranger/"
+alias xrg="open ~/.config/ranger/"
+function mvrg(){ mv $@ ~/.config/ranger/;}
+function cprg(){ cp $@ ~/.config/ranger/;}
+
+dp=~/Documents/dump/
+alias dp="cd ~/Documents/dump/"
+alias rdp="r ~/Documents/dump/"
+alias ndp="nnn ~/Documents/dump/"
+alias xdp="open ~/Documents/dump/"
+function mvdp(){ mv $@ ~/Documents/dump/;}
+function cpdp(){ cp $@ ~/Documents/dump/;}
+
+nz=~/Documents/NZ-CLM/
+alias nz="cd ~/Documents/NZ-CLM/"
+alias rnz="r ~/Documents/NZ-CLM/"
+alias nnz="nnn ~/Documents/NZ-CLM/"
+alias xnz="open ~/Documents/NZ-CLM/"
+function mvnz(){ mv $@ ~/Documents/NZ-CLM/;}
+function cpnz(){ cp $@ ~/Documents/NZ-CLM/;}
+
+uk=~/Documents/UK-CLM/
+alias uk="cd ~/Documents/UK-CLM/"
+alias ruk="r ~/Documents/UK-CLM/"
+alias nuk="nnn ~/Documents/UK-CLM/"
+alias xuk="open ~/Documents/UK-CLM/"
+function mvuk(){ mv $@ ~/Documents/UK-CLM/;}
+function cpuk(){ cp $@ ~/Documents/UK-CLM/;}
+
+dk=~/Desktop/
+alias dk="cd ~/Desktop/"
+alias rdk="r ~/Desktop/"
+alias ndk="nnn ~/Desktop/"
+alias xdk="open ~/Desktop/"
+function mvdk(){ mv $@ ~/Desktop/;}
+function cpdk(){ cp $@ ~/Desktop/;}
+
+vn=~/vim-notes/
+alias vn="cd ~/vim-notes/"
+alias rvn="r ~/vim-notes/"
+alias nvn="nnn ~/vim-notes/"
+alias xvn="open ~/vim-notes/"
+function mvvn(){ mv $@ ~/vim-notes/;}
+function cpvn(){ cp $@ ~/vim-notes/;}
+
+of=~/Documents/org-files/
+alias of="cd ~/Documents/org-files/"
+alias rof="r ~/Documents/org-files/"
+alias nof="nnn ~/Documents/org-files/"
+alias xof="open ~/Documents/org-files/"
+function mvof(){ mv $@ ~/Documents/org-files/;}
+function cpof(){ cp $@ ~/Documents/org-files/;}
+
+hp=~/Downloads/html-playground/
+alias hp="cd ~/Downloads/html-playground/"
+alias rhp="r ~/Downloads/html-playground/"
+alias nhp="nnn ~/Downloads/html-playground/"
+alias xhp="open ~/Downloads/html-playground/"
+function mvhp(){ mv $@ ~/Downloads/html-playground/;}
+function cphp(){ cp $@ ~/Downloads/html-playground/;}
+
+nt=~/Documents/notes/
+alias nt="cd ~/Documents/notes/"
+alias rnt="r ~/Documents/notes/"
+alias nnt="nnn ~/Documents/notes/"
+alias xnt="open ~/Documents/notes/"
+function mvnt(){ mv $@ ~/Documents/notes/;}
+function cpnt(){ cp $@ ~/Documents/notes/;}
+
+wf=~/Documents/work-files/
+alias wf="cd ~/Documents/work-files/"
+alias rwf="r ~/Documents/work-files/"
+alias nwf="nnn ~/Documents/work-files/"
+alias xwf="open ~/Documents/work-files/"
+function mvwf(){ mv $@ ~/Documents/work-files/;}
+function cpwf(){ cp $@ ~/Documents/work-files/;}
+
+sw=~/Documents/sorftware/
+alias sw="cd ~/Documents/sorftware/"
+alias rsw="r ~/Documents/sorftware/"
+alias nsw="nnn ~/Documents/sorftware/"
+alias xsw="open ~/Documents/sorftware/"
+function mvsw(){ mv $@ ~/Documents/sorftware/;}
+function cpsw(){ cp $@ ~/Documents/sorftware/;}
+
+bg=~/Documents/personal-files/personal-blog/
+alias bg="cd ~/Documents/personal-files/personal-blog/"
+alias rbg="r ~/Documents/personal-files/personal-blog/"
+alias nbg="nnn ~/Documents/personal-files/personal-blog/"
+alias xbg="open ~/Documents/personal-files/personal-blog/"
+function mvbg(){ mv $@ ~/Documents/personal-files/personal-blog/;}
+function cpbg(){ cp $@ ~/Documents/personal-files/personal-blog/;}
+
+sd=~/Documents/scratch-dir/
+alias sd="cd ~/Documents/scratch-dir/"
+alias rsd="r ~/Documents/scratch-dir/"
+alias nsd="nnn ~/Documents/scratch-dir/"
+alias xsd="open ~/Documents/scratch-dir/"
+function mvsd(){ mv $@ ~/Documents/scratch-dir/;}
+function cpsd(){ cp $@ ~/Documents/scratch-dir/;}
+
+cl=~/cli-apps/
+alias cl="cd ~/cli-apps/"
+alias rcl="r ~/cli-apps/"
+alias ncl="nnn ~/cli-apps/"
+alias xcl="open ~/cli-apps/"
+function mvcl(){ mv $@ ~/cli-apps/;}
+function cpcl(){ cp $@ ~/cli-apps/;}
+
