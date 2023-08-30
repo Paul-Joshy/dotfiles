@@ -32,6 +32,7 @@ inoremap [[ []<Esc>i
 inoremap {{ {}<Esc>i
 nnoremap cl "+
 
+" For easy scrolling
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
 call plug#begin('~/.vim/plugged')
@@ -54,6 +55,8 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'preservim/vim-pencil'
+Plug 'preservim/vim-autocorrect'
+" Plug 'preservim/vim-litecorrect'
 Plug 'junegunn/limelight.vim'
 
 " Plug 'nvim-treesitter/nvim-treesitter'
@@ -95,5 +98,20 @@ let g:limelight_conceal_ctermfg = 100
 " Color name (:help gui-colors) or RGB color
 " let g:limelight_conceal_guifg = '#83a598'
 " ---------------------------------------------
-"  End Of Limelight config
+"  End of Limelight config
 " ---------------------------------------------
+
+
+"litecorrect config
+
+" Disabled settings
+" augroup litecorrect
+"   autocmd!
+"   autocmd FileType markdown,mkd call litecorrect#init()
+"   autocmd FileType textile call litecorrect#init()
+" augroup END
+
+" nnoremap <C-s> [s1z=<c-o>
+" inoremap <C-s> <c-g>u<Esc>[s1z=`]A<c-g>u
+
+" 

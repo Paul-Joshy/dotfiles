@@ -134,6 +134,14 @@ alias xbg="open ~/Documents/personal-files/personal-blog/"
 function mvbg(){ mv $@ ~/Documents/personal-files/personal-blog/;}
 function cpbg(){ cp $@ ~/Documents/personal-files/personal-blog/;}
 
+pf=~/Documents/personal-files/
+alias pf="cd ~/Documents/personal-files/"
+alias rpf="r ~/Documents/personal-files/"
+alias npf="nnn ~/Documents/personal-files/"
+alias xpf="open ~/Documents/personal-files/"
+function mvpf(){ mv $@ ~/Documents/personal-files/;}
+function cppf(){ cp $@ ~/Documents/personal-files/;}
+
 sd=~/Documents/scratch-dir/
 alias sd="cd ~/Documents/scratch-dir/"
 alias rsd="r ~/Documents/scratch-dir/"

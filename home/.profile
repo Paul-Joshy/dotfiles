@@ -46,3 +46,8 @@ export PATH="$HOME/cli-apps/ytfzf:$PATH"
 #regular scripts
 # export PATH="$HOME/Documents/dotfiles/scripts:$PATH"
 
+
+function wallpaper() {
+    wallpaper_script="tell application \"Finder\" to set desktop picture to POSIX file \"$HOME/$1\""
+    osascript -e $wallpaper_script
+}
