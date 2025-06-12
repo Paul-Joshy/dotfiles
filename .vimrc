@@ -1,57 +1,94 @@
-syntax on
-set autoindent
-set nocompatible
-set noexpandtab
-set number
-set relativenumber
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set nocp
 
-inoremap "" ""<Esc>i
-inoremap '' ''<Esc>i
-inoremap (( ()<Esc>i
-inoremap [[ []<Esc>i
-inoremap {{ {}<Esc>i
-nnoremap cl "+
-" nnoremap cd :Codi
-" vnoremap yc "+y
-" map <C-z> "+p
-" map <C=P> "+P
-" nnoremap gc "+p
-" nnoremap Gc "+P
-
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-
-call plug#begin('~/.vim/plugged')
-" Plug 'kien/ctrlp.vim' Depreciated
-Plug 'christoomey/vim-sort-motion'
-Plug 'christoomey/vim-system-copy'
-Plug 'christoomey/vim-titlecase'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'leafgarland/typescript-vim'
-Plug 'mattn/emmet-vim'
-Plug 'metakirby5/codi.vim'
-Plug 'moll/vim-node'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vim-syntastic/syntastic'
-Plug 'tpope/vim-jdaddy'
-Plug 'Quramy/tsuquyomi'
-" Initialize plugin system
+call plug#begin()
+Plug 'itchyny/lightline.vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'preservim/vim-pencil'
+Plug 'scrooloose/syntastic'
 call plug#end()
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+colorscheme catppuccin_mocha
 
-let g:syntastic_javascript_checkers = ['jshint']
+let g:lightline = {}
+let g:lightline.colorscheme = 'catppuccin_mocha'
+let g:lightline.active = {}
+let g:lightline.active.left = [['mode', 'paste'], ['filename']]
+let g:lightline.active.right = [['lineinfo']]
+
+" Configure Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" State tracking variables
+let g:write_mode_active = 0
+let g:edit_mode_active = 0
+
+function! WriteMode()
+  if g:write_mode_active
+    " Disable write mode features
+    Goyo!
+    Limelight!
+    SoftPencil
+    let g:write_mode_active = 0
+  else
+    " Enable write mode features
+    Goyo
+    Limelight
+    SoftPencil
+    let g:write_mode_active = 1
+    " Ensure edit mode is off
+    if g:edit_mode_active
+      call EditMode()
+    endif
+  endif
+endfunction
+
+function! EditMode()
+  if g:edit_mode_active
+    " Disable edit mode features
+    setlocal nospell
+    SyntasticReset
+    let g:edit_mode_active = 0
+  else
+    " Enable edit mode features
+    setlocal spell
+    setlocal spelllang=en_us
+    SyntasticCheck
+    let g:edit_mode_active = 1
+    " Ensure write mode is off
+    if g:write_mode_active
+      call WriteMode()
+    endif
+  endif
+endfunction
+
+set number
+set relativenumber
+set mouse=a
+set clipboard=unnamedplus
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set smartindent
+set wrap
+set termguicolors
+set signcolumn=yes
+set updatetime=300
+set splitright
+set splitbelow
+set scrolloff=5
+
+" Keymaps for comfort
+nnoremap <leader>pv :NERDTreeToggle<CR>
+nnoremap <leader>pf :Files<CR>
+nnoremap <leader>g :Rg<CR>
+
+" Leader key
+let mapleader = ' '
+
+nnoremap <leader>w :call WriteMode()<CR>
+nnoremap <leader>e :call EditMode()<CR> 
