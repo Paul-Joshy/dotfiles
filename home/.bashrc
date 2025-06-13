@@ -103,6 +103,35 @@ if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
 fi
 
+# Source bash-preexec
+[[ -f ~/.bash-preexec/bash-preexec.sh ]] && source ~/.bash-preexec/bash-preexec.sh
+
+# Auto-suggestions based on history
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=20000
+HISTIGNORE="ls:cd:cd ..:exit:date:* --help"
+
+# Enable history search with up/down arrows
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Auto-suggestions function
+function _suggest_command() {
+    local current_command="$READLINE_LINE"
+    if [ -n "$current_command" ]; then
+        local suggestion=$(history | grep -v "^[ ]*[0-9]*[ ]*$current_command" | grep "$current_command" | tail -n 1 | sed 's/^[ ]*[0-9]*[ ]*//')
+        if [ -n "$suggestion" ]; then
+            READLINE_LINE="$current_command"
+            READLINE_POINT=${#current_command}
+            echo -ne "\033[90m$suggestion\033[0m"
+        fi
+    fi
+}
+
+# Bind Ctrl+Space to accept suggestion
+bind '"\C-@": _suggest_command'
+
 # Enable case-insensitive completion
 shopt -s nocaseglob
 shopt -s globstar
@@ -115,10 +144,29 @@ bind 'set show-all-if-unmodified on'
 bind 'set mark-symlinked-directories on'
 bind 'set visible-stats on'
 
-# History search with up/down arrows
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-
 # Tab completion
 bind 'TAB: menu-complete'
 bind '"\e[Z": menu-complete-backward'
+
+export NVM_DIR="$HOME/.nvm"
+nvm() {
+  unset -f nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  nvm "$@"
+}
+
+
+alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
+alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
+alias vimrc="vim ~/.vimrc && source ~/.vimrc"
+
+# Yazi config
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+alias ranger="source ranger"
