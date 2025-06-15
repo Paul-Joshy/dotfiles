@@ -5,7 +5,7 @@ vim.opt.mouse = 'a'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
@@ -405,3 +405,15 @@ require("lazy").setup({
 -- Visual mode text movement
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") 
+
+-- personal plugins
+-- Augment your init.lua
+local function reload(module)
+  package.loaded[module] = nil
+  return require(module)
+end
+
+-- Bind visual keymap using reload so the latest tw_import.lua is used:
+vim.keymap.set("v", "<leader>ta", function()
+  reload("tw_import").import_visual()
+end, { noremap = true, silent = true })
