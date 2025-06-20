@@ -18,6 +18,7 @@ vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.smartindent = true
 vim.opt.autoindent = true
+vim.opt.directory = os.getenv("HOME") .. "/.local/state/nvim/swap//"
 
 -- Sticky headers
 vim.opt.stc = ""
@@ -41,6 +42,43 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
 require("lazy").setup({
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local harpoon = require("harpoon")
+
+      harpoon:setup({
+        settings = {
+          save_on_toggle = false,
+          sync_on_ui_close = false,
+          key = function()
+            return vim.loop.cwd()
+          end,
+        },
+        projects = {}, -- do NOT add anything here
+      })
+
+      local map = vim.keymap.set
+      map("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon Add File" })
+      map("n", "<leader>m", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon Menu" })
+      map("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Harpoon File 1" })
+      map("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Harpoon File 2" })
+      map("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Harpoon File 3" })
+      map("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Harpoon File 4" })
+    end,
+  },
+
+
+  -- Live Server: Bracey
+  {
+    "turbio/bracey.vim",
+    cmd = { "Bracey", "BraceyStop", "BraceyReload", "BraceyEval" },
+    build = "npm install --prefix server",
+    ft = { "html", "css", "javascript" },
+  },
+
   -- Theme
   {
     "catppuccin/nvim",
@@ -117,8 +155,12 @@ require("lazy").setup({
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("nvim-tree").setup({
+        hijack_cursor = true,
+        sync_root_with_cwd = true,
+        respect_buf_cwd = true,
         view = {
           width = 30,
+          preserve_window_proportions = true,
         },
         renderer = {
           group_empty = true,
@@ -131,7 +173,11 @@ require("lazy").setup({
           ignore = false,
         },
       })
-      vim.keymap.set("n", "<leader>pv", vim.cmd.NvimTreeToggle)
+
+      -- Use `api` to avoid name collisions and buffer issues
+      vim.keymap.set("n", "<leader>pv", function()
+        require("nvim-tree.api").tree.toggle({ find_file = true, focus = true })
+      end, { desc = "Toggle File Explorer" })
     end,
   },
 
@@ -247,13 +293,13 @@ require("lazy").setup({
           hidden = false,
         })
       end, { desc = "Find files" })
-      
+
       vim.keymap.set("n", "<leader>pg", function()
         builtin.git_files({
           cwd = vim.fn.getcwd(),
         })
       end, { desc = "Find git files" })
-      
+
       vim.keymap.set("n", "<leader>ps", function()
         builtin.grep_string({
           search = vim.fn.input("Grep > "),
@@ -404,7 +450,14 @@ require("lazy").setup({
 
 -- Visual mode text movement
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") 
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Live server comms
+-- Live Server keymaps using Bracey
+vim.keymap.set("n", "<leader>ss", ":Bracey<CR>", { desc = "Start Bracey server" })
+vim.keymap.set("n", "<leader>sr", ":BraceyReload<CR>", { desc = "Reload Bracey preview" })
+vim.keymap.set("n", "<leader>sx", ":BraceyStop<CR>", { desc = "Stop Bracey server" })
+
 
 -- personal plugins
 -- Augment your init.lua
