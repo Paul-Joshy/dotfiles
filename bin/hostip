@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cat /etc/hosts | rofi -dmenu -l 10 | awk '{print $1}' | xclip -selection C
+#!/usr/bin/env bash

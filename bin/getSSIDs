@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nmcli dev wifi list| sed "s/Infra.*$//g;s/^*//;s/^ *//;s/ *$//"| awk 'NR>1 {print}'| rofi -dmenu -l 10 -i
