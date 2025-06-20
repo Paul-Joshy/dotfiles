@@ -158,6 +158,19 @@ require("lazy").setup({
     end,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup({
+        enable = true,   -- Enable this plugin
+        max_lines = 3,   -- How many lines the context window should span
+        trim_scope = "outer", -- Which context lines to discard if too long
+        mode = "cursor", -- or 'topline'
+      })
+    end,
+  },
+
+
   -- File Explorer
   {
     "nvim-tree/nvim-tree.lua",
@@ -426,11 +439,23 @@ require("lazy").setup({
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Saner Z commands
+vim.keymap.set("n", "ZZ", ":wqa<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "ZQ", ":qa!<CR>", { noremap = true, silent = true })
+
+
 -- Live server comms
 -- Live Server keymaps using Bracey
 vim.keymap.set("n", "<leader>ss", ":Bracey<CR>", { desc = "Start Bracey server" })
 vim.keymap.set("n", "<leader>sr", ":BraceyReload<CR>", { desc = "Reload Bracey preview" })
 vim.keymap.set("n", "<leader>sx", ":BraceyStop<CR>", { desc = "Stop Bracey server" })
+
+-- Clear search highlight on <Esc>
+vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR><Esc>", { noremap = true, silent = true })
+vim.keymap.set("i", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", { noremap = true, silent = true })
+
+vim.cmd("hi TreesitterContext guibg=#1e1e2e") -- or use Catppuccin highlights
 
 
 -- personal plugins
@@ -444,3 +469,5 @@ end
 vim.keymap.set("v", "<leader>ta", function()
   reload("tw_import").import_visual()
 end, { noremap = true, silent = true })
+
+
