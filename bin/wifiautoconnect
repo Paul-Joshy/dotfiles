@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+nmcli con up "$( ls /etc/NetworkManager/system-connections/ | rofi -dmenu -l 10 -i)"

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "Public ip";
+echo "=========";
+
+ip addr | awk '/inet / {sub(/\/.*/, "", $2); print $2}';
