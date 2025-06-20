@@ -147,6 +147,7 @@ bind 'set visible-stats on'
 # Tab completion
 bind 'TAB: menu-complete'
 bind '"\e[Z": menu-complete-backward'
+complete -D -o default
 
 export NVM_DIR="$HOME/.nvm"
 nvm() {
@@ -159,6 +160,7 @@ nvm() {
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias vimrc="vim ~/.vimrc && source ~/.vimrc"
+alias nvimrc="nvim ~/.config/nvim/"
 
 # Yazi config
 function y() {
@@ -169,4 +171,27 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-alias ranger="source ranger"
+alias ta="task add"
+alias t="task"
+alias j="task project:jobs"
+alias n="task next limit:1"
+alias p='f() { local proj; proj=$(task _projects | fzf) && [ -n "$proj" ] && task project:"$proj" list; }; f'
+alias w="task waiting"
+alias l="task completed"
+
+# Zensciences
+alias z="task project:zensciences"
+alias zl="task completed project:zensciences"
+alias za="task add project:zensciences"
+
+
+EDITOR=vim
+
+alias ss="cd ~/Documents/Substack/"
+alias r="source ranger"
+# alias ls="lsd"
+
+alias f='cd ~/figlet-fonts/ && figlet -d ~/figlet-fonts -f $(ls | fzf) "The Terminal" -w 10000 | lolcat'
+
+alias s="shutdown 0"
+alias i3config="nvim ~/.config/i3"
