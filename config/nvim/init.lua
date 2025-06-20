@@ -42,6 +42,14 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
 require("lazy").setup({
+
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("lsp").setup()
+		end,
+	},
+
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -137,6 +145,7 @@ require("lazy").setup({
           "typescript",
           "html",
           "css",
+          "go",
         },
         auto_install = true,
         highlight = {
@@ -237,6 +246,7 @@ require("lazy").setup({
 
   -- Vim Fugitive
   {
+-- Something else
     "tpope/vim-fugitive",
     config = function()
       -- Fugitive keymaps
@@ -345,45 +355,9 @@ require("lazy").setup({
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
+          "gopls",
         },
         automatic_installation = true,
-      })
-    end,
-  },
-
-  -- LSP Support
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-      -- LSP keymaps
-      local on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-      end
-
-      -- Setup language servers
-      lspconfig.lua_ls.setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
-
-      -- Enable LSP status in statusline
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = true,
-        severity_sort = true,
       })
     end,
   },
