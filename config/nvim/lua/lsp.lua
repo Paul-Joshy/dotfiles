@@ -2,7 +2,8 @@ local M = {}
 
 function M.setup()
   local lspconfig = require("lspconfig")
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 
   -- LSP keymaps
   local on_attach = function(client, bufnr)
@@ -13,8 +14,8 @@ function M.setup()
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "<leader>p", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, opts)
   end
 
   -- Setup language servers
@@ -49,6 +50,13 @@ function M.setup()
     filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
   })
 
+  lspconfig.gopls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+
+
   -- Enable LSP status in statusline
   vim.diagnostic.config({
     virtual_text = true,
@@ -60,4 +68,3 @@ function M.setup()
 end
 
 return M 
-  
