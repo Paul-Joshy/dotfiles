@@ -1,0 +1,36 @@
+(doom! :ui
+       doom
+ :email +mu4e +org +gmail
+       (emoji +unicode)
+       modeline
+       (popup +defaults)
+       workspaces
+       vc-gutter
+
+       :editor
+       (evil +everywhere)
+       fold
+       snippets
+       word-wrap
+
+       :emacs
+       dired
+       undo
+       vc
+
+       :term
+       vterm
+
+       :checkers
+       syntax
+
+       :tools
+       magit
+
+       :lang
+       emacs-lisp
+       (org +pretty +journal)
+
+       :config
+       (default +bindings +smartparens))
+  mu4e +org +gmail
