@@ -79,7 +79,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 export LESS='-R --use-color -Dd+r$Du+b'
-export MANPAGER='less -R --use-color -Dd+r -Du+b'
+# export MANPAGER='less -R --use-color -Dd+r -Du+b'
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
@@ -97,3 +97,46 @@ alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias vimrc="vim ~/.vimrc && source ~/.vimrc"
 alias nvimrc="nvim ~/.nvimrc && source ~/.nvimrc"
+
+# Yazi config
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+alias ta="task add"
+alias t="task"
+alias j="task project:jobs"
+alias n="task next limit:1"
+alias p='f() { local proj; proj=$(task _projects | fzf) && [ -n "$proj" ] && task project:"$proj" list; }; f'
+alias w="task waiting"
+alias l="task completed"
+
+# Zensciences
+alias z="task project:zensciences"
+alias zl="task completed project:zensciences"
+alias za="task add project:zensciences"
+
+alias s="shutdown 0"
+alias r="source ranger"
+
+homestow() {
+  if [ "$#" -eq 0 ]; then
+    echo "Usage: homestow <package1> [package2 ...]"
+    return 1
+  fi
+
+  for pkg in "$@"; do
+    echo "📦 Stowing '$pkg' to \$HOME"
+    stow --target="$HOME" "$pkg"
+  done
+}
+
+source ~/.profile
+
+#Xephyr
+# alias xdwm="sudo make clean install && cat $HOME/programs/xephyr/dwm.sh | sh"
+export MANPAGER="nvim +Man!"

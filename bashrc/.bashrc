@@ -208,3 +208,8 @@ homestow() {
   done
 }
 
+source ~/.profile
+
+#Xephyr
+# alias xdwm="sudo make clean install && cat $HOME/programs/xephyr/dwm.sh | sh"
+export MANPAGER="nvim +Man!"

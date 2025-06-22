@@ -1,3 +1,9 @@
 ss ~/Documents/Substack/
 zs ~/Documents/Zensciences/
 dt ~/programs/dotfiles/
+nv ~/.config/nvim/
+dw ~/Downloads
+dc ~/Documents/
+vd ~/Videos/
+pr ~/programs/
+xp ~/programs/xephyr/

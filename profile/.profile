@@ -10,5 +10,7 @@ alias update_shortcuts="update_ranger_shortcuts && update_profile_shortcuts && s
 
 s=$HOME/programs/dotfiles/scripts/shortcuts
 alias es="vi $s && update_shortcuts"
-alias s="cat $s| less"
+# alias s="cat $s| less"
 alias r="source ranger"
+
+alias profile="nvim ~/.profile && source ~/.profile"
