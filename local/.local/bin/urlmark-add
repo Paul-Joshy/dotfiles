@@ -1,0 +1,16 @@
+#!/bin/bash
+
+BOOKMARKS_FILE="$HOME/.urlmarks"
+
+url=$(xclip -o -selection clipboard | grep -Eo 'https?://[^ ]+' | head -n 1)
+[[ -z "$url" ]] && notify-send "URL Harpoon" "❌ No valid URL in clipboard" && exit 1
+
+name=$(dmenu -p "Bookmark name:" <&-)
+[[ -z "$name" ]] && exit 1
+
+# Check if already exists
+grep -q "^$url " "$BOOKMARKS_FILE" 2>/dev/null && notify-send "Bookmark already exists" "$url" && exit 0
+
+echo "$url #$name" >> "$BOOKMARKS_FILE"
+notify-send "✅ Bookmark saved" "$name → $url"
+

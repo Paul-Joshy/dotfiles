@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt
+ #Enabl Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -55,7 +55,8 @@ alias ....='cd ../../..'
 # Prompt customization
 autoload -Uz vcs_info
 precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats ' %F{240}(%b)%r%f'
+# zstyle ':vcs_info:git:*' formats ' %F{240}(%b)%r%f'
+zstyle ':vcs_info:git:*' formats ' %F{240}(%b)'
 zstyle ':vcs_info:*' enable git
 
 # Set prompt
@@ -79,6 +80,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 export PAGER='less'
 export LESS='-R --use-color -Dd+r$Du+b'
+export DOOMDIR="$HOME/.config/doom"
 # export MANPAGER='less -R --use-color -Dd+r -Du+b'
 
 # Path
@@ -96,7 +98,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
 alias vimrc="vim ~/.vimrc && source ~/.vimrc"
-alias nvimrc="nvim ~/.nvimrc && source ~/.nvimrc"
+alias nvimrc="nvim ~/.config/nvim"
 
 # Yazi config
 function y() {
@@ -120,7 +122,7 @@ alias z="task project:zensciences"
 alias zl="task completed project:zensciences"
 alias za="task add project:zensciences"
 
-alias s="shutdown 0"
+# alias s="shutdown 0"
 alias r="source ranger"
 
 homestow() {
@@ -140,3 +142,33 @@ source ~/.profile
 #Xephyr
 # alias xdwm="sudo make clean install && cat $HOME/programs/xephyr/dwm.sh | sh"
 export MANPAGER="nvim +Man!"
+alias dwmconfig="cd $HOME/programs/dwm/ && nvim config.h"
+alias stconfig="cd $HOME/programs/st/ && nvim config.h"
+alias g="llm -m gemini-2.5-flash"
+alias em="devour emacsclient -c"
+alias doom="/home/paul/.emacs.d/bin/doom"
+
+alias bat="batcat"
+alias restartemacs="doom sync && killall emacs && emacs --daemon && em ~/.config/doom/"
+
+export GOOGLE_API_KEY="AIzaSyBl0aHaNDqz-KxiidnwbmhPRXHVbwB8V2g"
+export TERM=xterm-256color
+export TERMINFO=/usr/share/terminfo
+alias m="mods -C"
+
+# ChatGPT asked me to put this
+# ✅ Force proper UTF-8 locale
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# ✅ Avoid broken input method frameworks
+# export GTK_IM_MODULE=xim
+# export QT_IM_MODULE=xim
+# export XMODIFIERS="@im=none"
+
+# ✅ Fix libxkbcommon input bugs by using a valid Compose file
+export XCOMPOSEFILE=/usr/share/X11/locale/en_US.UTF-8/Compose
+
+unset XMODIFIERS
+unset GTK_IM_MODULE
+unset QT_IM_MODULE

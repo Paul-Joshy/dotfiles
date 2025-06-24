@@ -193,7 +193,7 @@ alias r="source ranger"
 
 alias f='cd ~/figlet-fonts/ && figlet -d ~/figlet-fonts -f $(ls | fzf) "The Terminal" -w 10000 | lolcat'
 
-alias s="shutdown 0"
+# alias s="shutdown 0"
 alias i3config="nvim ~/.config/i3"
 
 homestow() {

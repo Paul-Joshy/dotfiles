@@ -1,0 +1,29 @@
+#!/bin/bash
+
+BOOKMARKS_FILE="$HOME/.urlmarks"
+
+# Menu: full line, like: https://foo.com #Foo site
+selection=$(cat "$BOOKMARKS_FILE" 2>/dev/null | dmenu -l 10 -p "🔗 Harpoon URL:")
+
+# Exit if nothing selected
+[[ -z "$selection" ]] && exit 0
+
+# Extract just the URL
+url=$(echo "$selection" | cut -d' ' -f1)
+
+# Check if Brave has this URL open already
+if brave-browser --remote-debugging-port=9222 &>/dev/null; then
+    page_exists=$(curl -s http://localhost:9222/json | grep -q "$url" && echo yes)
+
+    if [[ "$page_exists" == "yes" ]]; then
+        notify-send "Brave Harpoon" "🧭 Already open: $url"
+        # Optional: Bring Brave window to focus (requires wmctrl)
+        wmctrl -a "Brave"
+        exit 0
+    fi
+fi
+
+# Open in Brave
+brave-browser --new-tab "$url" & disown
+notify-send "Brave Harpoon" "🚀 Opened: $url"
+
