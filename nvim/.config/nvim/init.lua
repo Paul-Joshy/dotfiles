@@ -95,7 +95,7 @@ require("lazy").setup({
     config = function()
       require("catppuccin").setup({
         flavour = "mocha",
-        transparent_background = false,
+        transparent_background = true,
         term_colors = true,
         integrations = {
           cmp = true,
@@ -469,4 +469,11 @@ end
 vim.keymap.set("v", "<leader>ta", function()
   reload("tw_import").import_visual()
 end, { noremap = true, silent = true })
+
+-- For pagers
+vim.api.nvim_create_autocmd({"StdinReadPost"}, {
+  callback = function()
+    vim.cmd("set filetype=markdown")
+  end
+})
 
