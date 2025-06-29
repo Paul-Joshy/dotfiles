@@ -10,6 +10,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'preservim/vim-pencil'
 Plug 'scrooloose/syntastic'
+Plug 'dylanaraps/wal.vim'
+
 call plug#end()
 
 colorscheme catppuccin_mocha
@@ -95,3 +97,10 @@ let mapleader = ' '
 
 nnoremap <leader>w :call WriteMode()<CR>
 nnoremap <leader>e :call EditMode()<CR> 
+
+" Visual select keybindings
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Remove background color for Normal mode
+hi Normal guibg=NONE ctermbg=NONE

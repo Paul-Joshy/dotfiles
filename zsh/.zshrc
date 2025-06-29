@@ -39,7 +39,8 @@ bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
 # Aliases
-alias ls='ls --color=auto'
+alias ls="lsd"
+# alias ls='ls --color=auto'
 alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
@@ -76,8 +77,8 @@ if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
 fi
 
 # Environment variables
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='/snap/bin/nvim'
+export VISUAL='/snap/bin/nvim'
 export PAGER='less'
 export LESS='-R --use-color -Dd+r$Du+b'
 export DOOMDIR="$HOME/.config/doom"
@@ -85,6 +86,7 @@ export DOOMDIR="$HOME/.config/doom"
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Colors for less
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
@@ -97,7 +99,7 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 alias bashrc="nvim ~/.bashrc && source ~/.bashrc"
 alias zshrc="nvim ~/.zshrc && source ~/.zshrc"
-alias vimrc="vim ~/.vimrc && source ~/.vimrc"
+alias vimrc="vim ~/.vimrc"
 alias nvimrc="nvim ~/.config/nvim"
 
 # Yazi config
@@ -141,7 +143,8 @@ source ~/.profile
 
 #Xephyr
 # alias xdwm="sudo make clean install && cat $HOME/programs/xephyr/dwm.sh | sh"
-export MANPAGER="nvim +Man!"
+export MANPAGER="/usr/bin/nvim +Man!" # Causing issues with Snap installed nvim
+# export MANPAGER="batcat"
 alias dwmconfig="cd $HOME/programs/dwm/ && nvim config.h"
 alias stconfig="cd $HOME/programs/st/ && nvim config.h"
 alias g="llm -m gemini-2.5-flash"
@@ -172,3 +175,36 @@ export XCOMPOSEFILE=/usr/share/X11/locale/en_US.UTF-8/Compose
 unset XMODIFIERS
 unset GTK_IM_MODULE
 unset QT_IM_MODULE
+
+figtest() {
+  cd ~/figlet-fonts/ && figlet -d ~/figlet-fonts -f $( ./usr/bin/ls| fzf) "$@" -w 10000 | lolcat
+}
+
+figr() {
+  clear
+  cd ~/figlet-fonts/ || return
+  font=$( ls | shuf | head -1)
+  echo -e "\n[ font: $font ]\n" | lolcat
+  figlet -d ~/figlet-fonts -f "$font" "$@" -w 10000 | lolcat
+}
+
+alias nvim="/snap/bin/nvim"
+alias x="devour xdg-open"
+alias walpaper="wal -i ~/Pictures/wallpaper"
+alias cursor="devour ./Downloads/Cursor-1.0.0-x86_64.AppImage"
+
+alias volume="pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo"
+
+# alias sl="sl | lolcat"
+# alias sl="./train"
+alias sl="train-settings"
+# alias slc="./train-settings.sh && killall alacritty && alacritty"
+alias a="nvim $HOME/.config/alacritty/alacritty.toml"
+
+source ~/.cache/wal/colors-tty.sh
+
+nvm() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
