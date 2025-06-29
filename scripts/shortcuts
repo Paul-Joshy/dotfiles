@@ -10,3 +10,5 @@ xp ~/programs/xephyr/
 pc ~/Pictures
 bn ~/.local/bin/
 dm ~/.config/doom
+sc ~/programs/dotfiles/scripts/
+sf ~/programs/surf/

@@ -78,8 +78,7 @@ require("lazy").setup({
     end,
   },
 
-
-  -- Live Server: Bracey
+  -- -- Live Server: Bracey
   {
     "turbio/bracey.vim",
     cmd = { "Bracey", "BraceyStop", "BraceyReload", "BraceyEval" },
@@ -158,18 +157,18 @@ require("lazy").setup({
     end,
   },
 
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    config = function()
-      require("treesitter-context").setup({
-        enable = true,   -- Enable this plugin
-        max_lines = 3,   -- How many lines the context window should span
-        trim_scope = "outer", -- Which context lines to discard if too long
-        mode = "cursor", -- or 'topline'
-      })
-    end,
-  },
-
+{
+  "nvim-treesitter/nvim-treesitter-context",
+  event = "BufReadPost",   -- <-- comma added here
+  config = function()
+    require("treesitter-context").setup({
+      enable = true,   -- Enable this plugin
+      max_lines = 3,   -- How many lines the context window should span
+      trim_scope = "outer", -- Which context lines to discard if too long
+      mode = "cursor", -- or 'topline'
+    })
+  end,
+},
 
   -- File Explorer
   {
@@ -456,6 +455,10 @@ vim.keymap.set("i", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", { noremap = true, silen
 vim.keymap.set("v", "<Esc>", "<Esc><Cmd>nohlsearch<CR>", { noremap = true, silent = true })
 
 vim.cmd("hi TreesitterContext guibg=#1e1e2e") -- or use Catppuccin highlights
+
+-- diff keybindings
+vim.keymap.set("n", "<leader>dg", "<Cmd>diffget<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>dp", "<Cmd>diffput<CR>", { noremap = true, silent = true })
 
 
 -- personal plugins
