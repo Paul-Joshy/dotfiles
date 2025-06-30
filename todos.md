@@ -1,6 +1,7 @@
 ## Generic
-- Stop getting so obsessed with Linux
-- Touch grass
+- install tealdeer tldr pages and manwiki
+- set up bat page for man
+- set pywall to work properly
 
 ## Nvim
 - Fix nvim (Regular one doesn't work well with alacritty, only snap works)
@@ -42,3 +43,4 @@
 - Weather ( In different places )
 - Sunrise + Sunset timings
 - Moon timings
+
