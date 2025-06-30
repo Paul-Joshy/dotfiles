@@ -79,10 +79,10 @@ fi
 # Environment variables
 export EDITOR='/snap/bin/nvim'
 export VISUAL='/snap/bin/nvim'
-export PAGER='less'
+export PAGER='most'
 export LESS='-R --use-color -Dd+r$Du+b'
 export DOOMDIR="$HOME/.config/doom"
-# export MANPAGER='less -R --use-color -Dd+r -Du+b'
+export MANPAGER='less -R --use-color -Dd+r -Du+b'
 
 # Path
 export PATH="$HOME/.local/bin:$PATH"
@@ -143,7 +143,7 @@ source ~/.profile
 
 #Xephyr
 # alias xdwm="sudo make clean install && cat $HOME/programs/xephyr/dwm.sh | sh"
-export MANPAGER="/usr/bin/nvim +Man!" # Causing issues with Snap installed nvim
+# export MANPAGER="/snap/bin/nvim +Man!" # Causing issues with Snap installed nvim
 # export MANPAGER="batcat"
 alias dwmconfig="cd $HOME/programs/dwm/ && nvim config.h"
 alias stconfig="cd $HOME/programs/st/ && nvim config.h"
