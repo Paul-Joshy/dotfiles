@@ -42,7 +42,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure plugins
 require("lazy").setup({
-
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require 'colorizer'.setup()
+    end,
+  },
 	{
 		"neovim/nvim-lspconfig",
 		config = function()

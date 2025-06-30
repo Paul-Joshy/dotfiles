@@ -1,0 +1,1 @@
+/home/paul/.cache/wal/colors-ranger.py

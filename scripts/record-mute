@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -e
+
+# Ensure required tools are available
+for cmd in ffmpeg xdpyinfo; do
+  command -v "$cmd" >/dev/null || { notify-send "Missing dependency: $cmd"; exit 1; }
+done
+
+RECPID="/tmp/recpid_screen"
+
+record() {
+  RES="$(xdpyinfo | awk '/dimensions/{print $2}')"
+  TIMESTAMP="$(date '+%a__%b%d__%H_%M_%S')"
+  OUTPUT="$HOME/Videos/recording_$TIMESTAMP.mkv"
+
+  ffmpeg \
+    -f x11grab -s "$RES" -r 30 -i :0.0 \
+    -c:v libx264 -preset ultrafast -qp 20 \
+    "$OUTPUT" > /dev/null 2>&1 &
+
+  echo $! > "$RECPID"
+
+  notify-send -t 1000 "🔴 Recording started" "Saving to:\n$OUTPUT"
+}
+
+end() {
+  if [[ -f "$RECPID" ]]; then
+    kill -15 "$(cat "$RECPID")" 2>/dev/null || true
+    rm -f "$RECPID"
+    notify-send -t 1000 "⏹️ Recording stopped"
+  fi
+}
+
+# Toggle recording
+if [[ -f "$RECPID" ]]; then
+  end
+else
+  record
+fi
+
