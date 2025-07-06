@@ -77,7 +77,7 @@ if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
 fi
 
 # Environment variables
-export EDITOR='/snap/bin/nvim'
+export EDITOR='vim'
 export VISUAL='/snap/bin/nvim'
 export PAGER='most'
 export LESS='-R --use-color -Dd+r$Du+b'

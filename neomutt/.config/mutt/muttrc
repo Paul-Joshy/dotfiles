@@ -1,0 +1,183 @@
+#########################################
+# Neomutt: Gmail + Vim Nav + Catppuccin
+#########################################
+
+########################
+# Identity + Mailboxes
+########################
+set realname = "Paul Joshy"
+set from = "pauljoshyk96@gmail.com"
+set use_from = yes
+set envelope_from = yes
+
+set folder = "~/.mail/gmail"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+Trash"
+
+mailboxes +INBOX +Drafts +Sent +Trash
+
+#################
+# Sending Mail
+#################
+set sendmail = "/usr/bin/msmtp"
+set sendmail_wait = 0
+set use_ipv6 = no
+
+####################
+# PGP/GPG Settings
+####################
+set crypt_use_gpgme = yes
+set pgp_default_key = "pauljoshyk96@gmail.com"
+set pgp_sign_as = "pauljoshyk96@gmail.com"
+set pgp_autosign = yes
+set pgp_replysign = yes
+set pgp_replyencrypt = yes
+set pgp_verify_sig = yes
+set pgp_use_gpg_agent = yes
+set pgp_auto_decode = yes
+
+#################
+# General Display
+#################
+set menu_scroll = yes
+set smart_wrap = yes
+set markers = yes
+set pager_stop = yes
+set pager_context = 0
+set pager_index_lines = 0
+set index_format = "%4C %Z %{%b %d} %-15.15L (%4l) %s"
+set sort = reverse-date-sent
+set sort_aux = last-date
+set sort_re = yes
+
+set charset = "utf-8"
+set send_charset = "utf-8"
+set assumed_charset = "utf-8"
+set editor = "nvim"
+
+#############
+# Sidebar UI
+#############
+set sidebar_visible = yes
+set sidebar_width = 20
+set sidebar_indent_string = "  "
+# comment out if unsupported
+# set sidebar_delim = "│"
+
+#####################
+# Vim-Like Navigation
+#####################
+bind index,pager j next-entry
+bind index,pager k previous-entry
+bind index,pager h previous-folder
+bind index,pager l view-message
+bind index,pager <down> next-entry
+bind index,pager <up> previous-entry
+
+# Jumping
+bind index gg first-entry
+macro index gg "<first-entry>"
+
+bind index G last-entry
+
+# Search like Vim
+bind index / search
+bind index ? search-reverse
+bind index n search-next
+bind index N search-opposite
+
+# Actions
+bind index,pager dd delete-message
+bind index,pager u undelete-message
+bind index,pager r reply
+bind index,pager R group-reply
+bind index,pager f forward-message
+bind index,pager m compose
+bind index,pager s save-message
+bind index,pager v view-attachments
+bind index,pager o view-message
+bind index,pager <enter> view-message
+bind index,pager w next-unread
+bind index,pager b previous-unread
+
+# Sidebar movement
+bind index,pager <left> sidebar-prev
+bind index,pager <right> sidebar-next
+bind index,pager <space> sidebar-toggle
+
+# Pager scrolling
+bind pager j scroll-down
+bind pager k scroll-up
+
+# Syncing
+bind index <F5> sync-mailbox
+macro index <F6> "<shell-escape>mbsync gmail && notmuch new<enter>" "Sync + notmuch"
+
+####################################
+# Visual Mode-Like Tagging Workflow
+####################################
+bind index <space> tag-entry         # Tag current entry
+bind index v tag-entry
+bind index V tag-pattern
+bind index ; tag-prefix
+
+macro index d ";d" "Delete all tagged"
+macro index r ";<flag-message>" "Mark tagged as read"
+macro index u ";<clear-flag>" "Untag all"
+
+################################
+# Pager: full preview + mark read
+################################
+macro pager ZZ "<tag-entry><read-message><exit>" "Mark as read and quit pager"
+macro pager ZQ "<tag-entry><read-message><exit>" "Mark as read and quit pager"
+
+##################
+# Color Theme: Catppuccin
+##################
+color normal         default        default
+color status         black          magenta
+color indicator      magenta        black
+color error          brightred      default
+color message        brightcyan     default
+color markers        brightmagenta  default
+
+# Message flags
+color index color81        default     "~N"   # Unread (cyan/teal)
+color index color208       default     "~T"   # Tagged (orange)
+color index brightred      default     "~D"   # Deleted
+color index brightgreen    default     "~F"   # Flagged/starred
+color index color38        default     "~R"   # Replied
+color index color135       default     "~P"   # Passed
+color index white          default     "~S"   # Signed
+color index brightyellow   default     "~O"   # Old
+color index color117       default     "~Q"   # Queued
+color index color141       default     "~A"   # Answered
+
+# Highlight mailboxes with new mail
+color index color33        default     "~b"
+
+##################
+# Sorting Hooks
+##################
+folder-hook . 'set sort=reverse-date-sent'
+folder-hook INBOX 'set sort=reverse-date-sent'
+
+##################
+# Notmuch Support
+##################
+set nm_default_uri = "notmuch:///home/paul/.mail/gmail"
+set virtual_spoolfile = yes
+
+# Jump to first unread message on folder change
+folder-hook . 'push <next-unread>'
+
+# Case-insensitive pattern matching
+set pattern_case = ignore
+
+##################
+# Fuzzy Search Prompt
+##################
+macro index L "<shell-escape>limit \"\`notmuch search --output=messages \$(printf '%s' \"\`echo | dmenu -p 'Fuzzy search mail:'\`\")\`\"<enter>" "Fuzzy search mail"
+
