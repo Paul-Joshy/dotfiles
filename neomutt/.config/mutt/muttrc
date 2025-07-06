@@ -16,7 +16,7 @@ set postponed = "+Drafts"
 set record = "+Sent"
 set trash = "+Trash"
 
-mailboxes +INBOX +Drafts +Sent +Trash
+mailboxes +INBOX +Drafts +Sent +Trash +Spam
 
 #################
 # Sending Mail
@@ -46,7 +46,7 @@ set smart_wrap = yes
 set markers = yes
 set pager_stop = yes
 set pager_context = 0
-set pager_index_lines = 0
+set pager_index_lines = 10
 set index_format = "%4C %Z %{%b %d} %-15.15L (%4l) %s"
 set sort = reverse-date-sent
 set sort_aux = last-date
@@ -63,75 +63,48 @@ set editor = "nvim"
 set sidebar_visible = yes
 set sidebar_width = 20
 set sidebar_indent_string = "  "
-# comment out if unsupported
-# set sidebar_delim = "│"
 
 #####################
 # Vim-Like Navigation
 #####################
-bind index,pager j next-entry
-bind index,pager k previous-entry
-bind index,pager h previous-folder
-bind index,pager l view-message
-bind index,pager <down> next-entry
-bind index,pager <up> previous-entry
-
-# Jumping
-bind index gg first-entry
+bind index g noop
 macro index gg "<first-entry>"
-
 bind index G last-entry
+bind index j next-entry
+bind index k previous-entry
+bind index <down> next-entry
+bind index <up> previous-entry
 
-# Search like Vim
-bind index / search
-bind index ? search-reverse
-bind index n search-next
-bind index N search-opposite
-
-# Actions
-bind index,pager dd delete-message
-bind index,pager u undelete-message
-bind index,pager r reply
-bind index,pager R group-reply
-bind index,pager f forward-message
-bind index,pager m compose
-bind index,pager s save-message
-bind index,pager v view-attachments
-bind index,pager o view-message
-bind index,pager <enter> view-message
-bind index,pager w next-unread
-bind index,pager b previous-unread
-
-# Sidebar movement
-bind index,pager <left> sidebar-prev
-bind index,pager <right> sidebar-next
-bind index,pager <space> sidebar-toggle
-
-# Pager scrolling
-bind pager j scroll-down
-bind pager k scroll-up
-
-# Syncing
-bind index <F5> sync-mailbox
-macro index <F6> "<shell-escape>mbsync gmail && notmuch new<enter>" "Sync + notmuch"
-
-####################################
-# Visual Mode-Like Tagging Workflow
-####################################
-bind index <space> tag-entry         # Tag current entry
+######################
+# Message Operations
+######################
+# Visual selection
+bind index <space> tag-entry
 bind index v tag-entry
 bind index V tag-pattern
-bind index ; tag-prefix
 
-macro index d ";d" "Delete all tagged"
-macro index r ";<flag-message>" "Mark tagged as read"
-macro index u ";<clear-flag>" "Untag all"
+# Disable default d before using dd
+bind index d noop
+macro index dd ";<delete-message>" "Delete selected or current"
 
-################################
-# Pager: full preview + mark read
-################################
-macro pager ZZ "<tag-entry><read-message><exit>" "Mark as read and quit pager"
-macro pager ZQ "<tag-entry><read-message><exit>" "Mark as read and quit pager"
+macro index - ";<toggle-read>" "Toggle read/unread"
+macro index S ";s +Spam<enter>" "Send to spam folder"
+macro index P "<pipe-message>less<enter>" "Pipe to less (safe)"
+macro index L "<pipe-message>xdg-open<enter>" "HTML preview in browser"
+macro index m "<compose>" "Compose mail"
+macro index r "<reply>" "Reply"
+macro index R "<group-reply>" "Reply all"
+
+#################
+# Limiting/Filtering
+#################
+macro index / "<limit>"
+
+##################
+# Full Screen Pager
+##################
+macro pager ZZ "<tag-entry><read-message><exit>"
+macro pager ZQ "<tag-entry><read-message><exit>"
 
 ##################
 # Color Theme: Catppuccin
@@ -143,41 +116,22 @@ color error          brightred      default
 color message        brightcyan     default
 color markers        brightmagenta  default
 
-# Message flags
-color index color81        default     "~N"   # Unread (cyan/teal)
-color index color208       default     "~T"   # Tagged (orange)
-color index brightred      default     "~D"   # Deleted
-color index brightgreen    default     "~F"   # Flagged/starred
-color index color38        default     "~R"   # Replied
-color index color135       default     "~P"   # Passed
-color index white          default     "~S"   # Signed
-color index brightyellow   default     "~O"   # Old
-color index color117       default     "~Q"   # Queued
-color index color141       default     "~A"   # Answered
-
-# Highlight mailboxes with new mail
-color index color33        default     "~b"
+color index          color81        default     "~N"   # Unread
+color index          color208       default     "~T"   # Tagged
+color index          brightred      default     "~D"   # Deleted
+color index          brightgreen    default     "~F"   # Flagged
+color index          color38        default     "~R"   # Replied
+color index          color135       default     "~P"   # Passed
+color index          white          default     "~S"   # Signed
+color index          brightyellow   default     "~O"   # Old
+color index          color117       default     "~Q"   # Queued
+color index          color141       default     "~A"   # Answered
+color index          color33        default     "~b"   # New mailbox
 
 ##################
-# Sorting Hooks
+# Folder Hooks
 ##################
 folder-hook . 'set sort=reverse-date-sent'
 folder-hook INBOX 'set sort=reverse-date-sent'
-
-##################
-# Notmuch Support
-##################
-set nm_default_uri = "notmuch:///home/paul/.mail/gmail"
-set virtual_spoolfile = yes
-
-# Jump to first unread message on folder change
 folder-hook . 'push <next-unread>'
-
-# Case-insensitive pattern matching
-set pattern_case = ignore
-
-##################
-# Fuzzy Search Prompt
-##################
-macro index L "<shell-escape>limit \"\`notmuch search --output=messages \$(printf '%s' \"\`echo | dmenu -p 'Fuzzy search mail:'\`\")\`\"<enter>" "Fuzzy search mail"
 
