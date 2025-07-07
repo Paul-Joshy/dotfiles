@@ -78,6 +78,7 @@ fi
 
 # Environment variables
 export EDITOR='vim'
+export BROWSER="firefox"
 export VISUAL='/snap/bin/nvim'
 export PAGER='most'
 export LESS='-R --use-color -Dd+r$Du+b'

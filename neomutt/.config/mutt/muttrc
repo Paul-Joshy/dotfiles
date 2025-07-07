@@ -2,6 +2,8 @@
 # Neomutt: Gmail + Vim Nav + Catppuccin
 #########################################
 
+source ./aliases
+
 ########################
 # Identity + Mailboxes
 ########################
@@ -55,7 +57,7 @@ set sort_re = yes
 set charset = "utf-8"
 set send_charset = "utf-8"
 set assumed_charset = "utf-8"
-set editor = "nvim"
+set editor = "vim"
 
 #############
 # Sidebar UI
@@ -91,7 +93,8 @@ macro index - ";<toggle-read>" "Toggle read/unread"
 macro index S ";s +Spam<enter>" "Send to spam folder"
 macro index P "<pipe-message>less<enter>" "Pipe to less (safe)"
 macro index L "<pipe-message>xdg-open<enter>" "HTML preview in browser"
-macro index m "<compose>" "Compose mail"
+# macro index m "<compose>" "Compose mail"
+# macro index m "<compose-message>" "Compose mail"
 macro index r "<reply>" "Reply"
 macro index R "<group-reply>" "Reply all"
 
@@ -113,20 +116,14 @@ color normal         default        default
 color status         black          magenta
 color indicator      magenta        black
 color error          brightred      default
-color message        brightcyan     default
-color markers        brightmagenta  default
-
-color index          color81        default     "~N"   # Unread
-color index          color208       default     "~T"   # Tagged
-color index          brightred      default     "~D"   # Deleted
-color index          brightgreen    default     "~F"   # Flagged
-color index          color38        default     "~R"   # Replied
-color index          color135       default     "~P"   # Passed
-color index          white          default     "~S"   # Signed
-color index          brightyellow   default     "~O"   # Old
-color index          color117       default     "~Q"   # Queued
-color index          color141       default     "~A"   # Answered
-color index          color33        default     "~b"   # New mailbox
+color index cyan           default     '~N'   # Unread (Catppuccin teal/cyan)
+color index magenta        default     '~T'   # Tagged (Catppuccin pink/magenta)
+color index red            default     '~D'   # Deleted (Catppuccin red)
+color index yellow         default     '~F'   # Starred/Flagged (Catppuccin yellow)
+color index white          default     '~O'   # Read (Catppuccin text)
+color index yellow         default     '~Q'   # Queued
+color index green          default     '~A'   # Answered
+# color index blue           default     '~b'   # New mailbox
 
 ##################
 # Folder Hooks
@@ -135,3 +132,9 @@ folder-hook . 'set sort=reverse-date-sent'
 folder-hook INBOX 'set sort=reverse-date-sent'
 folder-hook . 'push <next-unread>'
 
+
+# Restore default search with /
+unbind index /
+bind index / search
+
+set reverse_name = yes
