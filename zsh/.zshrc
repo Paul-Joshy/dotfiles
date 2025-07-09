@@ -78,7 +78,7 @@ fi
 
 # Environment variables
 export EDITOR='vim'
-export BROWSER="firefox"
+export BROWSER="Firefox"
 export VISUAL='/snap/bin/nvim'
 export PAGER='most'
 export LESS='-R --use-color -Dd+r$Du+b'
@@ -209,3 +209,8 @@ nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
+
+alias nm="neomutt"
+alias nb="newsboat"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
