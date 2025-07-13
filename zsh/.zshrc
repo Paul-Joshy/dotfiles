@@ -1,3 +1,7 @@
+# Termux commands
+alias hdfc="termux-sms-list -l 1000| jq 'select(.[].address == \"JD-HDFCBK-S\")'"
+alias speak="termux-tts-speak"
+
  #Enabl Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -79,7 +83,7 @@ fi
 # Environment variables
 export EDITOR='vim'
 export BROWSER="Firefox"
-export VISUAL='/snap/bin/nvim'
+# export VISUAL='/snap/bin/nvim'
 export PAGER='most'
 export LESS='-R --use-color -Dd+r$Du+b'
 export DOOMDIR="$HOME/.config/doom"
@@ -140,7 +144,7 @@ homestow() {
   done
 }
 
-source ~/.profile
+# source ~/.profile
 
 #Xephyr
 # alias xdwm="sudo make clean install && cat $HOME/programs/xephyr/dwm.sh | sh"
@@ -189,8 +193,8 @@ figr() {
   figlet -d ~/figlet-fonts -f "$font" "$@" -w 10000 | lolcat
 }
 
-alias nvim="/snap/bin/nvim"
-alias x="devour xdg-open"
+# alias nvim="/snap/bin/nvim"
+alias x="xdg-open"
 alias walpaper="wal -i ~/Pictures/wallpaper"
 alias cursor="devour ./Downloads/Cursor-1.0.0-x86_64.AppImage"
 
@@ -198,11 +202,11 @@ alias volume="pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo"
 
 # alias sl="sl | lolcat"
 # alias sl="./train"
-alias sl="train-settings"
+# alias sl="train-settings"
 # alias slc="./train-settings.sh && killall alacritty && alacritty"
-alias a="nvim $HOME/.config/alacritty/alacritty.toml"
+# alias a="nvim $HOME/.config/alacritty/alacritty.toml"
 
-source ~/.cache/wal/colors-tty.sh
+# source ~/.cache/wal/colors-tty.sh
 
 nvm() {
   export NVM_DIR="$HOME/.nvm"
@@ -213,4 +217,5 @@ nvm() {
 alias nm="neomutt"
 alias nb="newsboat"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
