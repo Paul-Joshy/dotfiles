@@ -1,0 +1,22 @@
+[[mgr.prepend_keymap]]
+on   = "<C-w>"
+run  = "shell --block -- $HOME/.config/yazi/wal.sh %s %h"
+desc = "Set wallpaper with pywal"
+
+[[mgr.prepend_keymap]]
+on = ["m", "w"]
+run = 'shell -- mv -n %s "$HOME/Downloads/wallpapers/"'
+desc = "Move selected files to wallpapers"
+
+[[mgr.prepend_keymap]]
+on = ["m", "d"]
+run = 'shell -- mv -n %s "$HOME/Documents/"'
+desc = "Move selected files to Documents"
+
+[[mgr.prepend_keymap]]
+on   = "o"
+run  = "open"
+desc = "Open the selected file"
+
+
+

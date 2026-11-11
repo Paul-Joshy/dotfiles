@@ -1,0 +1,73 @@
+#!/bin/zsh
+image_path=""
+for p in "$@"; do
+    if [[ -f "$p" ]]; then
+        image_path="$p"
+        break
+    fi
+done
+
+if [[ -z "$image_path" ]]; then
+    # Try to find if it's passed differently
+    image_path="$1"
+fi
+
+if [[ ! -f "$image_path" ]]; then
+    echo "Usage: wallpaper-wal <image_file>" >&2
+    exit 1
+fi
+
+image_path_full="$(cd "$(dirname "$image_path")" && pwd)/$(basename "$image_path")"
+
+# Set wallpaper on macOS
+osascript - "$image_path_full" <<'APPLESCRIPT' >/dev/null 2>&1
+on run argv
+    set imagePath to item 1 of argv
+    tell application "System Events"
+        tell every desktop to set picture to imagePath
+    end tell
+end run
+APPLESCRIPT
+
+# Generate pywal colors
+wal -i "$image_path_full" -n >/dev/null 2>&1
+
+# Refresh Ghostty's native config files from pywal's active palette.
+python3 - "$HOME/.cache/wal/colors.json" "$HOME/.config/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config" <<'PY'
+import json
+import sys
+
+try:
+    with open(sys.argv[1], encoding="utf-8") as f:
+        data = json.load(f)
+    colors = data["colors"]
+    special = data["special"]
+    lines = [
+        "font-family = CaskaydiaCove Nerd Font Mono",
+        "font-size = 14",
+        "background-opacity = 0.8",
+        f"background = {special['background'][1:]}",
+        f"foreground = {special['foreground'][1:]}",
+        f"cursor-color = {special['cursor'][1:]}",
+    ]
+    lines.extend(f"palette = {i}={colors[f'color{i}'][1:]}" for i in range(16))
+    config = "\n".join(lines) + "\n"
+    for path in sys.argv[2:]:
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(config)
+        except OSError:
+            pass
+except (OSError, KeyError, ValueError):
+    pass
+PY
+
+if [ -f "$HOME/.cache/wal/yazi-theme.toml" ]; then
+    cp "$HOME/.cache/wal/yazi-theme.toml" "$HOME/.config/yazi/theme.toml" 2>/dev/null || true
+fi
+
+# Pywal templates update Zen CSS and the Skyland/terminal palettes.
+"$HOME/.config/wal/scripts/skylandbar"
+pkill -USR2 -x ghostty 2>/dev/null || true
+bat cache --build >/dev/null 2>&1 || true
+echo "Wallpaper and pywal theme applied from $(basename "$image_path_full")"

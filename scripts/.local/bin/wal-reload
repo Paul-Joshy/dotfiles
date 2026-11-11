@@ -1,0 +1,14 @@
+#!/bin/bash
+# Reload everything
+[ -f "$HOME/.cache/wal/colors.sh" ] && source "$HOME/.cache/wal/colors.sh"
+
+# Sketchybar
+if command -v sketchybar >/dev/null 2>&1; then
+    sketchybar --reload 2>/dev/null || sketchybar --update 2>/dev/null
+fi
+
+# Kitty
+killall -USR1 kitty 2>/dev/null
+
+# Regenerate yazi theme
+[ -f "$HOME/.cache/wal/yazi-theme.toml" ] && cp "$HOME/.cache/wal/yazi-theme.toml" "$HOME/.config/yazi/theme.toml"

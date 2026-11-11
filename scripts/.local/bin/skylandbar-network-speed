@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+"""Update SkylandBar's upload and download rates from macOS interface counters."""
+
+import re
+import subprocess
+import time
+from pathlib import Path
+
+BAR = "skylandbar"
+STATE_DIR = Path.home() / ".cache" / "skylandbar"
+WINDOW_SECONDS = 10.0
+MAX_GAP_SECONDS = 30.0
+
+
+def run(*args):
+    try:
+        result = subprocess.run(args, capture_output=True, text=True, timeout=2)
+        return result.stdout
+    except (OSError, subprocess.TimeoutExpired):
+        return ""
+
+
+def interfaces_to_check():
+    route = run("route", "-n", "get", "default")
+    match = re.search(r"^interface: (\S+)", route, re.M)
+    interfaces = [match.group(1)] if match else []
+
+    # If the route uses a VPN tunnel without link counters, sample the active
+    # physical interface carrying that tunnel instead.
+    for block in re.split(r"(?m)(?=^[A-Za-z0-9]+: flags=)", run("ifconfig", "-a")):
+        name = block.split(":", 1)[0]
+        if name.startswith("en") and "status: active" in block and re.search(r"(?m)^\s+inet ", block):
+            interfaces.append(name)
+    return list(dict.fromkeys(interfaces))
+
+
+def counters(interface):
+    lines = run("netstat", "-ibn", "-I", interface).splitlines()
+    for line in lines[1:]:
+        fields = line.split()
+        if len(fields) >= 10 and fields[0] == interface and fields[2].startswith("<Link#"):
+            try:
+                return int(fields[6]), int(fields[9])
+            except ValueError:
+                return None
+    return None
+
+
+def format_rate(value):
+    units = ("B/s", "KB/s", "MB/s", "GB/s")
+    for unit in units:
+        if value < 1000 or unit == units[-1]:
+            return f"{value:.0f} {unit}" if unit == units[0] else f"{value:.1f} {unit}"
+        value /= 1000
+
+
+def set_rate(item, value):
+    subprocess.run(
+        [BAR, "--set", item, f"label={format_rate(value)}"],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        timeout=2,
+        check=False,
+    )
+
+
+def main():
+    interface = None
+    current = None
+    for candidate in interfaces_to_check():
+        current = counters(candidate)
+        if current is not None:
+            interface = candidate
+            break
+    if current is None:
+        return
+
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    state = STATE_DIR / f"network-{interface}.state"
+    now = time.time()
+    samples = []
+    try:
+        for row in state.read_text(encoding="utf-8").splitlines():
+            values = row.split()
+            if len(values) == 3:
+                samples.append(tuple(map(float, values)))
+    except (OSError, ValueError):
+        pass
+
+    received, sent = current
+    if samples and (now <= samples[-1][0] or now - samples[-1][0] > MAX_GAP_SECONDS):
+        samples.clear()
+    # Ignore rapid duplicate invocations; tiny intervals inflate byte-rate estimates.
+    if samples and now - samples[-1][0] < 1.0:
+        return
+    samples.append((now, received, sent))
+    cutoff = now - WINDOW_SECONDS
+    while len(samples) > 1 and samples[1][0] < cutoff:
+        samples.pop(0)
+
+    elapsed = now - samples[0][0]
+    if elapsed > 0 and received >= samples[0][1] and sent >= samples[0][2]:
+        down = (received - samples[0][1]) / elapsed
+        up = (sent - samples[0][2]) / elapsed
+    else:
+        down = up = 0.0
+
+    state.write_text("".join(f"{t} {rx} {tx}\n" for t, rx, tx in samples), encoding="utf-8")
+    set_rate("network.download", down)
+    set_rate("network.upload", up)
+
+
+if __name__ == "__main__":
+    main()

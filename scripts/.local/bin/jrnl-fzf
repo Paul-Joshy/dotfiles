@@ -1,0 +1,44 @@
+#!/bin/sh
+# jrnl-fzf — fuzzy-filter jrnl entries in chunks (a whole dated entry per
+# chunk, not per-line) and copy the chosen entry to the clipboard.
+#
+# Usage: jrnl-fzf [query]      pre-fill the fzf query, otherwise empty
+#
+# Entries are separated by lines starting with "[YYYY-MM-DD".
+
+set -eu
+
+JOURNAL=${JRNL_JOURNAL:-"$HOME/.local/share/jrnl/journal.txt"}
+[ -r "$JOURNAL" ] || {
+	echo "jrnl-fzf: cannot read $JOURNAL" >&2
+	exit 1
+}
+
+# Pack each entry into a NUL-terminated chunk: a new entry starts at a date
+# header, and every following line (blank ones included) belongs to it.
+# Entry order is flipped (oldest on top, newest just above the prompt, with
+# the newest preselected for instant copy on Enter).
+awk '
+/^\[[0-9]{4}-[0-9]{2}-[0-9]{2} / {
+	if (entry != "") arr[++n] = entry
+	entry = $0
+	next
+}
+{ entry = entry (entry ? "\n" : "") $0 }
+END {
+	if (entry != "") arr[++n] = entry
+	for (i = n; i >= 1; i--) printf "%s%c", arr[i], 0
+}
+' "$JOURNAL" |
+IFS= fzf \
+	--read0 --no-multi \
+	--tiebreak=begin \
+	--header '↵ copy · esc cancel' \
+	--prompt 'jrnl ▫ ' \
+	--query="${1:-}" |
+{
+	selection=$(cat)
+	printf '%s\n' "$selection" | pbcopy
+	title=$(printf '%s\n' "$selection" | head -1 | grep -oE '^\[[^]]+\]' | tr -d '[]')
+	osascript -e "display notification \"jrnl entry copied: ${title}\" with title \"jrnl-fzf\"" 2>/dev/null
+}

@@ -1,0 +1,18 @@
+#!/bin/bash
+WALLPAPER="$1"
+if [ -z "$WALLPAPER" ]; then
+    echo "Usage: wal-apply-all /path/to/wallpaper.jpg"
+    exit 1
+fi
+
+wal -i "$WALLPAPER" -n
+
+if pgrep -x kitty >/dev/null; then
+    killall -USR1 kitty 2>/dev/null || true
+fi
+
+pkill -USR1 sketchybar 2>/dev/null || sketchybar --reload 2>/dev/null || true
+
+cp "$HOME/.cache/wal/yazi-theme.toml" "$HOME/.config/yazi/theme.toml" 2>/dev/null
+
+echo "Applied wal colors"

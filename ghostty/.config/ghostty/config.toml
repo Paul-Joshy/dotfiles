@@ -1,0 +1,4 @@
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 14
+background-opacity = 0.8
+theme = "file:~/.cache/wal/ghostty.conf"

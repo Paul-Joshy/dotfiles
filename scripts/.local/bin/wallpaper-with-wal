@@ -1,0 +1,24 @@
+#!/bin/zsh
+image_path=""
+for p in "$@"; do
+    if [[ -f "$p" ]]; then
+        image_path="$p"
+        break
+    fi
+done
+if [[ -z "$image_path" ]]; then
+    echo "File not found" >&2
+    exit 1
+fi
+image_path_full="$(cd "$(dirname "$image_path")" && pwd)/$(basename "$image_path")"
+osascript - "$image_path_full" <<'APPLESCRIPT' >/dev/null 2>&1
+on run argv
+    set imagePath to item 1 of argv
+    tell application "System Events"
+        tell every desktop to set picture to imagePath
+    end tell
+end run
+APPLESCRIPT
+wal -i "$image_path_full" -n >/dev/null 2>&1
+killall -USR1 kitty 2>/dev/null
+pkill -USR1 sketchybar 2>/dev/null

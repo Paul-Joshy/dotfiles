@@ -1,0 +1,300 @@
+# Icon-first workspace, media and system groups in the existing Liquid Glass theme.
+include = "themes/liquid-glass.toml"
+hotload = true
+
+# One compact item per workspace; app names are replaced with app glyphs below.
+[[item]]
+name = "ws.1"
+position = "left"
+icon = { string = "1", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 1"
+
+[[item]]
+name = "ws.2"
+position = "left"
+icon = { string = "2", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 2"
+
+[[item]]
+name = "ws.3"
+position = "left"
+icon = { string = "3", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 3"
+
+[[item]]
+name = "ws.4"
+position = "left"
+icon = { string = "4", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 4"
+
+[[item]]
+name = "ws.5"
+position = "left"
+icon = { string = "5", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 5"
+
+[[item]]
+name = "ws.6"
+position = "left"
+icon = { string = "6", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 6"
+
+[[item]]
+name = "ws.7"
+position = "left"
+icon = { string = "7", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 7"
+
+[[item]]
+name = "ws.8"
+position = "left"
+icon = { string = "8", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 8"
+
+[[item]]
+name = "ws.9"
+position = "left"
+icon = { string = "9", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 9"
+
+[[item]]
+name = "ws.10"
+position = "left"
+icon = { string = "10", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 10"
+
+[[item]]
+name = "ws.11"
+position = "left"
+icon = { string = "11", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 11"
+
+[[item]]
+name = "ws.12"
+position = "left"
+icon = { string = "12", font = "SF Pro:Semibold:10", color = "${secondary}", padding_left = 6, padding_right = 2 }
+label = { string = "", font = "Hack Nerd Font:Regular:15", color = "${secondary}", padding_left = 2, padding_right = 5 }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+update_freq = 5
+click_script = "skyland workspace 12"
+
+# Populate each workspace with one glyph per distinct open app, never app-name text.
+[[item]]
+name = "workspace-app-icons"
+position = "left"
+icon = { drawing = false }
+label = { drawing = false }
+background = { drawing = false }
+subscribe = "skyland_workspace_change"
+update_freq = 1
+script = '''
+workspaces=$(skyland list-workspaces --all 2>/dev/null)
+focused=$(skyland list-workspaces --focused 2>/dev/null | head -1)
+for ws in $(seq 1 12); do
+  if ! printf '%s\n' "$workspaces" | grep -Fxq "$ws"; then
+    skylandbar --set "ws.$ws" drawing=off
+    continue
+  fi
+  skylandbar --set "ws.$ws" drawing=on
+  apps=$(skyland list-windows --workspace "$ws" --format '%{app-name}' 2>/dev/null | awk '
+    function glyph(app) {
+      if (app ~ /ChatGPT/) return "󰚩"
+      if (app ~ /Claude/) return "✳"
+      if (app ~ /WhatsApp/) return "󰖣"
+      if (app ~ /Brave/) return "󰖟"
+      if (app ~ /Zen|Safari/) return "󰈹"
+      if (app ~ /Spotify/) return ""
+      if (app ~ /iTerm|kitty|Terminal|Ghostty/) return ""
+      if (app ~ /Finder/) return "󰀶"
+      if (app ~ /Calendar/) return "󰃭"
+      if (app ~ /Slack/) return "󰒱"
+      return "●"
+    }
+    NF && !seen[$0]++ { icons = icons glyph($0) " " }
+    END { sub(/[ ]$/, "", icons); print icons }
+  ')
+  skylandbar --set "ws.$ws" label="$apps"
+  if [ "$focused" = "$ws" ]; then
+    skylandbar --set "ws.$ws" icon.color="${accent}" label.color="${primary}" background.glass="lens" background.color="${accent_soft}"
+  else
+    skylandbar --set "ws.$ws" icon.color="${secondary}" label.color="${secondary}" background.glass="off" background.color="0x00000000"
+  fi
+done
+'''
+
+# Compact Spotify controls with the current track title.
+[[item]]
+name = "spotify"
+position = "left"
+icon = { string = "", color = "0xff1ed760" }
+label = { string = "", max_chars = 64, font = "${font}:Semibold:11", padding_left = 4, padding_right = 8 }
+update_freq = 5
+script = '''
+if [ "$(osascript -e 'application "Spotify" is running' 2>/dev/null)" = true ]; then
+  state=$(osascript -e 'tell application "Spotify" to player state as string' 2>/dev/null)
+  track=$(osascript -e 'tell application "Spotify" to name of current track' 2>/dev/null)
+  if [ -n "$track" ]; then skylandbar --set spotify label="$track"; else skylandbar --set spotify label=""; fi
+  if [ "$state" = playing ]; then skylandbar --set spotify.play icon="󰏤"; else skylandbar --set spotify.play icon="󰐊"; fi
+else
+  skylandbar --set spotify label=""
+fi
+'''
+click_script = "open -a Spotify"
+hover = { background.color = "${hover}", background.drawing = true }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "spotify.previous"
+position = "left"
+icon = "󰒮"
+label = { drawing = false }
+click_script = "osascript -e 'tell application \"Spotify\" to previous track'"
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "spotify.play"
+position = "left"
+icon = "󰐊"
+label = { drawing = false }
+click_script = "osascript -e 'tell application \"Spotify\" to playpause'"
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "spotify.next"
+position = "left"
+icon = "󰒭"
+label = { drawing = false }
+click_script = "osascript -e 'tell application \"Spotify\" to next track'"
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+type = "bracket"
+name = "workspaces.media.glass"
+members = ["/^ws\\./", "spotify", "spotify.previous", "spotify.play", "spotify.next"]
+background = { glass = "regular", color = "${glass_tint}", height = 38, corner_radius = 0, drawing = true, padding_left = 4, padding_right = 4 }
+
+# Show the focused window title without repeating the application name.
+[[item]]
+type = "title"
+name = "window"
+position = "center"
+title = { app_icon = "on", format = "title" }
+label = { max_chars = 48, font = "${font}:Semibold:12", padding_left = 6, padding_right = 10 }
+icon = { padding_left = 8, background = { height = 22, image.scale = 0.55 } }
+
+[[item]]
+name = "clock"
+position = "right"
+icon = { drawing = false }
+label = { font = "${font}:Semibold:11", padding_left = 2, padding_right = 6 }
+update_freq = 10
+script = 'skylandbar --set "$NAME" label="$(date "+%H:%M")"'
+click_script = "open -a Calendar"
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "volume"
+position = "right"
+icon = "󰕾"
+label = { drawing = false }
+update_freq = 10
+script = '''
+volume=$(osascript -e 'output volume of (get volume settings)' 2>/dev/null)
+muted=$(osascript -e 'output muted of (get volume settings)' 2>/dev/null)
+[ -n "$volume" ] || exit 0
+icon="󰕾"; [ "$volume" -lt 35 ] && icon="󰖀"
+if [ "$muted" = true ] || [ "$volume" -eq 0 ]; then icon="󰖁"; fi
+skylandbar --set "$NAME" icon="$icon"
+'''
+subscribe = "volume_change"
+click_script = "open x-apple.systempreferences:com.apple.Sound-Settings.extension"
+hover = { background.color = "${hover}", background.drawing = true }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "wifi"
+position = "right"
+icon = "󰖩"
+label = { drawing = false }
+update_freq = 20
+script = '''
+if ipconfig getifaddr en0 >/dev/null 2>&1 || ipconfig getifaddr en1 >/dev/null 2>&1; then
+  skylandbar --set "$NAME" icon="󰖩" icon.color="${green}"
+else
+  skylandbar --set "$NAME" icon="󰖪" icon.color="${orange}"
+fi
+'''
+click_script = "open x-apple.systempreferences:com.apple.Network-Settings.extension"
+hover = { background.color = "${hover}", background.drawing = true }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "whatsapp.about"
+position = "right"
+icon = "❤️"
+label = { string = "About unavailable", max_chars = 18, padding_left = 3 }
+click_script = 'open -a WhatsApp'
+update_freq = 60
+script = '''
+about=$(wacli profile get-about --jid "${WHATSAPP_ABOUT_JID:?set WHATSAPP_ABOUT_JID}" 2>/dev/null | sed -n 's/^About: //p')
+if [ -n "$about" ]; then
+  skylandbar --set "$NAME" label="$about"
+else
+  skylandbar --set "$NAME" label="About unavailable"
+fi
+'''
+hover = { background.color = "${hover}", background.drawing = true }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+name = "disk"
+position = "right"
+icon = ""
+label = { string = "—", padding_left = 3 }
+update_freq = 300
+script = '''
+free=$(df -h /System/Volumes/Data | awk 'NR==2 {print $4}')
+[ -n "$free" ] && skylandbar --set "$NAME" label="${free} free"
+'''
+click_script = "open -a 'Disk Utility'"
+hover = { background.color = "${hover}", background.drawing = true }
+background = { color = "0x00000000", height = 30, corner_radius = "concentric" }
+
+[[item]]
+type = "bracket"
+name = "status.glass"
+members = ["volume", "wifi", "whatsapp.about", "disk", "clock"]
+background = { glass = "regular", color = "${glass_tint}", height = 38, corner_radius = 0, drawing = true, padding_left = 4, padding_right = 4 }

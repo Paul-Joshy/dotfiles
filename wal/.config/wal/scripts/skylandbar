@@ -1,0 +1,6 @@
+#!/bin/sh
+# Apply the pywal palette to Skyland, Kitty and SkylandBar after generation.
+set -eu
+"$HOME/.local/bin/skyland" theme set "$HOME/.cache/wal/skyland.css" >/dev/null 2>&1 || true
+killall -USR1 kitty >/dev/null 2>&1 || true
+skylandbar --reload "$HOME/.config/skylandbar/skylandbar.toml" >/dev/null 2>&1 || true

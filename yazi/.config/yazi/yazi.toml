@@ -1,0 +1,66 @@
+[open]
+rules = [
+	{ mime = "text/*", use = "edit" },
+	{ mime = "application/json", use = "edit" },
+	{ mime = "application/javascript", use = "edit" },
+	{ mime = "application/x-shellscript", use = "edit" },
+	{ mime = "inode/directory", use = "open" },
+	{ mime = "image/*", use = "image" },
+	{ mime = "video/*", use = "video" },
+	{ mime = "audio/*", use = "audio" },
+	{ mime = "application/pdf", use = "pdf" },
+	{ mime = "application/zip", use = "archive" },
+	{ mime = "application/x-tar", use = "archive" },
+	{ mime = "application/x-bzip2", use = "archive" },
+	{ mime = "application/gzip", use = "archive" },
+	{ mime = "application/x-7z-compressed", use = "archive" },
+	{ mime = "application/x-rar-compressed", use = "archive" },
+	{ url = "*.md", use = "edit" },
+	{ url = "*.txt", use = "edit" },
+	{ url = "*.conf", use = "edit" },
+	{ url = "*.cfg", use = "edit" },
+	{ url = "*.ini", use = "edit" },
+	{ url = "*.toml", use = "edit" },
+	{ url = "*.yaml", use = "edit" },
+	{ url = "*.yml", use = "edit" },
+	{ url = "*.json", use = "edit" },
+	{ url = "*.lua", use = "edit" },
+	{ url = "*.sh", use = "edit" },
+	{ url = "*.py", use = "edit" },
+	{ url = "*.go", use = "edit" },
+	{ url = "*.ts", use = "edit" },
+	{ url = "*.js", use = "edit" },
+	{ url = "*.tsx", use = "edit" },
+	{ url = "*.jsx", use = "edit" },
+	{ url = "*.html", use = "edit" },
+	{ url = "*.css", use = "edit" },
+]
+
+[opener]
+edit = [
+	{ run = 'nvim "$@"', block = true, for = "unix" },
+]
+open = [
+	{ run = 'open "$@"', orphan = true, for = "macos" },
+]
+image = [
+	{ run = 'open "$@"', orphan = true, for = "macos" },
+]
+video = [
+	{ run = 'open "$@"', orphan = true, for = "macos" },
+]
+audio = [
+	{ run = 'open "$@"', orphan = true, for = "macos" },
+]
+pdf = [
+	{ run = 'open -a Zathura "$@"', orphan = true, for = "macos" },
+	{ run = 'open "$@"', orphan = true, for = "macos" },
+]
+archive = [
+	{ run = 'open "$@"', orphan = true, for = "macos" },
+]
+
+[mgr]
+linemode = "size_count"
+sort_by = "natural"
+show_hidden = true
